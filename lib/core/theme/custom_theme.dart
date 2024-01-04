@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
-import 'package:gahurakshak/core/theme/app_theme.dart';
+import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTheme {
@@ -23,45 +23,45 @@ class CustomTheme {
   );
 
   static ThemeData get lightTheme => ThemeData(
-        primaryColor: AppColors.primaryLight,
+        primaryColor: AppColor.primaryLight,
         useMaterial3: false,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedLabelStyle: AppTextTheme.light().navBar,
-          selectedItemColor: AppColors.primaryLight,
+          selectedItemColor: AppColor.primaryLight,
           unselectedLabelStyle: AppTextTheme.light().navBar,
-          unselectedItemColor: AppColors.grey,
+          unselectedItemColor: AppColor.grey,
           showUnselectedLabels: true,
           showSelectedLabels: true,
           elevation: 0,
-          backgroundColor: AppColors.backgroundColor,
+          backgroundColor: AppColor.backgroundColor,
         ),
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: AppColors.primaryLight,
+            statusBarColor: AppColor.primaryLight,
             statusBarIconBrightness: Brightness.dark,
             statusBarBrightness: Brightness.dark,
           ),
         ),
-        scaffoldBackgroundColor: AppColors.backgroundColor,
+        scaffoldBackgroundColor: AppColor.backgroundColor,
         fontFamily: GoogleFonts.nunito().fontFamily,
         iconTheme: const IconThemeData(
-          color: AppColors.primaryLight,
+          color: AppColor.primaryLight,
         ),
         dividerTheme: const DividerThemeData(
           thickness: 1,
-          color: AppColors.grey,
+          color: AppColor.grey,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: AppColors.primaryLight,
+          backgroundColor: AppColor.primaryLight,
         ),
         checkboxTheme: CheckboxThemeData(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          side: const BorderSide(color: AppColors.primaryLight),
+          side: const BorderSide(color: AppColor.primaryLight),
         ),
         expansionTileTheme: const ExpansionTileThemeData(
-          iconColor: AppColors.primaryLight,
+          iconColor: AppColor.primaryLight,
           childrenPadding: EdgeInsets.zero,
           tilePadding: EdgeInsets.symmetric(
             horizontal: CustomTheme.pagePadding,
@@ -74,19 +74,19 @@ class CustomTheme {
             ),
           ),
         ),
-        splashColor: AppColors.primaryLight.withOpacity(0.4),
+        splashColor: AppColor.primaryLight.withOpacity(0.4),
         dividerColor: Colors.transparent,
         tabBarTheme: TabBarTheme(
-          labelColor: AppColors.primaryLight,
+          labelColor: AppColor.primaryLight,
           labelStyle: AppTextTheme.light().sectionHeader,
-          unselectedLabelColor: AppColors.grey,
+          unselectedLabelColor: AppColor.grey,
           unselectedLabelStyle: AppTextTheme.light().bodyLargeRegular,
-          indicatorColor: AppColors.primaryLight,
+          indicatorColor: AppColor.primaryLight,
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: const BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: AppColors.primaryLight,
+                color: AppColor.primaryLight,
                 width: 2,
               ),
             ),

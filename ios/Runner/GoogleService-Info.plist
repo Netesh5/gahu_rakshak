@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>456854987909-t0vfj7u8bp3sor4rkp8v7ktl6uq3sdso.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.456854987909-t0vfj7u8bp3sor4rkp8v7ktl6uq3sdso</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCTstttZqUqwF1Sgwqgld1XMdjatnkTMJw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>456854987909</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.gahurakshak</string>
+	<key>PROJECT_ID</key>
+	<string>gahurakshak</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gahurakshak.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:456854987909:ios:eacb7c3ae2773f685935ec</string>
+</dict>
+</plist>

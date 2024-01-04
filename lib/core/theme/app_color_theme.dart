@@ -7,6 +7,8 @@ class AppColor extends ThemeExtension<AppColor> {
   static const Color grey = Color.fromARGB(255, 205, 203, 203);
   static const Color backgroundColor = Color(0xff001B2B);
   static const Color red = Colors.red;
+  static const Color black = Colors.black;
+  static const Color white = Colors.white;
 
   @override
   ThemeExtension<AppColor> lerp(

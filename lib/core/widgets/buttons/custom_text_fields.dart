@@ -88,7 +88,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     TextSpan(
                       text: " *",
                       style: appTextTheme.label.copyWith(
-                        color: AppColor.red,
+                        color: AppColors.red,
                       ),
                     )
                 ],
@@ -98,10 +98,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
           FormBuilderTextField(
             name: widget.fieldName,
             style: appTextTheme.bodyNormalRegular
-                .copyWith(color: AppColor.goldenColor),
+                .copyWith(color: AppColors.goldenColor),
             validator: widget.validator,
             controller: widget.controller,
-            cursorColor: AppColor.primaryLight,
+            cursorColor: AppColors.primaryLight,
             maxLines: widget.maxLines,
             keyboardType: widget.textInputType,
             obscureText: obscure,
@@ -143,9 +143,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 horizontal: 12,
               ),
               errorStyle: appTextTheme.formhelper.copyWith(
-                color: AppColor.red,
+                color: AppColors.red,
               ),
-              fillColor: widget.readOnly ? AppColor.grey : AppColor.grey,
+              fillColor: widget.readOnly ? AppColors.grey : AppColors.grey,
               filled: widget.readOnly || widget.isFilled,
               counterText: "",
               hintText: widget.hintText,
@@ -154,7 +154,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   ? Icon(
                       widget.prefixIcon,
                       size: 19,
-                      color: AppColor.grey,
+                      color: AppColors.grey,
                     )
                   : null,
               suffixIcon: widget.isPassword
@@ -167,13 +167,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       child: Icon(
                         obscure ? Icons.visibility_off : Icons.remove_red_eye,
                         size: 19,
-                        color: AppColor.grey,
+                        color: AppColors.grey,
                       ),
                     )
                   : Icon(
                       widget.suffixIcon,
                       size: 19,
-                      color: AppColor.grey,
+                      color: AppColors.grey,
                     ),
             ),
           ),
@@ -189,8 +189,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
       borderSide: BorderSide(
-        color:
-            isError ? AppColor.red : (isFilled ? AppColor.grey : AppColor.red),
+        color: isError
+            ? AppColors.red
+            : (isFilled ? AppColors.grey : AppColors.red),
       ),
     );
   }

@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
-import 'package:gahurakshak/core/widgets/custom_round_button.dart';
-import 'package:gahurakshak/core/widgets/custom_text_fields.dart';
+import 'package:gahurakshak/core/widgets/buttons/custom_outline_button.dart';
+import 'package:gahurakshak/core/widgets/buttons/custom_round_button.dart';
+import 'package:gahurakshak/core/widgets/buttons/custom_text_fields.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
 
 class LoginBody extends StatelessWidget {
@@ -18,11 +19,22 @@ class LoginBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Text(
-                LocaleKeys.appName.tr(),
-                style: appTextTheme.bodyNormalBold.copyWith(fontSize: 28.hp),
-              ),
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage: const AssetImage(
+                    "assets/images/Ghau Rakshak.png",
+                  ),
+                  radius: 50.wp,
+                ),
+                Center(
+                  child: Text(
+                    LocaleKeys.appName.tr(),
+                    style:
+                        appTextTheme.bodyNormalBold.copyWith(fontSize: 28.hp),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 20.hp,
@@ -37,19 +49,53 @@ class LoginBody extends StatelessWidget {
             SizedBox(
               height: 20.hp,
             ),
-            CustomTextField(label: LocaleKeys.email, hintText: "Enter Email"),
             CustomTextField(
-                label: LocaleKeys.password, hintText: "Enter Password"),
+                label: LocaleKeys.email.tr(), hintText: "Enter Email"),
+            CustomTextField(
+                label: LocaleKeys.password.tr(), hintText: "Enter Password"),
             SizedBox(
               height: 20.hp,
             ),
             CustomRoundedButtom(
               horizontalMargin: 20.hp,
-              title: LocaleKeys.login,
-              color: AppColor.goldenColor,
-              textColor: AppColor.black,
+              title: LocaleKeys.login.tr(),
+              color: AppColors.goldenColor,
+              textColor: AppColors.black,
               onPressed: () {},
-            )
+            ),
+            SizedBox(
+              height: 50.hp,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.hp),
+              child: Row(
+                children: [
+                  const Expanded(child: Divider()),
+                  SizedBox(
+                    width: 10.wp,
+                  ),
+                  Text(
+                    LocaleKeys.or.tr(),
+                    style: appTextTheme.bodyNormalBold,
+                  ),
+                  SizedBox(
+                    width: 10.wp,
+                  ),
+                  const Expanded(child: Divider()),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 50.hp,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.wp),
+              child: CustomOutlineButton(
+                title: LocaleKeys.loginWithGoogle.tr(),
+                onPressed: () {},
+                leftIcon: Icons.abc,
+              ),
+            ),
           ],
         ),
       ),

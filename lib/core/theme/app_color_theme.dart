@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColor extends ThemeExtension<AppColor> {
+class AppColors extends ThemeExtension<AppColors> {
   static const Color primaryLight = Color(0xff001B2B);
   static const Color goldenColor = Color(0xffFFBD59);
   static const Color textColor = Color(0xffD9D9D9);
@@ -11,13 +11,13 @@ class AppColor extends ThemeExtension<AppColor> {
   static const Color white = Colors.white;
 
   @override
-  ThemeExtension<AppColor> lerp(
-      covariant ThemeExtension<AppColor>? other, double t) {
+  ThemeExtension<AppColors> lerp(
+      covariant ThemeExtension<AppColors>? other, double t) {
     return this;
   }
 
   @override
-  ThemeExtension<AppColor> copyWith() {
+  ThemeExtension<AppColors> copyWith() {
     throw UnimplementedError();
   }
 }

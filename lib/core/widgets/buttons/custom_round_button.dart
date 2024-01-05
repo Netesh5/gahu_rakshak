@@ -53,7 +53,7 @@ class CustomRoundedButtomState extends State<CustomRoundedButtom> {
         padding: EdgeInsets.symmetric(horizontal: widget.horizontalMargin),
         child: Material(
           color: widget.isDisabled
-              ? AppColor.grey
+              ? AppColors.grey
               : (widget.color ?? theme.primaryColor),
           borderRadius: BorderRadius.circular(4),
           child: InkWell(
@@ -69,7 +69,7 @@ class CustomRoundedButtomState extends State<CustomRoundedButtom> {
                 borderRadius: BorderRadius.circular(4),
                 border: Border.all(
                   color: widget.isDisabled
-                      ? AppColor.grey
+                      ? AppColors.grey
                       : (widget.color ?? theme.primaryColor),
                 ),
               ),
@@ -83,7 +83,7 @@ class CustomRoundedButtomState extends State<CustomRoundedButtom> {
                       style: appTextTheme.button.copyWith(
                         fontWeight: widget.fontWeight,
                         color: widget.isDisabled
-                            ? AppColor.grey
+                            ? AppColors.grey
                             : widget.textColor,
                         fontSize: widget.fontSize,
                       ),
@@ -94,7 +94,7 @@ class CustomRoundedButtomState extends State<CustomRoundedButtom> {
                         margin: EdgeInsets.only(top: 1.hp),
                         child: Icon(
                           widget.icon,
-                          color: widget.iconColor ?? AppColor.grey,
+                          color: widget.iconColor ?? AppColors.grey,
                           size: widget.fontSize,
                         ),
                       ),
@@ -108,7 +108,7 @@ class CustomRoundedButtomState extends State<CustomRoundedButtom> {
                               width: 14,
                               margin: const EdgeInsets.only(left: 8),
                               child: const CircularProgressIndicator(
-                                color: AppColor.grey,
+                                color: AppColors.grey,
                                 strokeWidth: 2,
                               ),
                             )

@@ -5,7 +5,7 @@
         "login":"Login",
         "signup":"Signup",
         "email":"Email",
-        "password":"password",
+        "password":"Password",
         "fullname":"Full Name",
         "loggedInSuccessfully": "Logged In Successfully",
         "loggedOutSuccessfully": "Logged Out Successfully",
@@ -15,6 +15,9 @@
         "resetPassword": "Reset Password ",
         "pleaseEnterYourNewPasswordBelow": "Please enter your new password below",
         "newPassword": "New Password",
-        "confirmNewPassword": "Confirm New Password"
+        "confirmNewPassword": "Confirm New Password",
+        "or":"OR",
+        "loginWithGoogle":"Login with Google",
+        "signupWithGoogle":"Signup with Google"
     }
 }

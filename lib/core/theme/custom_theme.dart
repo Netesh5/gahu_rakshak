@@ -23,45 +23,45 @@ class CustomTheme {
   );
 
   static ThemeData get lightTheme => ThemeData(
-        primaryColor: AppColor.primaryLight,
+        primaryColor: AppColors.primaryLight,
         useMaterial3: false,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedLabelStyle: AppTextTheme.light().navBar,
-          selectedItemColor: AppColor.primaryLight,
+          selectedItemColor: AppColors.primaryLight,
           unselectedLabelStyle: AppTextTheme.light().navBar,
-          unselectedItemColor: AppColor.grey,
+          unselectedItemColor: AppColors.grey,
           showUnselectedLabels: true,
           showSelectedLabels: true,
           elevation: 0,
-          backgroundColor: AppColor.backgroundColor,
+          backgroundColor: AppColors.backgroundColor,
         ),
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: AppColor.primaryLight,
+            statusBarColor: AppColors.primaryLight,
             statusBarIconBrightness: Brightness.dark,
             statusBarBrightness: Brightness.dark,
           ),
         ),
-        scaffoldBackgroundColor: AppColor.backgroundColor,
+        scaffoldBackgroundColor: AppColors.backgroundColor,
         fontFamily: GoogleFonts.nunito().fontFamily,
         iconTheme: const IconThemeData(
-          color: AppColor.primaryLight,
+          color: AppColors.primaryLight,
         ),
         dividerTheme: const DividerThemeData(
           thickness: 1,
-          color: AppColor.grey,
+          color: AppColors.grey,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: AppColor.primaryLight,
+          backgroundColor: AppColors.primaryLight,
         ),
         checkboxTheme: CheckboxThemeData(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          side: const BorderSide(color: AppColor.primaryLight),
+          side: const BorderSide(color: AppColors.primaryLight),
         ),
         expansionTileTheme: const ExpansionTileThemeData(
-          iconColor: AppColor.primaryLight,
+          iconColor: AppColors.primaryLight,
           childrenPadding: EdgeInsets.zero,
           tilePadding: EdgeInsets.symmetric(
             horizontal: CustomTheme.pagePadding,
@@ -74,19 +74,19 @@ class CustomTheme {
             ),
           ),
         ),
-        splashColor: AppColor.primaryLight.withOpacity(0.4),
+        splashColor: AppColors.primaryLight.withOpacity(0.4),
         dividerColor: Colors.transparent,
         tabBarTheme: TabBarTheme(
-          labelColor: AppColor.primaryLight,
+          labelColor: AppColors.primaryLight,
           labelStyle: AppTextTheme.light().sectionHeader,
-          unselectedLabelColor: AppColor.grey,
+          unselectedLabelColor: AppColors.grey,
           unselectedLabelStyle: AppTextTheme.light().bodyLargeRegular,
-          indicatorColor: AppColor.primaryLight,
+          indicatorColor: AppColors.primaryLight,
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: const BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: AppColor.primaryLight,
+                color: AppColors.primaryLight,
                 width: 2,
               ),
             ),

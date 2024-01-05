@@ -18,4 +18,7 @@ class LocaleKeys {
   static String loggedOutSuccessfully = "auth.loggedOutSuccessfully";
   static String forgetPassword = "auth.forgetPassword";
   static String otpHasBeenSendSuccessfully = "auth.otpHasBeenSendSuccessfully";
+  static String or = "auth.or";
+  static String loginWithGoogle = "auth.loginWithGoogle";
+  static String singupWithGoogle = "auth.signupWithGoogle";
 }

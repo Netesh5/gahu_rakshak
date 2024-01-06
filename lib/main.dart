@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:gahurakshak/core/routes/routes.dart';
+import 'package:gahurakshak/core/routes/routes_generator.dart';
 import 'package:gahurakshak/core/theme/custom_theme.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
 import 'package:gahurakshak/firebase_options.dart';
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+      initialRoute: Routes.login,
+      onGenerateRoute: RouteGenerator.routeGenerator,
       home: const LoginView(),
     );
   }

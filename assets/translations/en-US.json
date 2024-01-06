@@ -6,10 +6,12 @@
         "signup":"Signup",
         "email":"Email",
         "password":"Password",
+        "enterEmail":"Enter Email",
+        "enterPassword":"Enter Password",
         "fullname":"Full Name",
         "loggedInSuccessfully": "Logged In Successfully",
         "loggedOutSuccessfully": "Logged Out Successfully",
-        "forgetPassword": "Forget Password",
+        "forgetPassword": "Forget Password ?",
         "otpHasBeenSendSuccessfully": "OTP Has been send successfully",
         "enterTheOTPSendTo": "Enter the OTP send to",
         "resetPassword": "Reset Password ",
@@ -18,6 +20,13 @@
         "confirmNewPassword": "Confirm New Password",
         "or":"OR",
         "loginWithGoogle":"Login with Google",
-        "signupWithGoogle":"Signup with Google"
+        "signupWithGoogle":"Signup with Google",
+        "newTotheSystem":"New to the system ? Register Now",
+        "registerNewAccount":"Register New Account ",
+        "fullName":"Full Name",
+        "enterFullName":"Enter Full Name",
+        "phoneNumber":"Phone Number",
+        "enterPhoneNumber":"Enter Phone Number",
+        "accountCreated":"Account created successfully"
     }
 }

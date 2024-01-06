@@ -97,11 +97,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
           if (widget.label.isNotEmpty) SizedBox(height: 6.hp),
           FormBuilderTextField(
             name: widget.fieldName,
-            style: appTextTheme.bodyNormalRegular
-                .copyWith(color: AppColors.goldenColor),
+            style:
+                appTextTheme.bodyLargeRegular.copyWith(color: AppColors.white),
             validator: widget.validator,
             controller: widget.controller,
-            cursorColor: AppColors.primaryLight,
+            cursorColor: AppColors.white,
             maxLines: widget.maxLines,
             keyboardType: widget.textInputType,
             obscureText: obscure,
@@ -113,28 +113,28 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 : null,
             decoration: InputDecoration(
               border: getBorder(
-                //  colorTheme: AppColor.goldenColor,
+                colorTheme: AppColors.grey,
                 isFilled: widget.isFilled,
               ),
               enabledBorder: getBorder(
-                //  colorTheme: AppColor.backgroundColor,
+                colorTheme: AppColors.goldenColor,
                 isFilled: widget.isFilled,
               ),
               focusedBorder: getBorder(
-                //  colorTheme: AppColor,
+                colorTheme: AppColors.goldenColor,
                 isFilled: widget.isFilled,
               ),
               disabledBorder: getBorder(
-                // colorTheme: AppColor,
+                colorTheme: AppColors.grey,
                 isFilled: widget.isFilled,
               ),
               errorBorder: getBorder(
-                // colorTheme: AppColor,
+                colorTheme: AppColors.red,
                 isFilled: widget.isFilled,
                 isError: true,
               ),
               focusedErrorBorder: getBorder(
-                // colorTheme: AppColor,
+                colorTheme: AppColors.red,
                 isFilled: widget.isFilled,
                 isError: true,
               ),
@@ -185,13 +185,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
   InputBorder getBorder({
     bool isError = false,
     required bool isFilled,
+    required colorTheme,
   }) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
       borderSide: BorderSide(
         color: isError
             ? AppColors.red
-            : (isFilled ? AppColors.grey : AppColors.red),
+            : (isFilled ? AppColors.grey : AppColors.grey),
       ),
     );
   }

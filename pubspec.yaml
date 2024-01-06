@@ -43,6 +43,8 @@ dependencies:
   easy_localization: ^3.0.3
   page_transition: ^2.1.0
   flutter_form_builder: ^9.1.1
+  font_awesome_flutter: ^10.6.0
+  firebase_auth: ^4.16.0
 
 dev_dependencies:
   flutter_test:

@@ -148,7 +148,9 @@ class LoginBody extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.wp),
                 child: CustomOutlineButton(
                   title: LocaleKeys.loginWithGoogle.tr(),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<AuthRepo>().loginWithGoogle(context);
+                  },
                   leftIcon: FontAwesomeIcons.google,
                 ),
               ),

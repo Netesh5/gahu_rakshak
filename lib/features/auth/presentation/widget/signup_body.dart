@@ -143,7 +143,9 @@ class SignupBody extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 20.wp),
                   child: CustomOutlineButton(
                     title: LocaleKeys.singupWithGoogle.tr(),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<AuthRepo>().loginWithGoogle(context);
+                    },
                     leftIcon: FontAwesomeIcons.google,
                   ),
                 ),

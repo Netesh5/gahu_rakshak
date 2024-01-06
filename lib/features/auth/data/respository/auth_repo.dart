@@ -13,6 +13,7 @@ import 'package:gahurakshak/features/auth/data/models/login_with_account_param.d
 import 'package:gahurakshak/features/auth/data/models/register_new_account_param.dart';
 import 'package:gahurakshak/features/auth/data/models/user_param.dart';
 import 'package:gahurakshak/features/auth/data/respository/firestore_repo.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthRepo with ChangeNotifier {
   FirestoreRepo firestoreRepo;
@@ -93,6 +94,35 @@ class AuthRepo with ChangeNotifier {
     final user = auth.currentUser;
     if (user != null) {
       await auth.signOut();
+    }
+    notifyListeners();
+  }
+
+  Future<void> loginWithGoogle(BuildContext context) async {
+    showLoadingDialog(context, true);
+    try {
+      final GoogleSignInAccount? googleSignInAccount =
+          await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? authentication =
+          await googleSignInAccount?.authentication;
+
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: authentication?.accessToken,
+          idToken: authentication?.idToken);
+
+      await auth.signInWithCredential(credential).then((value) {
+        showLoadingDialog(context, false);
+        Navigator.pop(context);
+        Navigator.pushNamedAndRemoveUntil(
+            context, Routes.homepage, (route) => false);
+      });
+    } on FirebaseException catch (e) {
+      showLoadingDialog(context, false);
+      Navigator.pop(context);
+      SnackBarUtils.showErrorMessage(
+        context: context,
+        message: e.message ?? "Something went Wrong",
+      );
     }
     notifyListeners();
   }

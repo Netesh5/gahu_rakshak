@@ -28,6 +28,10 @@
         "phoneNumber":"Phone Number",
         "enterPhoneNumber":"Enter Phone Number",
         "accountCreated":"Account created successfully",
-        "loading":"Loading"
+        "loading":"Loading",
+        "fieldCannotBeEmpty":"Field cannot be empty",
+        "enterValidMobileNumber":"Enter valid phone number",
+        "invalidPasswordMessage":"Invalid password",
+        "enterValidEmail":"Enter valid email address"
     }
 }

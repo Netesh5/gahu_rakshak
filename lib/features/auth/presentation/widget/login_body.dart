@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
+import 'package:gahurakshak/core/utils/form_validator.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/buttons/custom_outline_button.dart';
 import 'package:gahurakshak/core/widgets/buttons/custom_round_button.dart';
@@ -66,6 +67,9 @@ class LoginBody extends StatelessWidget {
                 label: LocaleKeys.email.tr(),
                 hintText: LocaleKeys.enterEmail.tr(),
                 isRequired: true,
+                validator: (value) {
+                  return FormValidator.validateEmail(value);
+                },
               ),
               CustomTextField(
                 controller: passwordController,
@@ -74,6 +78,9 @@ class LoginBody extends StatelessWidget {
                 isPassword: true,
                 obscureText: true,
                 isRequired: true,
+                validator: (value) {
+                  return FormValidator.validatePassword(value);
+                },
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

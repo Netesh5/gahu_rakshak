@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:gahurakshak/core/injector/injector.dart';
 import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/core/routes/routes_generator.dart';
 import 'package:gahurakshak/core/theme/custom_theme.dart';
@@ -14,6 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await DI.init();
 
   runApp(
     EasyLocalization(

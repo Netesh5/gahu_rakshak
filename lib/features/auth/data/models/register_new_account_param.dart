@@ -3,6 +3,7 @@ class RegisterNewAccountParam {
   String email;
   String password;
   String phoneNo;
+
   RegisterNewAccountParam({
     required this.fullname,
     required this.email,

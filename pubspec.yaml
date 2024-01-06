@@ -45,7 +45,9 @@ dependencies:
   flutter_form_builder: ^9.1.1
   font_awesome_flutter: ^10.6.0
   firebase_auth: ^4.16.0
-  get_it: ^7.6.4
+  get_it: ^7.6.6
+  cloud_firestore: ^4.14.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

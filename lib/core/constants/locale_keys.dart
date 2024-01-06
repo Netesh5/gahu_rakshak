@@ -32,4 +32,8 @@ class LocaleKeys {
   static String enterPhoneNumber = "auth.enterPhoneNumber";
   static String accountCreated = "auth.accountCreated";
   static String loading = "auth.loading";
+  static String fieldCannotBeEmpty = "auth.fieldCannotBeEmpty";
+  static String invalidPasswordMessage = "auth.invalidPasswordMessage";
+  static String enterValidMobileNumber = "auth.enterValidMobileNumber";
+  static String enterValidEmail = "auth.enterValidEmail";
 }

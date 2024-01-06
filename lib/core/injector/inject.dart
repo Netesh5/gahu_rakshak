@@ -1,3 +1,0 @@
-class Injector {
-  static init() {}
-}

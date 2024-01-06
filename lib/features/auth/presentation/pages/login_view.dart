@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:gahurakshak/features/auth/data/respository/auth_repo.dart';
 import 'package:gahurakshak/features/auth/presentation/widget/login_body.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const LoginBody();
+    return ChangeNotifierProvider(
+      create: (context) => AuthRepo(),
+      child: LoginBody(),
+    );
   }
 }

@@ -31,4 +31,5 @@ class LocaleKeys {
   static String phoneNumber = "auth.phoneNumber";
   static String enterPhoneNumber = "auth.enterPhoneNumber";
   static String accountCreated = "auth.accountCreated";
+  static String loading = "auth.loading";
 }

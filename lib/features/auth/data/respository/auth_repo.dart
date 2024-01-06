@@ -3,46 +3,80 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/core/utils/snack_bar_utils.dart';
+import 'package:gahurakshak/core/widgets/loading/loading_dialog.dart';
 import 'package:gahurakshak/features/auth/data/models/login_with_account_param.dart';
 import 'package:gahurakshak/features/auth/data/models/register_new_account_param.dart';
 
-class AuthRepo {
+class AuthRepo with ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  registerNewAccount(BuildContext c, RegisterNewAccountParam param) async {
+  Future<void> registerNewAccount(
+      BuildContext context, RegisterNewAccountParam param) async {
+    showLoadingDialog(context, true);
+
     try {
-      await auth
+      final _ = await auth
           .createUserWithEmailAndPassword(
-              email: param.email, password: param.password)
+              email: param.email.trim(), password: param.password.trim())
           .then(
-            (value) => SnackBarUtils.showSuccessMessage(
-              context: c,
-              message: LocaleKeys.accountCreated,
-            ),
+        (value) {
+          showLoadingDialog(context, false);
+          Navigator.pop(context);
+          SnackBarUtils.showSuccessMessage(
+            context: context,
+            message: LocaleKeys.accountCreated,
           );
+          Navigator.of(context).pop();
+        },
+      );
     } on FirebaseAuthException catch (e) {
+      showLoadingDialog(context, false);
+      Navigator.pop(context);
       SnackBarUtils.showErrorMessage(
-        context: c,
+        context: context,
         message: e.message ?? "Something went Wrong",
       );
     }
+    notifyListeners();
   }
 
-  loginAccount(BuildContext c, LoginWithAccountParam param) async {
+  Future<void> loginAccount(
+      BuildContext context, LoginWithAccountParam param) async {
+    showLoadingDialog(context, true);
     try {
-      await auth
+      final _ = await auth
           .signInWithEmailAndPassword(
-              email: param.email, password: param.password)
-          .then((value) => SnackBarUtils.showErrorMessage(
-                context: c,
-                message: LocaleKeys.loggedInSuccessfully,
-              ));
+              email: param.email.trim(), password: param.password.trim())
+          .then(
+        (value) {
+          showLoadingDialog(context, false);
+          Navigator.pop(context);
+          SnackBarUtils.showErrorMessage(
+            context: context,
+            message: LocaleKeys.loggedInSuccessfully,
+          );
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(Routes.homepage, (route) => false);
+        },
+      );
     } on FirebaseException catch (e) {
+      showLoadingDialog(context, false);
+      Navigator.pop(context);
       SnackBarUtils.showErrorMessage(
-        context: c,
+        context: context,
         message: e.message ?? "Something went Wrong",
       );
     }
+    notifyListeners();
+  }
+
+  Future<void> signOut() async {
+    final user = auth.currentUser;
+    if (user != null) {
+      await auth.signOut();
+    }
+    notifyListeners();
   }
 }

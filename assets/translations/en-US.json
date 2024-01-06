@@ -27,6 +27,7 @@
         "enterFullName":"Enter Full Name",
         "phoneNumber":"Phone Number",
         "enterPhoneNumber":"Enter Phone Number",
-        "accountCreated":"Account created successfully"
+        "accountCreated":"Account created successfully",
+        "loading":"Loading"
     }
 }

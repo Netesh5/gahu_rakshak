@@ -4,9 +4,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/models/user_credential_param.dart';
 import 'package:gahurakshak/core/routes/routes.dart';
+import 'package:gahurakshak/core/shared_prefrences/user_shared_prefrences.dart';
 import 'package:gahurakshak/core/utils/snack_bar_utils.dart';
 import 'package:gahurakshak/core/widgets/loading/loading_dialog.dart';
 import 'package:gahurakshak/features/auth/data/models/forget_password_param.dart';
@@ -20,28 +21,32 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthRepo with ChangeNotifier {
   FirestoreRepo firestoreRepo;
   FirebaseAuth auth = FirebaseAuth.instance;
+  UserToken userSharedPrefrences;
   AuthRepo({
     required this.firestoreRepo,
+    required this.userSharedPrefrences,
   });
   User? user;
+  UserCredential? userCredential;
   Future<void> registerNewAccount(
       BuildContext context, RegisterNewAccountParam param) async {
     showLoadingDialog(context, true);
 
     try {
-      final UserCredential userCredential =
-          await auth.createUserWithEmailAndPassword(
-              email: param.email.trim(), password: param.password.trim());
+      userCredential = await auth.createUserWithEmailAndPassword(
+          email: param.email.trim(), password: param.password.trim());
       final _ = await firestoreRepo
           .saveUserInfo(
         context: context,
         param: param,
         userParam: UserParam(
-          user: userCredential.user,
+          user: userCredential?.user,
         ),
       )
           .then(
         (value) async {
+          await userSharedPrefrences.saveUserToken(
+              UserCredentialParam(uid: userCredential?.user?.uid ?? ""));
           showLoadingDialog(context, false);
           Navigator.pop(context);
           SnackBarUtils.showSuccessMessage(
@@ -66,11 +71,14 @@ class AuthRepo with ChangeNotifier {
       BuildContext context, LoginWithAccountParam param) async {
     showLoadingDialog(context, true);
     try {
-      final _ = await auth
+      userCredential = await auth
           .signInWithEmailAndPassword(
               email: param.email.trim(), password: param.password.trim())
           .then(
-        (value) {
+        (value) async {
+          await userSharedPrefrences.saveUserToken(
+            UserCredentialParam(uid: userCredential?.user?.uid ?? ""),
+          );
           showLoadingDialog(context, false);
           Navigator.pop(context);
           SnackBarUtils.showSuccessMessage(
@@ -79,6 +87,7 @@ class AuthRepo with ChangeNotifier {
           );
           Navigator.of(context)
               .pushNamedAndRemoveUntil(Routes.homepage, (route) => false);
+          return;
         },
       );
     } on FirebaseException catch (e) {
@@ -114,11 +123,18 @@ class AuthRepo with ChangeNotifier {
             accessToken: authentication.accessToken,
             idToken: authentication.idToken);
 
-        await auth.signInWithCredential(credential).then((value) {
+        await auth.signInWithCredential(credential).then((value) async {
+          await userSharedPrefrences.saveUserToken(
+              UserCredentialParam(uid: credential.idToken ?? ""));
           showLoadingDialog(context, false);
           Navigator.pop(context);
+
           Navigator.pushNamedAndRemoveUntil(
               context, Routes.homepage, (route) => false);
+          SnackBarUtils.showSuccessMessage(
+            context: context,
+            message: LocaleKeys.loggedInSuccessfully.tr(),
+          );
         });
       } else {
         showLoadingDialog(context, false);

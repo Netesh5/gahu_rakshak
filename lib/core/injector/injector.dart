@@ -1,5 +1,6 @@
 import 'package:gahurakshak/core/injector/auth_injector.dart';
 import 'package:gahurakshak/core/injector/firestore_injector.dart';
+import 'package:gahurakshak/core/injector/shared_prefrences_injector.dart';
 import 'package:get_it/get_it.dart';
 
 class DI {
@@ -7,5 +8,6 @@ class DI {
   static Future<void> init() async {
     AuthInjector.init();
     FireStoreInjector.init();
+    await SharedPreferencesInjector.init();
   }
 }

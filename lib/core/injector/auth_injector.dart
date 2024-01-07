@@ -6,6 +6,7 @@ class AuthInjector {
     DI.instance.registerLazySingleton<AuthRepo>(
       () => AuthRepo(
         firestoreRepo: DI.instance(),
+        userSharedPrefrences: DI.instance(),
       ),
     );
   }

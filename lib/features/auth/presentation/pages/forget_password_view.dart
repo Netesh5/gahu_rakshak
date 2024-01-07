@@ -10,7 +10,10 @@ class ForgetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => AuthRepo(firestoreRepo: DI.instance()),
+      create: (context) => AuthRepo(
+        firestoreRepo: DI.instance(),
+        userSharedPrefrences: DI.instance(),
+      ),
       child: ForgetPasswordBody(),
     );
   }

@@ -12,6 +12,7 @@ class SignupView extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AuthRepo(
         firestoreRepo: DI.instance(),
+        userSharedPrefrences: DI.instance(),
       ),
       child: SignupBody(),
     );

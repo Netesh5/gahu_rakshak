@@ -12,6 +12,7 @@ import 'package:gahurakshak/core/widgets/loading/loading_dialog.dart';
 import 'package:gahurakshak/features/auth/data/models/login_with_account_param.dart';
 import 'package:gahurakshak/features/auth/data/models/register_new_account_param.dart';
 import 'package:gahurakshak/features/auth/data/models/user_param.dart';
+import 'package:gahurakshak/features/auth/data/respository/exception_handler.dart';
 import 'package:gahurakshak/features/auth/data/respository/firestore_repo.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -84,7 +85,7 @@ class AuthRepo with ChangeNotifier {
       Navigator.pop(context);
       SnackBarUtils.showErrorMessage(
         context: context,
-        message: e.message ?? "Something went Wrong",
+        message: getMessageFromErrorCode(e),
       );
     }
     notifyListeners();
@@ -103,25 +104,33 @@ class AuthRepo with ChangeNotifier {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication? authentication =
-          await googleSignInAccount?.authentication;
 
-      final OAuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: authentication?.accessToken,
-          idToken: authentication?.idToken);
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication authentication =
+            await googleSignInAccount.authentication;
 
-      await auth.signInWithCredential(credential).then((value) {
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+            accessToken: authentication.accessToken,
+            idToken: authentication.idToken);
+
+        await auth.signInWithCredential(credential).then((value) {
+          showLoadingDialog(context, false);
+          Navigator.pop(context);
+          Navigator.pushNamedAndRemoveUntil(
+              context, Routes.homepage, (route) => false);
+        });
+      } else {
         showLoadingDialog(context, false);
         Navigator.pop(context);
-        Navigator.pushNamedAndRemoveUntil(
-            context, Routes.homepage, (route) => false);
-      });
+        return;
+      }
     } on FirebaseException catch (e) {
       showLoadingDialog(context, false);
       Navigator.pop(context);
+
       SnackBarUtils.showErrorMessage(
         context: context,
-        message: e.message ?? "Something went Wrong",
+        message: getMessageFromErrorCode(e),
       );
     }
     notifyListeners();

@@ -36,4 +36,8 @@ class LocaleKeys {
   static String invalidPasswordMessage = "auth.invalidPasswordMessage";
   static String enterValidMobileNumber = "auth.enterValidMobileNumber";
   static String enterValidEmail = "auth.enterValidEmail";
+
+  //Homepage
+
+  static const String homePage = "home.homePage";
 }

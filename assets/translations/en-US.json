@@ -33,5 +33,8 @@
         "enterValidMobileNumber":"Enter valid phone number",
         "invalidPasswordMessage":"Invalid password",
         "enterValidEmail":"Enter valid email address"
+    },
+    "home":{
+        "homePage":"HomePage"
     }
 }

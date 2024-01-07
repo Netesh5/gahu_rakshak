@@ -19,6 +19,7 @@
         "newPassword": "New Password",
         "confirmNewPassword": "Confirm New Password",
         "or":"OR",
+        "pleaseEnterYourEmailAddressToReceiveMail":"Enter your email address to receive reset link",
         "loginWithGoogle":"Login with Google",
         "signupWithGoogle":"Signup with Google",
         "newTotheSystem":"New to the system ? Register Now",
@@ -32,7 +33,9 @@
         "fieldCannotBeEmpty":"Field cannot be empty",
         "enterValidMobileNumber":"Enter valid phone number",
         "invalidPasswordMessage":"Invalid password",
-        "enterValidEmail":"Enter valid email address"
+        "enterValidEmail":"Enter valid email address",
+        "resetPasswordLinkSentSuccessfully":"Reset link send Successfully",
+        "requestResetLink":"Request Reset Link"
     },
     "home":{
         "homePage":"HomePage"

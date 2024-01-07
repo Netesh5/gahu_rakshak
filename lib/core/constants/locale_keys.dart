@@ -7,8 +7,8 @@ class LocaleKeys {
   static String password = "auth.password";
   static String enterEmail = "auth.enterEmail";
   static String enterPassword = "auth.enterPassword";
-  static String pleaseEnterYourMobileNumberToReceiveOtp =
-      "auth.pleaseEnterYourMobileNumberToReceiveOtp";
+  static String pleaseEnterYourEmailAddressToReceiveMail =
+      "auth.pleaseEnterYourEmailAddressToReceiveMail";
   static String confirmPassword = "auth.confirmPassword";
   static String enterTheOTPSendTo = "auth.enterTheOTPSendTo";
   static String resetPassword = "auth.resetPassword";
@@ -36,6 +36,10 @@ class LocaleKeys {
   static String invalidPasswordMessage = "auth.invalidPasswordMessage";
   static String enterValidMobileNumber = "auth.enterValidMobileNumber";
   static String enterValidEmail = "auth.enterValidEmail";
+  static const String resetPasswordLinkSentSuccessfully =
+      "auth.resetPasswordLinkSentSuccessfully";
+
+  static const String requestResetLink = "auth.requestResetLink";
 
   //Homepage
 

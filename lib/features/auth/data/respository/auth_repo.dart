@@ -9,6 +9,7 @@ import 'package:gahurakshak/core/constants/locale_keys.dart';
 import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/core/utils/snack_bar_utils.dart';
 import 'package:gahurakshak/core/widgets/loading/loading_dialog.dart';
+import 'package:gahurakshak/features/auth/data/models/forget_password_param.dart';
 import 'package:gahurakshak/features/auth/data/models/login_with_account_param.dart';
 import 'package:gahurakshak/features/auth/data/models/register_new_account_param.dart';
 import 'package:gahurakshak/features/auth/data/models/user_param.dart';
@@ -131,6 +132,30 @@ class AuthRepo with ChangeNotifier {
       SnackBarUtils.showErrorMessage(
         context: context,
         message: getMessageFromErrorCode(e),
+      );
+    }
+    notifyListeners();
+  }
+
+  Future<void> resetPassword(
+      BuildContext context, ForgetPasswordParam param) async {
+    showLoadingDialog(context, true);
+    try {
+      final _ = await auth.sendPasswordResetEmail(email: param.email);
+      showLoadingDialog(context, false);
+      Navigator.pop(context);
+      Navigator.pop(context);
+      SnackBarUtils.showSuccessMessage(
+        context: context,
+        message: LocaleKeys.resetPasswordLinkSentSuccessfully.tr(),
+      );
+    } on FirebaseException catch (e) {
+      showLoadingDialog(context, false);
+      Navigator.pop(context);
+
+      SnackBarUtils.showErrorMessage(
+        context: context,
+        message: e.message ?? "Something Went wrong",
       );
     }
     notifyListeners();

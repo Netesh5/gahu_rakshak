@@ -86,7 +86,9 @@ class LoginBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(Routes.forgetPassword);
+                    },
                     child: Text(
                       LocaleKeys.forgetPassword.tr(),
                       style: appTextTheme.bodyNormalBold.copyWith(

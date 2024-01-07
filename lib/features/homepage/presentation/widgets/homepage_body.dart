@@ -9,10 +9,11 @@ class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(
-      title: LocaleKeys.appName.tr(),
-      centerMiddle: true,
-      showShadow: true,
-    ));
+      appBar: CustomAppBar(
+        title: LocaleKeys.appName.tr(),
+        centerMiddle: true,
+        showShadow: true,
+      ),
+    );
   }
 }

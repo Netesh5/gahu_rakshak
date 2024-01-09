@@ -48,6 +48,9 @@ dependencies:
   get_it: ^7.6.6
   cloud_firestore: ^4.14.0
   shared_preferences: ^2.2.2
+  dio: ^5.4.0
+  permission_handler: ^11.1.0
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:

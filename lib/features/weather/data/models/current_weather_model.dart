@@ -23,22 +23,23 @@ class WeatherModel {
 
 class Current {
   final String lastUpdated;
-  final int tempC;
-  final int isDay;
+  final num tempC;
+  final num isDay;
   final double windKph;
-  final int windDegree;
+  final num windDegree;
   final String windDir;
-  final int pressureMb;
+  final num pressureMb;
   final double pressureIn;
-  final int precipMm;
-  final int precipIn;
-  final int humidity;
-  final int cloud;
+  final num precipMm;
+  final num precipIn;
+  final num humidity;
+  final num cloud;
   final double feelslikeC;
-  final int visKm;
-  final int visMiles;
-  final int uv;
-  final int gustKph;
+  final num visKm;
+  final num visMiles;
+  final num uv;
+  final num gustKph;
+  final Condition condition;
 
   Current({
     required this.lastUpdated,
@@ -58,26 +59,28 @@ class Current {
     required this.visMiles,
     required this.uv,
     required this.gustKph,
+    required this.condition,
   });
 
   factory Current.fromJson(Map<String, dynamic> json) => Current(
-        lastUpdated: json["last_updated"],
-        tempC: json["temp_c"],
-        isDay: json["is_day"],
+        lastUpdated: json["last_updated"] ?? "",
+        tempC: json["temp_c"] ?? 0,
+        isDay: json["is_day"] ?? 0,
         windKph: json["wind_kph"]?.toDouble(),
-        windDegree: json["wind_degree"],
-        windDir: json["wind_dir"],
-        pressureMb: json["pressure_mb"],
+        windDegree: json["wind_degree"] ?? 0,
+        windDir: json["wind_dir"] ?? "",
+        pressureMb: json["pressure_mb"] ?? 0,
         pressureIn: json["pressure_in"]?.toDouble(),
-        precipMm: json["precip_mm"],
-        precipIn: json["precip_in"],
-        humidity: json["humidity"],
-        cloud: json["cloud"],
+        precipMm: json["precip_mm"] ?? 0,
+        precipIn: json["precip_in"] ?? 0,
+        humidity: json["humidity"] ?? 0,
+        cloud: json["cloud"] ?? 0,
         feelslikeC: json["feelslike_c"]?.toDouble(),
-        visKm: json["vis_km"],
-        visMiles: json["vis_miles"],
-        uv: json["uv"],
-        gustKph: json["gust_kph"],
+        visKm: json["vis_km"] ?? 0,
+        visMiles: json["vis_miles"] ?? 0,
+        uv: json["uv"] ?? 0,
+        gustKph: json["gust_kph"] ?? 0,
+        condition: Condition.fromJson(json["condition"]),
       );
 }
 
@@ -121,9 +124,9 @@ class Astro {
   final String moonrise;
   final String moonset;
   final String moonPhase;
-  final int moonIllumination;
-  final int isMoonUp;
-  final int isSunUp;
+  final num moonIllumination;
+  final num isMoonUp;
+  final num isSunUp;
 
   Astro({
     required this.sunrise,
@@ -153,18 +156,18 @@ class Day {
   final double mintempC;
   final double avgtempC;
   final double maxwindKph;
-  final int totalprecipMm;
-  final int totalprecipIn;
-  final int totalsnowCm;
-  final int avgvisKm;
-  final int avgvisMiles;
-  final int avghumidity;
-  final int dailyWillItRain;
-  final int dailyChanceOfRain;
-  final int dailyWillItSnow;
-  final int dailyChanceOfSnow;
+  final num totalprecipMm;
+  final num totalprecipIn;
+  final num totalsnowCm;
+  final num avgvisKm;
+  final num avgvisMiles;
+  final num avghumidity;
+  final num dailyWillItRain;
+  final num dailyChanceOfRain;
+  final num dailyWillItSnow;
+  final num dailyChanceOfSnow;
   final Condition condition;
-  final int uv;
+  final num uv;
 
   Day({
     required this.maxtempC,
@@ -208,7 +211,7 @@ class Day {
 class Condition {
   final String text;
   final String icon;
-  final int code;
+  final num code;
 
   Condition({
     required this.text,
@@ -225,33 +228,33 @@ class Condition {
 
 class Hour {
   final String time;
-  final int tempC;
-  final int isDay;
+  final num tempC;
+  final num isDay;
   final Condition condition;
-  final int windMph;
+  final num windMph;
   final double windKph;
-  final int windDegree;
+  final num windDegree;
   final String windDir;
-  final int pressureMb;
+  final num pressureMb;
   final double pressureIn;
-  final int precipMm;
-  final int precipIn;
-  final int snowCm;
-  final int humidity;
-  final int cloud;
-  final int feelslikeC;
-  final int windchillC;
-  final int heatindexC;
+  final num precipMm;
+  final num precipIn;
+  final num snowCm;
+  final num humidity;
+  final num cloud;
+  final num feelslikeC;
+  final num windchillC;
+  final num heatindexC;
   final double dewpointC;
-  final int willItRain;
-  final int chanceOfRain;
-  final int willItSnow;
-  final int chanceOfSnow;
-  final int visKm;
-  final int visMiles;
+  final num willItRain;
+  final num chanceOfRain;
+  final num willItSnow;
+  final num chanceOfSnow;
+  final num visKm;
+  final num visMiles;
   final double gustMph;
   final double gustKph;
-  final int uv;
+  final num uv;
 
   Hour({
     required this.time,
@@ -323,7 +326,7 @@ class Location {
   final double lat;
   final double lon;
   final String tzId;
-  final int localtimeEpoch;
+  final num localtimeEpoch;
   final String localtime;
 
   Location({

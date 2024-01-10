@@ -44,4 +44,13 @@ class LocaleKeys {
   //Homepage
 
   static const String homePage = "home.homePage";
+  static const String healYourCrop = "home.healYourCrop";
+  static const String takeAPicture = "home.takeAPicture";
+  static const String seeDiagnosis = "home.seeDiagnosis";
+  static const String getMedicine = "home.getMedicine";
+  static const String fertilizerCalculator = "home.fertilizerCalculator";
+  static const String petsAndDisease = "home.petsAndDisease";
+  static const String cultivationTips = "home.cultivationTips";
+  static const String petsAndDieaseAlert = "home.petsAndDieaseAlert";
+  static const String weather = "home.weather";
 }

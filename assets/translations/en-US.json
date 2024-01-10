@@ -38,6 +38,16 @@
         "requestResetLink":"Request Reset Link"
     },
     "home":{
-        "homePage":"HomePage"
+        "homePage":"HomePage",
+        "healYourCrop":"Heal your crop",
+        "takeAPicture":"Take a Picture",
+        "seeDiagnosis":"See Diagnosis",
+        "getMedicine":"Get Medicine",
+        "fertilizerCalculator":"Fertilizer Calculator",
+        "petsAndDisease":"Pets & Disease",
+        "cultivationTips":"Cultivation Tips",
+        "petsAndDieaseAlert":"Pets & Diease Alert",
+        "weather":"Weather"
+
     }
 }

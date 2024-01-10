@@ -51,6 +51,7 @@ dependencies:
   dio: ^5.4.0
   permission_handler: ^11.1.0
   geolocator: ^10.1.0
+  lucide_icons: ^0.257.0
 
 dev_dependencies:
   flutter_test:

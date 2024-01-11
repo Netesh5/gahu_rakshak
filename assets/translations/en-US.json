@@ -47,7 +47,10 @@
         "petsAndDisease":"Pets & Disease",
         "cultivationTips":"Cultivation Tips",
         "petsAndDieaseAlert":"Pets & Diease Alert",
-        "weather":"Weather"
+        "weather":"Weather",
+        "chooseAOption":"Choose a option",
+        "chooseFromGallery":"Choose from gallery"
+    
 
     }
 }

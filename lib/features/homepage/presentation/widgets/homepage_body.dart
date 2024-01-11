@@ -60,7 +60,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                 height: 30.hp,
               ),
             ),
-            const SliverToBoxAdapter(child: WeatherWidget()),
+            const SliverToBoxAdapter(
+              child: WeatherWidget(),
+            ),
           ],
         ),
       ),

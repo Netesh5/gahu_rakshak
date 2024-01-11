@@ -53,4 +53,6 @@ class LocaleKeys {
   static const String cultivationTips = "home.cultivationTips";
   static const String petsAndDieaseAlert = "home.petsAndDieaseAlert";
   static const String weather = "home.weather";
+  static const String chooseAOption = "home.chooseAOption";
+  static const String chooseFromGallery = "home.chooseFromGallery";
 }

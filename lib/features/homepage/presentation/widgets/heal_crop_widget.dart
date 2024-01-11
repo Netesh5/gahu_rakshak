@@ -7,6 +7,7 @@ import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/buttons/custom_round_button.dart';
+import 'package:gahurakshak/features/homepage/presentation/widgets/take_a_picture_bottom_sheet.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class HearYourCropWidget extends StatelessWidget {
@@ -143,11 +144,14 @@ class HearYourCropWidget extends StatelessWidget {
                   height: 40.hp,
                 ),
                 CustomRoundedButtom(
-                    color: AppColors.goldenColor,
-                    title: LocaleKeys.takeAPicture.tr(),
-                    textColor: AppColors.black,
-                    fontSize: 18,
-                    onPressed: () {})
+                  color: AppColors.goldenColor,
+                  title: LocaleKeys.takeAPicture.tr(),
+                  textColor: AppColors.black,
+                  fontSize: 18,
+                  onPressed: () {
+                    showTakeAPictureBottomSheet(context);
+                  },
+                )
               ],
             ),
           ),

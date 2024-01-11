@@ -4,4 +4,5 @@ class Routes {
   static const String homepage = "/homepage";
   static const String noroutes = "/noroutes";
   static const String forgetPassword = "/forgetPassword";
+  static const String profile = "/profile";
 }

@@ -5,6 +5,7 @@ import 'package:gahurakshak/features/auth/presentation/pages/forget_password_vie
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/signup_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
+import 'package:gahurakshak/features/profile/presentation/pages/profile_view.dart';
 import 'package:page_transition/page_transition.dart';
 
 class RouteGenerator {
@@ -28,6 +29,11 @@ class RouteGenerator {
       case Routes.homepage:
         return PageTransition(
           child: const HomePageView(),
+          type: PageTransitionType.fade,
+        );
+      case Routes.profile:
+        return PageTransition(
+          child: const ProfileView(),
           type: PageTransitionType.fade,
         );
 

@@ -49,7 +49,10 @@
         "petsAndDieaseAlert":"Pets & Diease Alert",
         "weather":"Weather",
         "chooseAOption":"Choose a option",
-        "chooseFromGallery":"Choose from gallery"
+        "chooseFromGallery":"Choose from gallery",
+        "home":"Home",
+        "history":"History",
+        "profile":"Profile"
     
 
     }

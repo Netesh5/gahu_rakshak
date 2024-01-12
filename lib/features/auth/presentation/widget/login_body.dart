@@ -26,153 +26,156 @@ class LoginBody extends StatelessWidget {
     final appTextTheme = Theme.of(context).extension<AppTextTheme>()!;
     return Scaffold(
       body: SafeArea(
-        child: FormBuilder(
-          key: _formkey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: const AssetImage(
-                      "assets/images/Ghau Rakshak.png",
+        child: SingleChildScrollView(
+          child: FormBuilder(
+            key: _formkey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: const AssetImage(
+                        "assets/images/Ghau Rakshak.png",
+                      ),
+                      radius: 50.wp,
                     ),
-                    radius: 50.wp,
-                  ),
-                  SizedBox(
-                    width: 35.wp,
-                  ),
-                  Text(
-                    LocaleKeys.appName.tr(),
-                    style:
-                        appTextTheme.bodyNormalBold.copyWith(fontSize: 28.hp),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20.hp,
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.hp),
-                child: Text(
-                  LocaleKeys.login.tr(),
-                  style: appTextTheme.bodyLargeMedium.copyWith(fontSize: 25.hp),
+                    SizedBox(
+                      width: 35.wp,
+                    ),
+                    Text(
+                      LocaleKeys.appName.tr(),
+                      style:
+                          appTextTheme.bodyNormalBold.copyWith(fontSize: 28.hp),
+                    ),
+                  ],
                 ),
-              ),
-              SizedBox(
-                height: 20.hp,
-              ),
-              CustomTextField(
-                controller: emailController,
-                label: LocaleKeys.email.tr(),
-                hintText: LocaleKeys.enterEmail.tr(),
-                isRequired: true,
-                validator: (value) {
-                  return FormValidator.validateEmail(value);
-                },
-              ),
-              CustomTextField(
-                controller: passwordController,
-                label: LocaleKeys.password.tr(),
-                hintText: LocaleKeys.enterPassword.tr(),
-                isPassword: true,
-                obscureText: true,
-                isRequired: true,
-                validator: (value) {
-                  return FormValidator.validatePassword(value);
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
+                SizedBox(
+                  height: 20.hp,
+                ),
+                Padding(
+                  padding: EdgeInsets.all(20.hp),
+                  child: Text(
+                    LocaleKeys.login.tr(),
+                    style:
+                        appTextTheme.bodyLargeMedium.copyWith(fontSize: 25.hp),
+                  ),
+                ),
+                SizedBox(
+                  height: 20.hp,
+                ),
+                CustomTextField(
+                  controller: emailController,
+                  label: LocaleKeys.email.tr(),
+                  hintText: LocaleKeys.enterEmail.tr(),
+                  isRequired: true,
+                  validator: (value) {
+                    return FormValidator.validateEmail(value);
+                  },
+                ),
+                CustomTextField(
+                  controller: passwordController,
+                  label: LocaleKeys.password.tr(),
+                  hintText: LocaleKeys.enterPassword.tr(),
+                  isPassword: true,
+                  obscureText: true,
+                  isRequired: true,
+                  validator: (value) {
+                    return FormValidator.validatePassword(value);
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(Routes.forgetPassword);
+                      },
+                      child: Text(
+                        LocaleKeys.forgetPassword.tr(),
+                        style: appTextTheme.bodyNormalBold.copyWith(
+                          color: AppColors.goldenColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.hp,
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 20.hp,
+                ),
+                CustomRoundedButtom(
+                  horizontalMargin: 20.hp,
+                  title: LocaleKeys.login.tr(),
+                  color: AppColors.goldenColor,
+                  textColor: AppColors.black,
+                  onPressed: () {
+                    if (_formkey.currentState!.validate()) {
+                      context.read<AuthRepo>().loginAccount(
+                            context,
+                            LoginWithAccountParam(
+                              email: emailController.text,
+                              password: passwordController.text,
+                            ),
+                          );
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: 50.hp,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.hp),
+                  child: Row(
+                    children: [
+                      const Expanded(child: Divider()),
+                      SizedBox(
+                        width: 10.wp,
+                      ),
+                      Text(
+                        LocaleKeys.or.tr(),
+                        style: appTextTheme.bodyNormalBold,
+                      ),
+                      SizedBox(
+                        width: 10.wp,
+                      ),
+                      const Expanded(child: Divider()),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 50.hp,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.wp),
+                  child: CustomOutlineButton(
+                    title: LocaleKeys.loginWithGoogle.tr(),
                     onPressed: () {
-                      Navigator.of(context).pushNamed(Routes.forgetPassword);
+                      context.read<AuthRepo>().loginWithGoogle(context);
+                    },
+                    leftIcon: FontAwesomeIcons.google,
+                  ),
+                ),
+                SizedBox(
+                  height: 50.hp,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(Routes.signup);
                     },
                     child: Text(
-                      LocaleKeys.forgetPassword.tr(),
-                      style: appTextTheme.bodyNormalBold.copyWith(
+                      LocaleKeys.newTotheSystem.tr(),
+                      style: appTextTheme.bodyLargeSemiBold.copyWith(
                         color: AppColors.goldenColor,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 20.hp,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20.hp,
-              ),
-              CustomRoundedButtom(
-                horizontalMargin: 20.hp,
-                title: LocaleKeys.login.tr(),
-                color: AppColors.goldenColor,
-                textColor: AppColors.black,
-                onPressed: () {
-                  if (_formkey.currentState!.validate()) {
-                    context.read<AuthRepo>().loginAccount(
-                          context,
-                          LoginWithAccountParam(
-                            email: emailController.text,
-                            password: passwordController.text,
-                          ),
-                        );
-                  }
-                },
-              ),
-              SizedBox(
-                height: 50.hp,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.hp),
-                child: Row(
-                  children: [
-                    const Expanded(child: Divider()),
-                    SizedBox(
-                      width: 10.wp,
-                    ),
-                    Text(
-                      LocaleKeys.or.tr(),
-                      style: appTextTheme.bodyNormalBold,
-                    ),
-                    SizedBox(
-                      width: 10.wp,
-                    ),
-                    const Expanded(child: Divider()),
-                  ],
                 ),
-              ),
-              SizedBox(
-                height: 50.hp,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.wp),
-                child: CustomOutlineButton(
-                  title: LocaleKeys.loginWithGoogle.tr(),
-                  onPressed: () {
-                    context.read<AuthRepo>().loginWithGoogle(context);
-                  },
-                  leftIcon: FontAwesomeIcons.google,
-                ),
-              ),
-              SizedBox(
-                height: 50.hp,
-              ),
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Routes.signup);
-                  },
-                  child: Text(
-                    LocaleKeys.newTotheSystem.tr(),
-                    style: appTextTheme.bodyLargeSemiBold.copyWith(
-                      color: AppColors.goldenColor,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

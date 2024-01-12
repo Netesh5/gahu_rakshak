@@ -26,7 +26,7 @@ class OptionTileWidget extends StatelessWidget {
         ),
         "arrow": Icon(
           LucideIcons.chevronRight,
-          size: 30.wp,
+          size: 22.wp,
           color: AppColors.goldenColor,
         ),
         // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
@@ -43,7 +43,7 @@ class OptionTileWidget extends StatelessWidget {
         ),
         "arrow": Icon(
           LucideIcons.chevronRight,
-          size: 30.wp,
+          size: 22.wp,
           color: AppColors.goldenColor,
         ),
         // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
@@ -60,7 +60,7 @@ class OptionTileWidget extends StatelessWidget {
         ),
         "arrow": Icon(
           LucideIcons.chevronRight,
-          size: 30.wp,
+          size: 22.wp,
           color: AppColors.goldenColor,
         ),
         // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
@@ -77,7 +77,7 @@ class OptionTileWidget extends StatelessWidget {
         ),
         "arrow": Icon(
           LucideIcons.chevronRight,
-          size: 30.wp,
+          size: 22.wp,
           color: AppColors.goldenColor,
         ),
         // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),

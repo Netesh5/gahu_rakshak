@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:gahurakshak/core/shared_prefrences/user_shared_prefrences.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
-import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
+import 'package:gahurakshak/features/dashboard/presentation/pages/dashboard_view.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({
@@ -31,7 +31,7 @@ class _WrapperState extends State<Wrapper> {
   @override
   Widget build(BuildContext context) {
     if (token != null) {
-      return const HomePageView();
+      return const DashboardView();
     } else {
       return const LoginView();
     }

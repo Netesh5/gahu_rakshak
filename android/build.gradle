@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         // AGP version is set in settings.gradle.
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
+      //  classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
     }
 }
 

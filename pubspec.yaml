@@ -52,6 +52,7 @@ dependencies:
   permission_handler: ^11.1.0
   geolocator: ^10.1.0
   lucide_icons: ^0.257.0
+  image_picker: ^1.0.7
 
 dev_dependencies:
   flutter_test:

@@ -70,5 +70,10 @@
 	<string>This app need to access your location.</string> 
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This app need to access your location</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app need access your Gallery</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app need access your Camera</string>
 </dict>
 </plist>

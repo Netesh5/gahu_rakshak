@@ -55,4 +55,7 @@ class LocaleKeys {
   static const String weather = "home.weather";
   static const String chooseAOption = "home.chooseAOption";
   static const String chooseFromGallery = "home.chooseFromGallery";
+  static const String home = "home.home";
+  static const String profile = "home.profile";
+  static const String history = "home.history";
 }

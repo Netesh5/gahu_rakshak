@@ -4,10 +4,11 @@ import 'package:gahurakshak/core/constants/locale_keys.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/homepage/presentation/widgets/heal_crop_widget.dart';
-import 'package:gahurakshak/features/homepage/presentation/widgets/option_tile_widget.dart';
+import 'package:gahurakshak/features/homepage/presentation/widgets/options_tile_widget.dart';
 import 'package:gahurakshak/features/location/data/fetch_loaction.dart';
 import 'package:gahurakshak/features/weather/data/models/current_weather_model.dart';
 import 'package:gahurakshak/features/weather/presentation/widgets/weather_body.dart';
+
 import 'package:provider/provider.dart';
 
 class HomePageBody extends StatefulWidget {

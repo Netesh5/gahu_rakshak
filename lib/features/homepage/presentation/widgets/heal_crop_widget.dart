@@ -3,12 +3,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/services/image_picker_services.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/buttons/custom_round_button.dart';
 import 'package:gahurakshak/features/homepage/presentation/widgets/take_a_picture_bottom_sheet.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 class HearYourCropWidget extends StatelessWidget {
   const HearYourCropWidget({super.key});
@@ -24,7 +26,7 @@ class HearYourCropWidget extends StatelessWidget {
         ),
         "icon": Icon(
           LucideIcons.scan,
-          size: 40.wp,
+          size: 35.wp,
           color: AppColors.goldenColor,
         ),
       },
@@ -35,7 +37,7 @@ class HearYourCropWidget extends StatelessWidget {
         ),
         "icon": Icon(
           LucideIcons.smartphone,
-          size: 40.wp,
+          size: 35.wp,
           color: AppColors.goldenColor,
         ),
       },
@@ -46,7 +48,7 @@ class HearYourCropWidget extends StatelessWidget {
         ),
         "icon": Icon(
           LucideIcons.pill,
-          size: 40.wp,
+          size: 35.wp,
           color: AppColors.goldenColor,
         ),
       },
@@ -57,7 +59,7 @@ class HearYourCropWidget extends StatelessWidget {
         ),
         "icon": Icon(
           LucideIcons.chevronRight,
-          size: 40.wp,
+          size: 35.wp,
           color: AppColors.goldenColor,
         ),
       }
@@ -100,7 +102,7 @@ class HearYourCropWidget extends StatelessWidget {
                       children: [
                         Icon(
                           LucideIcons.chevronRight,
-                          size: 40.wp,
+                          size: 35.wp,
                           color: AppColors.goldenColor,
                         ),
                         SizedBox(
@@ -121,7 +123,7 @@ class HearYourCropWidget extends StatelessWidget {
                       children: [
                         Icon(
                           LucideIcons.chevronRight,
-                          size: 40.wp,
+                          size: 35.wp,
                           color: AppColors.goldenColor,
                         ),
                         SizedBox(
@@ -149,7 +151,10 @@ class HearYourCropWidget extends StatelessWidget {
                   textColor: AppColors.black,
                   fontSize: 18,
                   onPressed: () {
-                    showTakeAPictureBottomSheet(context);
+                    showTakeAPictureBottomSheet(
+                      context,
+                      context.read<ImagePickerService>(),
+                    );
                   },
                 )
               ],

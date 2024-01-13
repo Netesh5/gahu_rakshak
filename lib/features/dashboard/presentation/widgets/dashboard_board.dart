@@ -25,6 +25,7 @@ class _DashboardBodyState extends State<DashboardBody> {
           currentPage = value;
           setState(() {});
         },
+        physics: const NeverScrollableScrollPhysics(),
         children: const [
           HomePageView(),
           HistoryView(),
@@ -33,9 +34,10 @@ class _DashboardBodyState extends State<DashboardBody> {
       ),
       bottomNavigationBar: BottomNavBar(
         onChanged: (int index) {
-          setState(() {});
-          currentPage = index;
           pageController.jumpToPage(index);
+          setState(() {
+            currentPage = index;
+          });
         },
         selectedIndex: currentPage,
       ),

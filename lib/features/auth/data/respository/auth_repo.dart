@@ -5,7 +5,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
-import 'package:gahurakshak/core/models/user_credential_param.dart';
+
+import 'package:gahurakshak/core/models/user_model.dart';
 import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/core/shared_prefrences/user_shared_prefrences.dart';
 import 'package:gahurakshak/core/utils/snack_bar_utils.dart';
@@ -28,13 +29,19 @@ class AuthRepo with ChangeNotifier {
   });
   User? user;
   UserCredential? userCredential;
+  Stream<User?> get authState {
+    return auth.authStateChanges();
+  }
+
   Future<void> registerNewAccount(
       BuildContext context, RegisterNewAccountParam param) async {
     showLoadingDialog(context, true);
 
     try {
       userCredential = await auth.createUserWithEmailAndPassword(
-          email: param.email.trim(), password: param.password.trim());
+        email: param.email.trim(),
+        password: param.password.trim(),
+      );
       final _ = await firestoreRepo
           .saveUserInfo(
         context: context,
@@ -45,8 +52,6 @@ class AuthRepo with ChangeNotifier {
       )
           .then(
         (value) async {
-          await userSharedPrefrences.saveUserToken(
-              UserCredentialParam(uid: userCredential?.user?.uid ?? ""));
           showLoadingDialog(context, false);
           Navigator.pop(context);
           SnackBarUtils.showSuccessMessage(
@@ -73,11 +78,19 @@ class AuthRepo with ChangeNotifier {
     try {
       userCredential = await auth
           .signInWithEmailAndPassword(
-              email: param.email.trim(), password: param.password.trim())
+        email: param.email.trim(),
+        password: param.password.trim(),
+      )
           .then(
         (value) async {
-          await userSharedPrefrences.saveUserToken(
-            UserCredentialParam(uid: userCredential?.user?.uid ?? ""),
+          await userSharedPrefrences.saveUser(
+            UserModel(
+              displayName: value.user?.displayName ?? "",
+              email: value.user?.email ?? "",
+              photoUrl: value.user?.photoURL ?? "",
+              uid: value.user?.uid ?? "",
+              token: value.user?.refreshToken ?? "",
+            ),
           );
           showLoadingDialog(context, false);
           Navigator.pop(context);
@@ -86,8 +99,8 @@ class AuthRepo with ChangeNotifier {
             message: LocaleKeys.loggedInSuccessfully.tr(),
           );
           Navigator.of(context)
-              .pushNamedAndRemoveUntil(Routes.homepage, (route) => false);
-          return;
+              .pushNamedAndRemoveUntil(Routes.dashboard, (route) => false);
+          return value;
         },
       );
     } on FirebaseException catch (e) {
@@ -102,7 +115,7 @@ class AuthRepo with ChangeNotifier {
   }
 
   Future<void> signOut() async {
-    final user = auth.currentUser;
+    user = auth.currentUser;
     if (user != null) {
       await auth.signOut();
     }
@@ -123,19 +136,30 @@ class AuthRepo with ChangeNotifier {
             accessToken: authentication.accessToken,
             idToken: authentication.idToken);
 
-        await auth.signInWithCredential(credential).then((value) async {
-          await userSharedPrefrences.saveUserToken(
-              UserCredentialParam(uid: credential.idToken ?? ""));
-          showLoadingDialog(context, false);
-          Navigator.pop(context);
+        userCredential = await auth.signInWithCredential(credential).then(
+          (value) async {
+            await userSharedPrefrences.saveUser(
+              UserModel(
+                displayName: value.user?.displayName ?? "",
+                email: value.user?.email ?? "",
+                photoUrl: value.user?.photoURL ?? "",
+                uid: value.user?.uid ?? "",
+                token: value.user?.refreshToken ?? "",
+              ),
+            );
+            showLoadingDialog(context, false);
+            Navigator.pop(context);
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil(Routes.dashboard, (route) => false);
+            SnackBarUtils.showSuccessMessage(
+              context: context,
+              message: LocaleKeys.loggedInSuccessfully.tr(),
+            );
+            notifyListeners();
 
-          Navigator.pushNamedAndRemoveUntil(
-              context, Routes.homepage, (route) => false);
-          SnackBarUtils.showSuccessMessage(
-            context: context,
-            message: LocaleKeys.loggedInSuccessfully.tr(),
-          );
-        });
+            return value;
+          },
+        );
       } else {
         showLoadingDialog(context, false);
         Navigator.pop(context);

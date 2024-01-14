@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gahurakshak/core/models/user_model.dart';
 
 import 'package:gahurakshak/core/shared_prefrences/user_shared_prefrences.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
@@ -16,21 +17,21 @@ class Wrapper extends StatefulWidget {
 }
 
 class _WrapperState extends State<Wrapper> {
-  String? token;
-  void getToken() async {
-    token = await widget.userSharedPrefrences.fetchUserToken();
+  UserModel? token;
+  void getUser() async {
+    token = await widget.userSharedPrefrences.fetchUser();
     setState(() {});
   }
 
   @override
   void initState() {
-    getToken();
+    getUser();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (token != null) {
+    if (token?.uid != null) {
       return const DashboardView();
     } else {
       return const LoginView();

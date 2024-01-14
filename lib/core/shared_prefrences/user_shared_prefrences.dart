@@ -1,4 +1,4 @@
-import 'package:gahurakshak/core/models/user_credential_param.dart';
+import 'package:gahurakshak/core/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserToken {
@@ -6,12 +6,13 @@ class UserToken {
   UserToken({
     required this.sp,
   });
-  Future<void> saveUserToken(UserCredentialParam param) async {
-    sp.setString("token", param.uid);
+  Future<void> saveUser(UserModel param) async {
+    sp.setString("token", param.toJson());
   }
 
-  Future<String?> fetchUserToken() async {
-    final token = sp.getString("token");
-    return token!;
+  Future<UserModel> fetchUser() async {
+    final user = sp.getString("token");
+    UserModel userValue = UserModel.fromJson(user!);
+    return userValue;
   }
 }

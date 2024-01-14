@@ -29,13 +29,17 @@ class HistoryBody extends StatelessWidget {
               "${DateTime.now()}",
               style: appTextTheme.bodyLargeMedium,
             ),
-            leading: Image.asset(
-              "assets/images/Ghau Rakshak.png",
-              height: 100.hp,
-              width: 100.hp,
+            leading: Hero(
+              tag: "historyDetailImage$index",
+              child: Image.asset(
+                "assets/images/Ghau Rakshak.png",
+                height: 100.hp,
+                width: 100.hp,
+              ),
             ),
             onTap: () {
-              Navigator.of(context).pushNamed(Routes.historyDetail);
+              Navigator.of(context)
+                  .pushNamed(Routes.historyDetail, arguments: index);
             },
           );
         },

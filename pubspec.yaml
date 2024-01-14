@@ -54,6 +54,7 @@ dependencies:
   lucide_icons: ^0.257.0
   image_picker: ^1.0.7
   carousel_slider: ^4.2.1
+  firebase_storage: ^11.6.0
 
 dev_dependencies:
   flutter_test:

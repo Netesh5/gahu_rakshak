@@ -114,10 +114,17 @@ class AuthRepo with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut(BuildContext context) async {
+    showLoadingDialog(context, true);
     user = auth.currentUser;
     if (user != null) {
-      await auth.signOut();
+      await auth.signOut().then((value) async {
+        await userSharedPrefrences.removeUser();
+
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil(Routes.login, (route) => false);
+        showLoadingDialog(context, false);
+      });
     }
     notifyListeners();
   }
@@ -156,7 +163,6 @@ class AuthRepo with ChangeNotifier {
               message: LocaleKeys.loggedInSuccessfully.tr(),
             );
             notifyListeners();
-
             return value;
           },
         );
@@ -168,7 +174,6 @@ class AuthRepo with ChangeNotifier {
     } on FirebaseException catch (e) {
       showLoadingDialog(context, false);
       Navigator.pop(context);
-
       SnackBarUtils.showErrorMessage(
         context: context,
         message: getMessageFromErrorCode(e),
@@ -192,7 +197,6 @@ class AuthRepo with ChangeNotifier {
     } on FirebaseException catch (e) {
       showLoadingDialog(context, false);
       Navigator.pop(context);
-
       SnackBarUtils.showErrorMessage(
         context: context,
         message: e.message ?? "Something Went wrong",

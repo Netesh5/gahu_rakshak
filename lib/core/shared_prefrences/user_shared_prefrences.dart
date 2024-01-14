@@ -15,4 +15,8 @@ class UserToken {
     UserModel userValue = UserModel.fromJson(user!);
     return userValue;
   }
+
+  Future removeUser() async {
+    sp.clear();
+  }
 }

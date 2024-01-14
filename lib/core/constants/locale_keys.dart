@@ -40,6 +40,7 @@ class LocaleKeys {
       "auth.resetPasswordLinkSentSuccessfully";
 
   static const String requestResetLink = "auth.requestResetLink";
+  static const String logOut = "auth.logOut";
 
   //Homepage
 
@@ -58,4 +59,6 @@ class LocaleKeys {
   static const String home = "home.home";
   static const String profile = "home.profile";
   static const String history = "home.history";
+
+  static const String analyze = "home.analyze";
 }

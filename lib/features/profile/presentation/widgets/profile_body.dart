@@ -8,6 +8,9 @@ import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
+import 'package:gahurakshak/core/widgets/buttons/custom_outline_button.dart';
+import 'package:gahurakshak/features/auth/data/respository/auth_repo.dart';
+import 'package:provider/provider.dart';
 
 class ProfileBody extends StatefulWidget {
   const ProfileBody({
@@ -82,6 +85,12 @@ class _ProfileBodyState extends State<ProfileBody> {
               Divider(
                 color: AppColors.grey.withOpacity(0.5),
               ),
+              const Spacer(),
+              CustomOutlineButton(
+                  title: LocaleKeys.logOut.tr(),
+                  onPressed: () async {
+                    await context.read<AuthRepo>().signOut(context);
+                  })
             ],
           ),
         ),

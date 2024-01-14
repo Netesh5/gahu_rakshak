@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gahurakshak/core/injector/injector.dart';
 import 'package:gahurakshak/core/services/image_picker_services.dart';
 import 'package:gahurakshak/features/homepage/presentation/widgets/homepage_body.dart';
 import 'package:gahurakshak/features/location/data/fetch_loaction.dart';
@@ -19,7 +20,10 @@ class HomePageView extends StatelessWidget {
           create: (context) => FetchWeatherDataRepo(),
         ),
         ChangeNotifierProvider(
-          create: (context) => ImagePickerService(),
+          create: (context) => ImagePickerService(
+            uploadImage: DI.instance(),
+            uploadAnalyzeDataRepo: DI.instance(),
+          ),
         ),
       ],
       child: const HomePageBody(),

@@ -8,6 +8,7 @@ import 'package:gahurakshak/features/dashboard/presentation/pages/dashboard_view
 import 'package:gahurakshak/features/history/presentation/pages/history_detail_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
 import 'package:gahurakshak/features/profile/presentation/pages/profile_view.dart';
+import 'package:gahurakshak/features/result/presentation/pages/result_view.dart';
 import 'package:page_transition/page_transition.dart';
 
 class RouteGenerator {
@@ -49,6 +50,11 @@ class RouteGenerator {
       case Routes.dashboard:
         return PageTransition(
           child: const DashboardView(),
+          type: PageTransitionType.fade,
+        );
+      case Routes.result:
+        return PageTransition(
+          child: ResultView(imagePath: setting.arguments as String),
           type: PageTransitionType.fade,
         );
 

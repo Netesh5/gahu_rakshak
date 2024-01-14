@@ -44,7 +44,15 @@ class TakeAPictureBottomSheet extends StatelessWidget {
                 style: appTextTheme.bodyLargeSemiBold,
               ),
               onTap: () {
-                context.read<ImagePickerService>().pickFromGallery();
+                context.read<ImagePickerService>().pickFromGallery(context);
+                // showLoadingDialog(context, true);
+                // if (context.read<ImagePickerService>().file != null) {
+                //   //  showLoadingDialog(context, false);
+                //   Navigator.pushNamed(
+                //     context,
+                //     Routes.result,
+                //   );
+                // }
               },
             ),
             ListTile(
@@ -57,7 +65,9 @@ class TakeAPictureBottomSheet extends StatelessWidget {
                 style: appTextTheme.bodyLargeSemiBold,
               ),
               onTap: () async {
-                await context.read<ImagePickerService>().takeImageFromCamera();
+                await context
+                    .read<ImagePickerService>()
+                    .takeImageFromCamera(context);
               },
             ),
             SizedBox(

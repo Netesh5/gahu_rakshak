@@ -19,7 +19,8 @@ class UploadAnalyzeDataRepo {
       final _ = await firebaseFirestore
           .collection("result")
           .doc(res.uid)
-          .set(param.toMap());
+          .collection("disease")
+          .add(param.toMap());
     } on FirebaseException catch (e) {
       SnackBarUtils.showErrorMessage(
         context: context,

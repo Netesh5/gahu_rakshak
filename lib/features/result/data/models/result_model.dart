@@ -3,10 +3,12 @@ class ResultModel {
   String diseaseName;
   String dateTime;
   String imagePath;
+  int? index;
   ResultModel({
     required this.diseaseName,
     required this.dateTime,
     required this.imagePath,
+    this.index,
   });
 
   toMap() {

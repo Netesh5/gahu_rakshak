@@ -4,10 +4,11 @@ import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
+import 'package:gahurakshak/features/result/data/models/result_model.dart';
 
 class HistoryDetailBody extends StatelessWidget {
-  const HistoryDetailBody({super.key, required this.index});
-  final int index;
+  const HistoryDetailBody({super.key, required this.model});
+  final ResultModel model;
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).extension<AppTextTheme>()!;
@@ -20,18 +21,18 @@ class HistoryDetailBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Hero(
-                tag: "historyDetailImage$index",
-                child: Image.asset(
-                  "assets/images/Ghau Rakshak.png",
+                tag: "historyDetailImage${model.index}",
+                child: Image.network(
+                  model.imagePath,
                   height: 300.hp,
                   width: double.infinity,
                 ),
               ),
               Text(
-                "Disease Name",
+                model.diseaseName,
                 style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 25.hp),
               ),
-              Text("${DateTime.now()}", style: appTextTheme.bodyLargeRegular),
+              Text(model.dateTime, style: appTextTheme.bodyLargeRegular),
               SizedBox(
                 height: 40.hp,
               ),
@@ -46,8 +47,8 @@ class HistoryDetailBody extends StatelessWidget {
                 items: List.generate(
                   5,
                   (index) {
-                    return Image.asset(
-                      "assets/images/Ghau Rakshak.png",
+                    return Image.network(
+                      model.imagePath,
                       height: 200.hp,
                     );
                   },

@@ -31,6 +31,7 @@ class _ProfileBodyState extends State<ProfileBody> {
     super.initState();
   }
 
+  bool isNepEnable = false;
   void getUser() async {
     userModel = await widget.userToken.fetchUser();
     setState(() {});
@@ -85,12 +86,33 @@ class _ProfileBodyState extends State<ProfileBody> {
               Divider(
                 color: AppColors.grey.withOpacity(0.5),
               ),
+              SizedBox(
+                height: 20.hp,
+              ),
+              SwitchListTile.adaptive(
+                activeColor: AppColors.goldenColor,
+                title: Text(
+                  LocaleKeys.switchLang.tr(),
+                  style: appTextTheme.bodyLargeMedium,
+                ),
+                value: isNepEnable,
+                onChanged: (value) {
+                  isNepEnable = value;
+                  if (value) {
+                    context.setLocale(const Locale("ne", "NE"));
+                  } else {
+                    context.setLocale(const Locale("us", "US"));
+                  }
+                  setState(() {});
+                },
+              ),
               const Spacer(),
               CustomOutlineButton(
-                  title: LocaleKeys.logOut.tr(),
-                  onPressed: () async {
-                    await context.read<AuthRepo>().signOut(context);
-                  })
+                title: LocaleKeys.logOut.tr(),
+                onPressed: () async {
+                  await context.read<AuthRepo>().signOut(context);
+                },
+              ),
             ],
           ),
         ),

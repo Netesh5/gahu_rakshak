@@ -78,11 +78,17 @@
         "stripRustRecommendation":"Plant resistance: Select cultivars with known resistance to Stripe rust strains present in your region. Consult with local agricultural experts for recommended varieties.\nCrop rotation: Rotate with non-host crops like corn or soybeans to reduce fungal inoculum levels in the soil.\nResidue management: Destroying infected crop residues after harvest minimizes the survival of fungal spores for future infections.\nField scouting and fungicide application: Regularly monitor your fields for early signs of Stripe rust, especially during cool, humid periods. Apply fungicides preventively or curatively based on disease presence and weather conditions. Triazole and strobilurin fungicides are effective options, but responsible use is crucial to avoid resistance development.",
         "leafRust":"Leaf Rust also displays small, round, orange-brown pustules on leaves and stems, primarily on the upper leaf surface. These pustules erupt and release spores, leading to rapid disease spread and potential yield losses. Similar to Brown Rust, Leaf Rust thrives in warm, humid weather conditions.",
         "leafRustRecommendation":"Plant resistance: Choosing resistant cultivars is the most effective long-term control strategy. Consult with local agricultural experts for varieties with appropriate resistance levels.\nCrop rotation: Rotate crops with non-susceptible hosts like corn or soybeans to reduce fungal inoculum in the soil.\nResidue management: Thoroughly destroy infected crop residues after harvest to minimize the availability of fungal spores for future outbreaks.\nField monitoring and fungicide application: Regularly scout your fields for early signs of Leaf Rust, especially during periods of warm, humid weather. Apply fungicides preventively or curatively based on disease presence and weather conditions. Triazole and strobilurin fungicides are effective options, but responsible use is essential to prevent resistance development."
+    }  ,  
+    "profile":{
+        "switchLang":"Switch Language"
+    }  ,
+    "result":{
+        "similarImages":"Similar Images",
+        "causeOfDisease":"Cause of Disease",
+        "recommendation":"Recommendation",
+        "medicine":"Medicine"
+    }
 
-
-        
-
-    }         
 }
 
        

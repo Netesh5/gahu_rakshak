@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/images/custom_network_image.dart';
 import 'package:gahurakshak/core/injector/injector.dart';
 
 import 'package:gahurakshak/core/routes/routes.dart';
@@ -55,10 +56,11 @@ class HistoryBody extends StatelessWidget {
                     ),
                     leading: Hero(
                       tag: "historyDetailImage$index",
-                      child: Image.network(
-                        item[index].imagePath,
-                        cacheHeight: 300,
-                        cacheWidth: 400,
+                      child: CustomCachedNetworkImage(
+                        fit: BoxFit.cover,
+                        url: item[index].imagePath,
+                        height: 100.hp,
+                        width: 100.wp,
                       ),
                     ),
                     onTap: () {

@@ -53,7 +53,14 @@
         "home": "होम",
         "history": "इतिहास",
         "profile": "प्रोफाइल",
-        "analyze": "विश्लेषण गर्नुहोस्"
+        "analyze": "विश्लेषण गर्नुहोस्",
+        "selectLang": "भाषा छान्नुहोस्",
+        "english": "अंग्रेजी",
+        "nepali": "नेपाली",
+        "selectPerfLang": "तपाईंको पसन्दीदा भाषा छान्नुहोस्",
+        "continueBtn": "अगाडि बढ्नुहोस्",
+        "langSetSuccessfully": "भाषा सफलतापूर्वक सेट गरियो"
+
     },
     "disease": {
         "septoria": "सेप्टोरिया",
@@ -85,7 +92,8 @@
         "similarImages": "समान तस्वीरहरू",
         "causeOfDisease": "रोगको कारण",
         "recommendation": "सिफारिस",
-        "medicine": "औषधि"
+        "medicine": "औषधि",
+        "noData": "कुनै डाटा फेला परेन"
     }
 }
 

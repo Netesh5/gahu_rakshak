@@ -25,15 +25,21 @@ class ProfileBody extends StatefulWidget {
 class _ProfileBodyState extends State<ProfileBody> {
   final controller = TextEditingController();
   UserModel? userModel;
+  bool? isPrefLangNP;
   @override
   void initState() {
     getUser();
+    getPrefLang();
     super.initState();
   }
 
-  bool isNepEnable = false;
   void getUser() async {
     userModel = await widget.userToken.fetchUser();
+    setState(() {});
+  }
+
+  void getPrefLang() async {
+    isPrefLangNP = await widget.userToken.getPerferedLang();
     setState(() {});
   }
 
@@ -62,7 +68,9 @@ class _ProfileBodyState extends State<ProfileBody> {
                         : const AssetImage("assets/images/Ghau Rakshak.png")
                             as ImageProvider,
                     onBackgroundImageError: (exception, stackTrace) {
-                      debugPrint(exception.toString());
+                      debugPrint(
+                        exception.toString(),
+                      );
                     },
                   ),
                   Expanded(
@@ -89,22 +97,37 @@ class _ProfileBodyState extends State<ProfileBody> {
               SizedBox(
                 height: 20.hp,
               ),
-              SwitchListTile.adaptive(
-                activeColor: AppColors.goldenColor,
+              ListTile(
                 title: Text(
                   LocaleKeys.switchLang.tr(),
                   style: appTextTheme.bodyLargeMedium,
                 ),
-                value: isNepEnable,
-                onChanged: (value) {
-                  isNepEnable = value;
-                  if (value) {
-                    context.setLocale(const Locale("ne", "NE"));
-                  } else {
-                    context.setLocale(const Locale("us", "US"));
-                  }
-                  setState(() {});
-                },
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      LocaleKeys.en.tr(),
+                      style: appTextTheme.bodyLargeMedium,
+                    ),
+                    Switch.adaptive(
+                      activeColor: AppColors.goldenColor,
+                      value: isPrefLangNP!,
+                      onChanged: (value) {
+                        isPrefLangNP = value;
+                        if (value) {
+                          context.setLocale(
+                            const Locale("ne", "NE"),
+                          );
+                        }
+                        setState(() {});
+                      },
+                    ),
+                    Text(
+                      LocaleKeys.np.tr(),
+                      style: appTextTheme.bodyLargeMedium,
+                    ),
+                  ],
+                ),
               ),
               const Spacer(),
               CustomOutlineButton(
@@ -112,6 +135,9 @@ class _ProfileBodyState extends State<ProfileBody> {
                 onPressed: () async {
                   await context.read<AuthRepo>().signOut(context);
                 },
+              ),
+              SizedBox(
+                height: 20.hp,
               ),
             ],
           ),

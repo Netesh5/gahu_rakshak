@@ -16,6 +16,7 @@ class FetchResultDetail {
         .collection("result")
         .doc(res.uid)
         .collection("disease")
+        .orderBy("dateTime", descending: true)
         .snapshots();
   }
 }

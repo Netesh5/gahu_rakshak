@@ -37,6 +37,11 @@ class _HomePageBodyState extends State<HomePageBody> {
         title: LocaleKeys.appName.tr(),
         centerMiddle: true,
         showShadow: true,
+        leadingIcon: Image.asset(
+          "assets/images/Ghau Rakshak.png",
+          height: 55.hp,
+          width: 55.hp,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

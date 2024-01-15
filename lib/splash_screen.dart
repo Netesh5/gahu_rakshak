@@ -5,7 +5,9 @@ import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/wrapper.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class SplashScreen extends StatelessWidget {
       splashTransition: SplashTransition.fadeTransition,
       splashIconSize: width * 0.7,
       nextScreen: Wrapper(
-        userSharedPrefrences: DI.instance(),
+        userToken: DI.instance(),
       ),
     );
   }

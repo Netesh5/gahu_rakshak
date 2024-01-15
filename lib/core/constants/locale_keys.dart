@@ -61,13 +61,22 @@ class LocaleKeys {
   static const String history = "home.history";
 
   static const String analyze = "home.analyze";
+  static const String selectLang = "home.selectLang";
+  static const String english = "home.english";
+  static const String nepali = "home.nepali";
+  static const String selectPerfLang = "home.selectPerfLang";
+  static const String continueBtn = "home.continueBtn";
+  static const String langSetSuccessfully = "home.langSetSuccessfully";
 
   //Profile
   static const String switchLang = "profile.switchLang";
+  static const String en = "profile.en";
+  static const String np = "profile.np";
 
   //Result
   static const String similarImages = "result.similarImages";
   static const String causeOfDisease = "result.causeOfDisease";
   static const String recommendation = "result.recommendation";
   static const String medicine = "result.medicine";
+  static const String noData = "result.noData";
 }

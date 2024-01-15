@@ -54,7 +54,13 @@
         "home":"Home",
         "history":"History",
         "profile":"Profile",
-        "analyze":"Analyze"
+        "analyze":"Analyze",
+        "selectLang":"Select Language",
+        "english":"English",
+        "nepali":"Nepali",
+        "selectPerfLang":"Select Your Preferred Language",
+        "continueBtn":"Continue",
+        "langSetSuccessfully":"Language set successfully"
     },
     "disease":{
         "septoria":"Septoria",
@@ -80,13 +86,16 @@
         "leafRustRecommendation":"Plant resistance: Choosing resistant cultivars is the most effective long-term control strategy. Consult with local agricultural experts for varieties with appropriate resistance levels.\nCrop rotation: Rotate crops with non-susceptible hosts like corn or soybeans to reduce fungal inoculum in the soil.\nResidue management: Thoroughly destroy infected crop residues after harvest to minimize the availability of fungal spores for future outbreaks.\nField monitoring and fungicide application: Regularly scout your fields for early signs of Leaf Rust, especially during periods of warm, humid weather. Apply fungicides preventively or curatively based on disease presence and weather conditions. Triazole and strobilurin fungicides are effective options, but responsible use is essential to prevent resistance development."
     }  ,  
     "profile":{
-        "switchLang":"Switch Language"
+        "switchLang":"Switch Language",
+        "en":"En",
+        "np":"Np"
     }  ,
     "result":{
         "similarImages":"Similar Images",
         "causeOfDisease":"Cause of Disease",
         "recommendation":"Recommendation",
-        "medicine":"Medicine"
+        "medicine":"Medicine",
+        "noData":"No data found"
     }
 
 }

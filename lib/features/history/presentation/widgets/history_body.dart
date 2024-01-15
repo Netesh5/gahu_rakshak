@@ -11,6 +11,7 @@ import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/history/data/repository/fetch_result_detail.dart';
 import 'package:gahurakshak/features/result/data/models/result_model.dart';
+import 'package:gahurakshak/shimmer.dart';
 
 class HistoryBody extends StatelessWidget {
   const HistoryBody({super.key});
@@ -33,10 +34,13 @@ class HistoryBody extends StatelessWidget {
                   .map(
                     (e) => ResultModel(
                       diseaseName: e["diseaseName"],
-                      dateTime: DateFormat("dd-MM-yyyy")
-                          .format(DateTime.fromMillisecondsSinceEpoch(int.parse(
-                        e["dateTime"],
-                      ))),
+                      dateTime: DateFormat("dd-MM-yyyy").format(
+                        DateTime.fromMillisecondsSinceEpoch(
+                          int.parse(
+                            e["dateTime"],
+                          ),
+                        ),
+                      ),
                       imagePath: e["imagePath"],
                     ),
                   )
@@ -78,29 +82,31 @@ class HistoryBody extends StatelessWidget {
                 },
               );
             } else {
-              return Center(
-                child: Text(
-                  "No data found",
-                  style: appTextTheme.bodyLargeSemiBold,
-                ),
-              );
+              return const ShimmerEffect();
             }
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            const CircularProgressIndicator();
+            const ShimmerEffect();
           } else {
-            return Center(
-              child: Text(
-                "No data found",
-                style: appTextTheme.bodyLargeSemiBold,
-              ),
-            );
+            return const ShimmerEffect();
           }
           return Center(
-            child: Text(
-              "No data found",
-              style: appTextTheme.bodyLargeSemiBold,
-            ),
-          );
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/no_data.png",
+                height: 250.hp,
+                width: 250.wp,
+              ),
+              SizedBox(
+                height: 50.hp,
+              ),
+              Text(
+                LocaleKeys.noData.tr(),
+                style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 20.wp),
+              )
+            ],
+          ));
         },
       ),
     );

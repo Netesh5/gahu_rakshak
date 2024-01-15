@@ -60,11 +60,16 @@ class HistoryBody extends StatelessWidget {
                     ),
                     leading: Hero(
                       tag: "historyDetailImage$index",
-                      child: CustomCachedNetworkImage(
-                        fit: BoxFit.cover,
-                        url: item[index].imagePath,
-                        height: 100.hp,
-                        width: 100.wp,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: CustomCachedNetworkImage(
+                          fit: BoxFit.cover,
+                          url: item[index].imagePath,
+                          height: 100.hp,
+                          width: 100.wp,
+                        ),
                       ),
                     ),
                     onTap: () {

@@ -37,6 +37,14 @@ class CustomCachedNetworkImage extends StatelessWidget {
       width: width,
       color: color,
       alignment: alignment,
+      imageBuilder: (context, imageProvider) {
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
+          ),
+        );
+      },
       cacheManager: CustomCacheManager.instance,
       placeholder: (a, c) =>
           customPlaceHolder ??

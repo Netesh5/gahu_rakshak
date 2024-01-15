@@ -75,5 +75,10 @@
 	<string>This app need access your Gallery</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app need access your Camera</string>
+	<key>CFBundleLocalizations</key>	
+	<array>
+	<string>en</string>
+	<string>np</string>
+	</array>
 </dict>
 </plist>

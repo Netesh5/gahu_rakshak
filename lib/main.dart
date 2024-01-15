@@ -5,7 +5,7 @@ import 'package:gahurakshak/core/injector/injector.dart';
 import 'package:gahurakshak/core/routes/routes_generator.dart';
 import 'package:gahurakshak/core/theme/custom_theme.dart';
 import 'package:gahurakshak/firebase_options.dart';
-import 'package:gahurakshak/wrapper.dart';
+import 'package:gahurakshak/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,9 +38,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       onGenerateRoute: RouteGenerator.routeGenerator,
-      home: Wrapper(
-        userSharedPrefrences: DI.instance(),
-      ),
+      home: const SplashScreen(),
     );
   }
 }

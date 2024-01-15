@@ -57,6 +57,8 @@ class HistoryBody extends StatelessWidget {
                       tag: "historyDetailImage$index",
                       child: Image.network(
                         item[index].imagePath,
+                        cacheHeight: 300,
+                        cacheWidth: 400,
                       ),
                     ),
                     onTap: () {

@@ -72,6 +72,9 @@ class LocaleKeys {
   static const String switchLang = "profile.switchLang";
   static const String en = "profile.en";
   static const String np = "profile.np";
+  static const String doYouWantToLogOut = "profile.doYouWantToLogOut";
+  static const String yes = "profile.yes";
+  static const String no = "profile.no";
 
   //Result
   static const String similarImages = "result.similarImages";
@@ -79,4 +82,27 @@ class LocaleKeys {
   static const String recommendation = "result.recommendation";
   static const String medicine = "result.medicine";
   static const String noData = "result.noData";
+  static const String septoria = "disease.septoria";
+  static const String brownRust = "disease.brownRust";
+  static const String yellowRust = "disease.yellowRust";
+  static const String crownRootRust = "disease.crownRootRust";
+  static const String stripRust = "disease.stripRust";
+  static const String description = "disease.description";
+  static const String recommendations = "disease.recommendations";
+  static const String spetoriaDesc = "disease.spetoriaDesc";
+  static const String spetoriaRecommendation = "disease.spetoriaRecommendation";
+  static const String brownRustDesc = "disease.spetoriaRecommendation";
+  static const String brownRustRecommendation =
+      "disease.brownRustRecommendation";
+  static const String yellowRustDesc = "disease.yellowRustDesc";
+  static const String yellowRustRecommendation =
+      "disease.yellowRustRecommendation";
+  static const String crownRootRustDesc = "disease.crownRootRustDesc";
+  static const String crownRootRecommenadtion =
+      "disease.crownRootRecommenadtion";
+  static const String stripRustDesc = "disease.stripRustDesc";
+  static const String stripRustRecommendation =
+      "disease.stripRustRecommendation";
+  static const String leafRust = "disease.leafRust";
+  static const String leafRustRecommendation = "disease.leafRustRecommendation";
 }

@@ -17,7 +17,7 @@ class UserToken {
   }
 
   Future removeUser() async {
-    sp.clear();
+    sp.remove("token");
   }
 
   Future setPerferedLang(bool isPrefLangNp) async {
@@ -29,12 +29,12 @@ class UserToken {
     return lang!;
   }
 
-  Future setIsFirstTime(bool isFirstTime) async {
-    sp.setBool("isFirstTime", isFirstTime);
+  Future setIsFirstTime(bool? isFirstTime) async {
+    sp.setBool("isFirstTime", isFirstTime ?? true);
   }
 
-  Future<bool> getIsFirstTime() async {
+  Future<bool?> getIsFirstTime() async {
     bool? isFirstTime = sp.getBool("isFirstTime");
-    return isFirstTime ?? true;
+    return isFirstTime;
   }
 }

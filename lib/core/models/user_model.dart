@@ -28,7 +28,7 @@ class UserModel {
     return UserModel(
       displayName: map['displayName'] as String,
       email: map['email'] as String,
-      photoUrl: map['photoUrl'] as String,
+      photoUrl: map['photoUrl'] ?? "",
       uid: map['uid'] as String,
       token: map['token'] as String,
     );

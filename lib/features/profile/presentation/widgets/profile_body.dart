@@ -1,7 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/dialogs/decision_dialog.dart';
 import 'package:gahurakshak/core/models/user_model.dart';
 import 'package:gahurakshak/core/shared_prefrences/user_shared_prefrences.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
@@ -11,6 +14,8 @@ import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/core/widgets/buttons/custom_outline_button.dart';
 import 'package:gahurakshak/features/auth/data/respository/auth_repo.dart';
 import 'package:provider/provider.dart';
+
+bool isPrefLangNP = false;
 
 class ProfileBody extends StatefulWidget {
   const ProfileBody({
@@ -25,7 +30,7 @@ class ProfileBody extends StatefulWidget {
 class _ProfileBodyState extends State<ProfileBody> {
   final controller = TextEditingController();
   UserModel? userModel;
-  bool? isPrefLangNP;
+
   @override
   void initState() {
     getUser();
@@ -61,7 +66,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 children: [
                   CircleAvatar(
                     radius: 35.wp,
-                    backgroundImage: userModel?.photoUrl != null
+                    backgroundImage: userModel?.photoUrl != ""
                         ? NetworkImage(
                             userModel?.photoUrl ?? "",
                           )
@@ -111,13 +116,15 @@ class _ProfileBodyState extends State<ProfileBody> {
                     ),
                     Switch.adaptive(
                       activeColor: AppColors.goldenColor,
-                      value: isPrefLangNP!,
-                      onChanged: (value) {
+                      value: isPrefLangNP,
+                      onChanged: (value) async {
                         isPrefLangNP = value;
-                        if (value) {
-                          context.setLocale(
-                            const Locale("ne", "NE"),
-                          );
+                        if (isPrefLangNP) {
+                          await widget.userToken.setPerferedLang(true);
+                          context.setLocale(const Locale("ne", "NE"));
+                        } else {
+                          await widget.userToken.setPerferedLang(false);
+                          context.setLocale(const Locale("en", "US"));
                         }
                         setState(() {});
                       },
@@ -133,7 +140,13 @@ class _ProfileBodyState extends State<ProfileBody> {
               CustomOutlineButton(
                 title: LocaleKeys.logOut.tr(),
                 onPressed: () async {
-                  await context.read<AuthRepo>().signOut(context);
+                  showDecisionDialog(
+                    context: context,
+                    message: LocaleKeys.doYouWantToLogOut.tr(),
+                    onYesPressed: () {
+                      context.read<AuthRepo>().signOut(context);
+                    },
+                  );
                 },
               ),
               SizedBox(

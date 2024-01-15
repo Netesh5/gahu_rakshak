@@ -1,6 +1,7 @@
 class LoginWithAccountParam {
   String email;
   String password;
+
   LoginWithAccountParam({
     required this.email,
     required this.password,

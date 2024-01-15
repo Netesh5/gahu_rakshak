@@ -7,6 +7,7 @@ import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
+import 'package:gahurakshak/features/history/presentation/widgets/build_paragraph.dart';
 
 class ResultBody extends StatelessWidget {
   const ResultBody({super.key, required this.imagePath});
@@ -62,7 +63,6 @@ class ResultBody extends StatelessWidget {
                 height: 20.hp,
               ),
               Container(
-                height: 300.hp,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -78,6 +78,14 @@ class ResultBody extends StatelessWidget {
                         style: appTextTheme.bodyLargeSemiBold
                             .copyWith(fontSize: 20.hp),
                       ),
+                      SizedBox(
+                        height: 20.hp,
+                      ),
+                      Text(
+                        LocaleKeys.spetoriaDesc.tr(),
+                        style: appTextTheme.bodyLargeRegular
+                            .copyWith(fontSize: 20.hp),
+                      ),
                     ],
                   ),
                 ),
@@ -86,7 +94,6 @@ class ResultBody extends StatelessWidget {
                 height: 20.hp,
               ),
               Container(
-                height: 300.hp,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -102,6 +109,11 @@ class ResultBody extends StatelessWidget {
                         style: appTextTheme.bodyLargeSemiBold
                             .copyWith(fontSize: 20.hp),
                       ),
+                      SizedBox(
+                        height: 20.hp,
+                      ),
+                      buildParagraph(
+                          LocaleKeys.spetoriaRecommendation.tr(), appTextTheme)
                     ],
                   ),
                 ),
@@ -110,7 +122,6 @@ class ResultBody extends StatelessWidget {
                 height: 20.hp,
               ),
               Container(
-                height: 300.hp,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),

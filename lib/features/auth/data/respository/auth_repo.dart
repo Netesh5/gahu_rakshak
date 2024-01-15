@@ -38,10 +38,15 @@ class AuthRepo with ChangeNotifier {
     showLoadingDialog(context, true);
 
     try {
-      userCredential = await auth.createUserWithEmailAndPassword(
+      userCredential = await auth
+          .createUserWithEmailAndPassword(
         email: param.email.trim(),
         password: param.password.trim(),
-      );
+      )
+          .then((value) async {
+        await value.user?.updateDisplayName(param.fullname);
+        return value;
+      });
       final _ = await firestoreRepo
           .saveUserInfo(
         context: context,
@@ -87,9 +92,9 @@ class AuthRepo with ChangeNotifier {
             UserModel(
               displayName: value.user?.displayName ?? "",
               email: value.user?.email ?? "",
-              photoUrl: value.user?.photoURL ?? "",
               uid: value.user?.uid ?? "",
               token: value.user?.refreshToken ?? "",
+              photoUrl: "",
             ),
           );
           showLoadingDialog(context, false);

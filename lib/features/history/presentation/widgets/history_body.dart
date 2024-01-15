@@ -10,6 +10,7 @@ import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/history/data/repository/fetch_result_detail.dart';
+import 'package:gahurakshak/features/history/presentation/widgets/no_data_widget.dart';
 import 'package:gahurakshak/features/result/data/models/result_model.dart';
 import 'package:gahurakshak/shimmer.dart';
 
@@ -87,31 +88,14 @@ class HistoryBody extends StatelessWidget {
                 },
               );
             } else {
-              return const ShimmerEffect();
+              return const NoDataWidget();
             }
           } else if (snapshot.connectionState == ConnectionState.waiting) {
             const ShimmerEffect();
-          } else {
-            return const ShimmerEffect();
+          } else if (snapshot.connectionState == ConnectionState.done) {
+            return const NoDataWidget();
           }
-          return Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/images/no_data.png",
-                height: 250.hp,
-                width: 250.wp,
-              ),
-              SizedBox(
-                height: 50.hp,
-              ),
-              Text(
-                LocaleKeys.noData.tr(),
-                style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 20.wp),
-              )
-            ],
-          ));
+          return const NoDataWidget();
         },
       ),
     );

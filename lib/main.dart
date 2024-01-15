@@ -17,7 +17,7 @@ void main() async {
   );
   await DI.init();
 
-  isFirstTime = await UserToken(sp: DI.instance()).getIsFirstTime();
+  isFirstTime = await UserToken(sp: DI.instance()).getIsFirstTime() ?? true;
 
   runApp(
     EasyLocalization(

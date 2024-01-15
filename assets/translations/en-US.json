@@ -88,7 +88,10 @@
     "profile":{
         "switchLang":"Switch Language",
         "en":"En",
-        "np":"Np"
+        "np":"Np",
+        "doYouWantToLogOut":"Do you want to log out ?",
+        "yes":"Yes",
+        "no":"No"
     }  ,
     "result":{
         "similarImages":"Similar Images",

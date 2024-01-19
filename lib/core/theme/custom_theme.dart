@@ -67,6 +67,7 @@ class CustomTheme {
             horizontal: CustomTheme.pagePadding,
           ),
         ),
+        listTileTheme: const ListTileThemeData(horizontalTitleGap: 0),
         bottomSheetTheme: const BottomSheetThemeData(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(

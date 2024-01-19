@@ -24,7 +24,10 @@ class ImagePickerService with ChangeNotifier {
     this.file,
   });
   pickFromGallery(BuildContext context) async {
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    final XFile? image = await picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+    );
     if (image == null) return;
     file = image;
     showLoadingDialog(context, true);
@@ -54,7 +57,10 @@ class ImagePickerService with ChangeNotifier {
   }
 
   takeImageFromCamera(BuildContext context) async {
-    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+    final XFile? image = await picker.pickImage(
+      source: ImageSource.camera,
+      imageQuality: 50,
+    );
     if (image == null) return;
     file = image;
     showLoadingDialog(context, true);

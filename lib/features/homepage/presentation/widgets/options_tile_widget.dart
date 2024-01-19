@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/routes/routes.dart';
 
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
@@ -13,7 +14,8 @@ class OptionTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).extension<AppTextTheme>()!;
-    List<Map<String, Widget>> data = [
+
+    List<Map<String, dynamic>> data = [
       {
         "title": Text(
           LocaleKeys.fertilizerCalculator.tr(),
@@ -29,7 +31,7 @@ class OptionTileWidget extends StatelessWidget {
           size: 22.wp,
           color: AppColors.goldenColor,
         ),
-        // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
+        "onTap": Routes.fertilizerCalculator
       },
       {
         "title": Text(
@@ -46,42 +48,42 @@ class OptionTileWidget extends StatelessWidget {
           size: 22.wp,
           color: AppColors.goldenColor,
         ),
-        // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
+        "onTap": Routes.fertilizerCalculator,
       },
-      {
-        "title": Text(
-          LocaleKeys.cultivationTips.tr(),
-          style: appTextTheme.bodyLargeSemiBold,
-        ),
-        "icon": Icon(
-          LucideIcons.leaf,
-          size: 40.wp,
-          color: AppColors.goldenColor,
-        ),
-        "arrow": Icon(
-          LucideIcons.chevronRight,
-          size: 22.wp,
-          color: AppColors.goldenColor,
-        ),
-        // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
-      },
-      {
-        "title": Text(
-          LocaleKeys.petsAndDieaseAlert.tr(),
-          style: appTextTheme.bodyLargeSemiBold,
-        ),
-        "icon": Icon(
-          LucideIcons.shieldAlert,
-          size: 40.wp,
-          color: AppColors.goldenColor,
-        ),
-        "arrow": Icon(
-          LucideIcons.chevronRight,
-          size: 22.wp,
-          color: AppColors.goldenColor,
-        ),
-        // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
-      },
+      // {
+      //   "title": Text(
+      //     LocaleKeys.cultivationTips.tr(),
+      //     style: appTextTheme.bodyLargeSemiBold,
+      //   ),
+      //   "icon": Icon(
+      //     LucideIcons.leaf,
+      //     size: 40.wp,
+      //     color: AppColors.goldenColor,
+      //   ),
+      //   "arrow": Icon(
+      //     LucideIcons.chevronRight,
+      //     size: 22.wp,
+      //     color: AppColors.goldenColor,
+      //   ),
+      //   // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
+      // },
+      // {
+      //   "title": Text(
+      //     LocaleKeys.petsAndDieaseAlert.tr(),
+      //     style: appTextTheme.bodyLargeSemiBold,
+      //   ),
+      //   "icon": Icon(
+      //     LucideIcons.shieldAlert,
+      //     size: 40.wp,
+      //     color: AppColors.goldenColor,
+      //   ),
+      //   "arrow": Icon(
+      //     LucideIcons.chevronRight,
+      //     size: 22.wp,
+      //     color: AppColors.goldenColor,
+      //   ),
+      //   // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
+      // },
     ];
     return SliverAnimatedGrid(
         initialItemCount: data.length,
@@ -115,7 +117,7 @@ class OptionTileWidget extends StatelessWidget {
               ),
             ),
             onTap: () {
-              //  data[index]["onTap"];
+              Navigator.of(context).pushNamed(data[index]["onTap"]);
             },
           );
         });

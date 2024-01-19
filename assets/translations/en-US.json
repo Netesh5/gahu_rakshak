@@ -99,6 +99,27 @@
         "recommendation":"Recommendation",
         "medicine":"Medicine",
         "noData":"No data found"
+    },
+
+    "fertilizer":{
+        "nutrientQty":"Nutrient Quantity",
+        "n":"N",
+        "p":"P",
+        "k":"K",
+        "unit":"Unit",
+        "bigha":"Bigha",
+        "ropani":"Ropani",
+        "anna":"Anna",
+        "plotSize":"Plot Size",
+        "calculate":"calculate",
+        "chooseFertilizer":"Choose your fertilizer combination (recommended amount for one season) : ",
+        "dap":"DAP",
+        "mop":"MOP",
+        "urea":"Urea",
+        "ten26":"10-26-26",
+        "ssp":"SSP",
+        "viewDetail":"View Detail",
+        "kg":"KG"
     }
 
 }

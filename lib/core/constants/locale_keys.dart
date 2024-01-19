@@ -105,4 +105,24 @@ class LocaleKeys {
       "disease.stripRustRecommendation";
   static const String leafRust = "disease.leafRust";
   static const String leafRustRecommendation = "disease.leafRustRecommendation";
+
+  //fertilizerCalculator
+  static const String nutrientQty = "fertilizer.nutrientQty";
+  static const String n = "fertilizer.n";
+  static const String p = "fertilizer.p";
+  static const String k = "fertilizer.k";
+  static const String unit = "fertilizer.unit";
+  static const String bigha = "fertilizer.bigha";
+  static const String ropani = "fertilizer.ropani";
+  static const String anna = "fertilizer.anna";
+  static const String plotSize = "fertilizer.plotSize";
+  static const String calculate = "fertilizer.calculate";
+  static const String chooseFertilizer = "fertilizer.chooseFertilizer";
+  static const String dap = "fertilizer.dap";
+  static const String mop = "fertilizer.mop";
+  static const String urea = "fertilizer.urea";
+  static const String ten26 = "fertilizer.ten26";
+  static const String ssp = "fertilizer.ssp";
+  static const String viewDetail = "fertilizer.viewDetail";
+  static const String kg = "fertilizer.kg";
 }

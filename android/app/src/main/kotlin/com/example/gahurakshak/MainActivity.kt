@@ -1,4 +1,4 @@
-package com.example.gahurakshak
+package com.netesh.gahurakshak
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -130,4 +130,21 @@ class LocaleKeys {
 //Diseases
 
   static const String disease = "disease.disease";
+
+  //Medicine
+
+  static const String azoxystrobin = "medicine.azoxystrobin";
+  static const String payraclostrobin = "medicine.pyraclostrobin";
+  static const String propiconazole = "medicine.propiconazole";
+  static const String tebuconazole = "medicine.tebuconazole";
+  static const String triazoles = "medicine.triazoles";
+  static const String strobilurins = "medicine.strobilurins";
+  static const String trifloxystrobin = "medicine.trifloxystrobin";
+  static const String flutriafol = "medicine.flutriafol";
+  static const String triazolesT = "medicine.triazolesT";
+  static const String dmiFungicides = "medicine.dmiFungicides";
+  static const String fluxapyroxad = "medicine.fluxapyroxad";
+  static const String triazolesF = "medicine.triazolesF";
+  static const String strobilurinsT = "medicine.strobilurinsT";
+  static const String triazoleP = "medicine.triazoleP";
 }

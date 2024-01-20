@@ -51,47 +51,48 @@ class PetsAndDiseaseBody extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
-            itemCount: totalDiseases.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                child: Card(
-                  color: AppColors.grey.withOpacity(0.1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CachedNetworkImage(
-                          imageUrl: totalDiseases[index]["images"].first,
-                        ),
-                        SizedBox(
-                          height: 10.hp,
-                        ),
-                        Text(
-                          totalDiseases[index]["title"],
-                          style: appTextTheme.bodyLargeSemiBold,
-                        )
-                      ],
-                    ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+          itemCount: totalDiseases.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              child: Card(
+                color: AppColors.grey.withOpacity(0.1),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CachedNetworkImage(
+                        imageUrl: totalDiseases[index]["images"].first,
+                      ),
+                      SizedBox(
+                        height: 10.hp,
+                      ),
+                      Text(
+                        totalDiseases[index]["title"],
+                        style: appTextTheme.bodyLargeSemiBold,
+                      )
+                    ],
                   ),
                 ),
-                onTap: () {
-                  Navigator.of(context).pushNamed(
-                    Routes.diseasesDetail,
-                    arguments: DiseaseDetailParam(
-                      title: totalDiseases[index]["title"],
-                      diseaseDesc: totalDiseases[index]["desc"],
-                      images: totalDiseases[index]["images"],
-                    ),
-                  );
-                },
-              );
-            }),
+              ),
+              onTap: () {
+                Navigator.of(context).pushNamed(
+                  Routes.diseasesDetail,
+                  arguments: DiseaseDetailParam(
+                    title: totalDiseases[index]["title"],
+                    diseaseDesc: totalDiseases[index]["desc"],
+                    images: totalDiseases[index]["images"],
+                  ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

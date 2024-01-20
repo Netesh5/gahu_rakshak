@@ -35,7 +35,7 @@ class OptionTileWidget extends StatelessWidget {
       },
       {
         "title": Text(
-          LocaleKeys.petsAndDisease.tr(),
+          LocaleKeys.disease.tr(),
           style: appTextTheme.bodyLargeSemiBold,
         ),
         "icon": Icon(
@@ -50,40 +50,6 @@ class OptionTileWidget extends StatelessWidget {
         ),
         "onTap": Routes.diseases,
       },
-      // {
-      //   "title": Text(
-      //     LocaleKeys.cultivationTips.tr(),
-      //     style: appTextTheme.bodyLargeSemiBold,
-      //   ),
-      //   "icon": Icon(
-      //     LucideIcons.leaf,
-      //     size: 40.wp,
-      //     color: AppColors.goldenColor,
-      //   ),
-      //   "arrow": Icon(
-      //     LucideIcons.chevronRight,
-      //     size: 22.wp,
-      //     color: AppColors.goldenColor,
-      //   ),
-      //   // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
-      // },
-      // {
-      //   "title": Text(
-      //     LocaleKeys.petsAndDieaseAlert.tr(),
-      //     style: appTextTheme.bodyLargeSemiBold,
-      //   ),
-      //   "icon": Icon(
-      //     LucideIcons.shieldAlert,
-      //     size: 40.wp,
-      //     color: AppColors.goldenColor,
-      //   ),
-      //   "arrow": Icon(
-      //     LucideIcons.chevronRight,
-      //     size: 22.wp,
-      //     color: AppColors.goldenColor,
-      //   ),
-      //   // "onTap": Navigator.of(context).pushNamed(Routes.noroutes),
-      // },
     ];
     return SliverAnimatedGrid(
         initialItemCount: data.length,

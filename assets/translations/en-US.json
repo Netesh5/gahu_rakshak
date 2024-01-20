@@ -63,7 +63,7 @@
         "langSetSuccessfully":"Language set successfully"
     },
     "disease":{
-        "disease":"Disease",
+        "disease":"Diseases",
         "septoria":"Septoria",
         "brownRust":"Brown Rust",
         "yellowRust":"Yellow Rust",
@@ -122,6 +122,23 @@
         "ssp":"SSP",
         "viewDetail":"View Detail",
         "kg":"KG"
+    },
+
+    "medicine":{
+        "azoxystrobin":"Azoxystrobin",
+        "payraclostrobin":"Pyraclostrobin",
+        "propiconazole":"Propiconazole",
+        "tebuconazole":"Tebuconazole",
+        "triazoles":"Triazoles (e.g., Propiconazole)",
+        "strobilurins":"Strobilurins (e.g., Azoxystrobin)",
+        "trifloxystrobin":"Trifloxystrobin",
+        "flutriafol":"Flutriafol",
+        "triazolesT":"Triazoles (e.g., Tebuconazole)",
+        "dmiFungicides":"DMI fungicides (e.g., Propiconazole)",
+        "fluxapyroxad":"Fluxapyroxad",
+        "triazolesF":"Triazoles (e.g., Flutriafol)",
+        "strobilurinsT":"Strobilurins (e.g., Trifloxystrobin)",
+        "triazoleP":"Triazoles (e.g., Prothioconazole)"
     }
 
 

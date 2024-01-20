@@ -15,9 +15,6 @@ import 'package:gahurakshak/features/result/data/models/result_model.dart';
 class HistoryDetailBody extends StatelessWidget {
   const HistoryDetailBody({super.key, required this.model});
   final ResultModel model;
-  // int colonIndex = text.indexOf(':');
-  //   String title = text.substring(0, colonIndex + 1);
-  //   String description = text.substring(colonIndex + 1).trim();
 
   @override
   Widget build(BuildContext context) {

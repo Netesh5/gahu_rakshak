@@ -48,7 +48,7 @@ class OptionTileWidget extends StatelessWidget {
           size: 22.wp,
           color: AppColors.goldenColor,
         ),
-        "onTap": Routes.fertilizerCalculator,
+        "onTap": Routes.diseases,
       },
       // {
       //   "title": Text(

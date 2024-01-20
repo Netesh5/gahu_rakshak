@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
+import 'package:gahurakshak/core/constants/similar_images.dart';
 import 'package:gahurakshak/core/images/custom_network_image.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
@@ -54,16 +56,13 @@ class HistoryDetailBody extends StatelessWidget {
               ),
               CarouselSlider(
                 items: List.generate(
-                  5,
+                  septoriaImg.length,
                   (index) {
-                    return Image.network(
-                      model.imagePath,
-                      height: 200.hp,
-                    );
+                    return CachedNetworkImage(imageUrl: septoriaImg[index]);
                   },
                 ),
                 options: CarouselOptions(
-                  viewportFraction: 0.7,
+                  viewportFraction: 0.85,
                 ),
               ),
               SizedBox(

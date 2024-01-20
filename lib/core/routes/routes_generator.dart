@@ -8,6 +8,9 @@ import 'package:gahurakshak/features/dashboard/presentation/pages/dashboard_view
 import 'package:gahurakshak/features/fertilizer_calculator/presentation/pages/fertilizer_calculator_view.dart';
 import 'package:gahurakshak/features/history/presentation/pages/history_detail_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
+import 'package:gahurakshak/features/pets_diseases/data/models/disease_detail_param.dart';
+import 'package:gahurakshak/features/pets_diseases/presentation/pages/disease_detail_view.dart';
+import 'package:gahurakshak/features/pets_diseases/presentation/pages/pets_disease_view.dart';
 import 'package:gahurakshak/features/profile/presentation/pages/profile_view.dart';
 import 'package:gahurakshak/features/result/data/models/result_model.dart';
 import 'package:gahurakshak/features/result/presentation/pages/result_view.dart';
@@ -62,6 +65,17 @@ class RouteGenerator {
       case Routes.fertilizerCalculator:
         return PageTransition(
           child: const FertilizerCalculatorView(),
+          type: PageTransitionType.fade,
+        );
+      case Routes.diseases:
+        return PageTransition(
+          child: const PetsAndDiseasesView(),
+          type: PageTransitionType.fade,
+        );
+      case Routes.diseasesDetail:
+        return PageTransition(
+          child:
+              DiseaseDetailView(param: setting.arguments as DiseaseDetailParam),
           type: PageTransitionType.fade,
         );
 

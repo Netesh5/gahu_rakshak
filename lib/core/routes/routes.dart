@@ -9,4 +9,6 @@ class Routes {
   static const String dashboard = "/dashboard";
   static const String result = "/result";
   static const String fertilizerCalculator = "/fertilizerCalculator";
+  static const String diseases = "/diseases";
+  static const String diseasesDetail = "/diseasesDetail";
 }

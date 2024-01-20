@@ -1,0 +1,6 @@
+Brown_rust
+Healthy
+Wheat___Yellow_Rust
+leaf_rust
+septoria
+stripe_rust

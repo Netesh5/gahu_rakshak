@@ -6,6 +6,7 @@ import 'package:gahurakshak/core/images/custom_network_image.dart';
 import 'package:gahurakshak/core/injector/injector.dart';
 
 import 'package:gahurakshak/core/routes/routes.dart';
+import 'package:gahurakshak/core/services/result_service.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
@@ -74,15 +75,20 @@ class HistoryBody extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      Navigator.of(context).pushNamed(
-                        Routes.historyDetail,
-                        arguments: ResultModel(
-                          diseaseName: item[index].diseaseName,
-                          dateTime: item[index].dateTime,
-                          imagePath: item[index].imagePath,
-                          index: index,
-                        ),
-                      );
+                      Navigator.of(context).pushNamed(Routes.historyDetail,
+                          arguments: showResultInHistory(
+                            item[index].diseaseName,
+                            item[index].dateTime,
+                            item[index].imagePath,
+                            index,
+                          )
+                          //  ResultModel(
+                          //   diseaseName: item[index].diseaseName,
+                          //   dateTime: item[index].dateTime,
+                          //   imagePath: item[index].imagePath,
+                          //   index: index,
+                          // ),
+                          );
                     },
                   );
                 },

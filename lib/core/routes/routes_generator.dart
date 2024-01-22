@@ -59,7 +59,9 @@ class RouteGenerator {
         );
       case Routes.result:
         return PageTransition(
-          child: ResultView(imagePath: setting.arguments as String),
+          child: ResultView(
+            param: setting.arguments as ResultModel,
+          ),
           type: PageTransitionType.fade,
         );
       case Routes.fertilizerCalculator:

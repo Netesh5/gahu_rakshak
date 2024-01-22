@@ -12,7 +12,20 @@
           "package_name": "com.netesh.gahurakshak"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "456854987909-p5cgjghfmek76hugesbjb9er7m1hdmrj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.netesh.gahurakshak",
+            "certificate_hash": "ba2702614ab4d7b1bdee1cafc453e79137a3a668"
+          }
+        },
+        {
+          "client_id": "456854987909-4obocnh6a04eu8pol2cof1764u5jd8jm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB0M5s3dRjiN7B46j7kzOL4ku6Z-_ohudo"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456854987909-4obocnh6a04eu8pol2cof1764u5jd8jm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "456854987909-t0vfj7u8bp3sor4rkp8v7ktl6uq3sdso.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gahurakshak"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +9,12 @@ import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/history/presentation/widgets/build_paragraph.dart';
+import 'package:gahurakshak/features/result/data/models/result_model.dart';
 
 class ResultBody extends StatelessWidget {
-  const ResultBody({super.key, required this.imagePath});
-  final String imagePath;
+  const ResultBody({super.key, required this.param});
+
+  final ResultModel param;
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).extension<AppTextTheme>()!;
@@ -25,16 +28,24 @@ class ResultBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                imagePath,
-                height: 300.hp,
+              CachedNetworkImage(
+                imageUrl: param.imagePath,
+                height: 300,
                 width: double.infinity,
               ),
               Text(
-                "Disease Name",
+                param.diseaseName.tr(),
                 style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 25.hp),
               ),
-              Text("${DateTime.now()}", style: appTextTheme.bodyLargeRegular),
+              Text(
+                  DateFormat("dd-MM-yyyy").format(
+                    DateTime.fromMillisecondsSinceEpoch(
+                      int.parse(
+                        param.dateTime,
+                      ),
+                    ),
+                  ),
+                  style: appTextTheme.bodyLargeRegular),
               SizedBox(
                 height: 40.hp,
               ),
@@ -47,16 +58,16 @@ class ResultBody extends StatelessWidget {
               ),
               CarouselSlider(
                 items: List.generate(
-                  5,
+                  param.similarImg!.length,
                   (index) {
-                    return Image.asset(
-                      "assets/images/Ghau Rakshak.png",
+                    return CachedNetworkImage(
+                      imageUrl: param.similarImg![index],
                       height: 200.hp,
                     );
                   },
                 ),
                 options: CarouselOptions(
-                  viewportFraction: 0.7,
+                  viewportFraction: 0.9,
                 ),
               ),
               SizedBox(
@@ -82,7 +93,7 @@ class ResultBody extends StatelessWidget {
                         height: 20.hp,
                       ),
                       Text(
-                        LocaleKeys.spetoriaDesc.tr(),
+                        param.description!,
                         style: appTextTheme.bodyLargeRegular
                             .copyWith(fontSize: 20.hp),
                       ),
@@ -112,8 +123,7 @@ class ResultBody extends StatelessWidget {
                       SizedBox(
                         height: 20.hp,
                       ),
-                      buildParagraph(
-                          LocaleKeys.spetoriaRecommendation.tr(), appTextTheme)
+                      buildParagraph(param.recommendation!, appTextTheme)
                     ],
                   ),
                 ),
@@ -135,6 +145,14 @@ class ResultBody extends StatelessWidget {
                       Text(
                         "Medicine",
                         style: appTextTheme.bodyLargeSemiBold
+                            .copyWith(fontSize: 20.hp),
+                      ),
+                      SizedBox(
+                        height: 20.hp,
+                      ),
+                      Text(
+                        param.medicine!,
+                        style: appTextTheme.bodyLargeRegular
                             .copyWith(fontSize: 20.hp),
                       ),
                     ],

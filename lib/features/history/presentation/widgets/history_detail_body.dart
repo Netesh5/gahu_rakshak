@@ -85,7 +85,7 @@ class HistoryDetailBody extends StatelessWidget {
                         height: 20.hp,
                       ),
                       Text(
-                        LocaleKeys.spetoriaDesc.tr(),
+                        model.description!,
                         style: appTextTheme.bodyLargeRegular
                             .copyWith(fontSize: 20.hp),
                       ),
@@ -115,8 +115,7 @@ class HistoryDetailBody extends StatelessWidget {
                       SizedBox(
                         height: 20.hp,
                       ),
-                      buildParagraph(
-                          LocaleKeys.spetoriaRecommendation.tr(), appTextTheme)
+                      buildParagraph(model.recommendation!, appTextTheme)
                     ],
                   ),
                 ),
@@ -137,6 +136,14 @@ class HistoryDetailBody extends StatelessWidget {
                     children: [
                       Text(
                         LocaleKeys.medicine.tr(),
+                        style: appTextTheme.bodyLargeSemiBold
+                            .copyWith(fontSize: 20.hp),
+                      ),
+                      SizedBox(
+                        height: 20.hp,
+                      ),
+                      Text(
+                        model.medicine!,
                         style: appTextTheme.bodyLargeSemiBold
                             .copyWith(fontSize: 20.hp),
                       ),

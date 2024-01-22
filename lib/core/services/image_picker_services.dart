@@ -4,9 +4,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:gahurakshak/core/services/result_service.dart';
 import 'package:gahurakshak/core/widgets/loading/loading_dialog.dart';
 import 'package:gahurakshak/features/homepage/data/repositories/upload_analyze_data_repo.dart';
 import 'package:gahurakshak/features/result/data/models/result_model.dart';
+import 'package:gahurakshak/features/tflite_model/wheat_disease_tfmodel.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:gahurakshak/core/routes/routes.dart';
@@ -38,18 +40,18 @@ class ImagePickerService with ChangeNotifier {
     )
         .then(
       (value) async {
+        final output = await WheatDieseaseTFModel().makePredictions(file!.path);
         await uploadAnalyzeDataRepo.uploadAnalyzeData(
           context: context,
-          param: ResultModel(
-            diseaseName: "Testing Disease",
-            dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
-            imagePath: value,
-          ),
+          param: checkResult(output, value),
         );
 
         Navigator.pop(context);
         Navigator.pop(context);
-        Navigator.of(context).pushNamed(Routes.result, arguments: file!.path);
+        Navigator.of(context).pushNamed(
+          Routes.result,
+          arguments: checkResult(output, value),
+        );
       },
     );
 
@@ -80,9 +82,13 @@ class ImagePickerService with ChangeNotifier {
           ),
         );
 
+        final output = await WheatDieseaseTFModel().makePredictions(file!.path);
         Navigator.pop(context);
         Navigator.pop(context);
-        Navigator.of(context).pushNamed(Routes.result, arguments: file!.path);
+        Navigator.of(context).pushNamed(
+          Routes.result,
+          arguments: checkResult(output, file!.path),
+        );
       },
     );
     notifyListeners();

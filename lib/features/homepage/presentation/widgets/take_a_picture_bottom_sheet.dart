@@ -45,14 +45,6 @@ class TakeAPictureBottomSheet extends StatelessWidget {
               ),
               onTap: () {
                 context.read<ImagePickerService>().pickFromGallery(context);
-                // showLoadingDialog(context, true);
-                // if (context.read<ImagePickerService>().file != null) {
-                //   //  showLoadingDialog(context, false);
-                //   Navigator.pushNamed(
-                //     context,
-                //     Routes.result,
-                //   );
-                // }
               },
             ),
             ListTile(

@@ -17,7 +17,7 @@ class WheatDieseaseTFModel {
       imageStd: 127.5,
     );
     debugPrint(output.toString());
-    return output;
+    return output?.first["label"];
   }
 
   disposeModel() {

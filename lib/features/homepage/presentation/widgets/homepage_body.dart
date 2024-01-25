@@ -6,7 +6,6 @@ import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/homepage/presentation/widgets/heal_crop_widget.dart';
 import 'package:gahurakshak/features/homepage/presentation/widgets/options_tile_widget.dart';
 import 'package:gahurakshak/features/location/data/fetch_loaction.dart';
-import 'package:gahurakshak/features/tflite_model/wheat_disease_tfmodel.dart';
 import 'package:gahurakshak/features/weather/data/models/current_weather_model.dart';
 
 import 'package:gahurakshak/features/weather/presentation/widgets/weather_body.dart';
@@ -25,8 +24,6 @@ class _HomePageBodyState extends State<HomePageBody> {
   @override
   initState() {
     fetchLocation();
-    WheatDieseaseTFModel().loadModel();
-
     super.initState();
   }
 

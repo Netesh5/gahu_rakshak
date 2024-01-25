@@ -88,6 +88,7 @@ class LocaleKeys {
   static const String crownRootRust = "disease.crownRootRust";
   static const String stripRust = "disease.stripRust";
   static const String leafRust = "disease.leafRust";
+  static const String healthy = "disease.healthy";
   static const String description = "disease.description";
   static const String recommendations = "disease.recommendations";
   static const String spetoriaDesc = "disease.spetoriaDesc";

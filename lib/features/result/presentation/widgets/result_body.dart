@@ -73,92 +73,97 @@ class ResultBody extends StatelessWidget {
               SizedBox(
                 height: 20.hp,
               ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: AppColors.grey.withOpacity(0.1),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.wp),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Cause of Disease",
-                        style: appTextTheme.bodyLargeSemiBold
-                            .copyWith(fontSize: 20.hp),
+              if (param.diseaseName.toLowerCase() != "healthy")
+                Column(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.grey.withOpacity(0.1),
                       ),
-                      SizedBox(
-                        height: 20.hp,
+                      child: Padding(
+                        padding: EdgeInsets.all(20.wp),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Cause of Disease",
+                              style: appTextTheme.bodyLargeSemiBold
+                                  .copyWith(fontSize: 20.hp),
+                            ),
+                            SizedBox(
+                              height: 20.hp,
+                            ),
+                            Text(
+                              param.description!,
+                              style: appTextTheme.bodyLargeRegular
+                                  .copyWith(fontSize: 20.hp),
+                            ),
+                          ],
+                        ),
                       ),
-                      Text(
-                        param.description!,
-                        style: appTextTheme.bodyLargeRegular
-                            .copyWith(fontSize: 20.hp),
+                    ),
+                    SizedBox(
+                      height: 20.hp,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.grey.withOpacity(0.1),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20.hp,
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: AppColors.grey.withOpacity(0.1),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.wp),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Recommendation",
-                        style: appTextTheme.bodyLargeSemiBold
-                            .copyWith(fontSize: 20.hp),
+                      child: Padding(
+                        padding: EdgeInsets.all(20.wp),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Recommendation",
+                              style: appTextTheme.bodyLargeSemiBold
+                                  .copyWith(fontSize: 20.hp),
+                            ),
+                            SizedBox(
+                              height: 20.hp,
+                            ),
+                            buildParagraph(param.recommendation!, appTextTheme)
+                          ],
+                        ),
                       ),
-                      SizedBox(
-                        height: 20.hp,
+                    ),
+                    SizedBox(
+                      height: 20.hp,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.grey.withOpacity(0.1),
                       ),
-                      buildParagraph(param.recommendation!, appTextTheme)
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20.hp,
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: AppColors.grey.withOpacity(0.1),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.wp),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Medicine",
-                        style: appTextTheme.bodyLargeSemiBold
-                            .copyWith(fontSize: 20.hp),
+                      child: Padding(
+                        padding: EdgeInsets.all(20.wp),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Medicine",
+                              style: appTextTheme.bodyLargeSemiBold
+                                  .copyWith(fontSize: 20.hp),
+                            ),
+                            SizedBox(
+                              height: 20.hp,
+                            ),
+                            Text(
+                              param.medicine!,
+                              style: appTextTheme.bodyLargeRegular
+                                  .copyWith(fontSize: 20.hp),
+                            ),
+                          ],
+                        ),
                       ),
-                      SizedBox(
-                        height: 20.hp,
-                      ),
-                      Text(
-                        param.medicine!,
-                        style: appTextTheme.bodyLargeRegular
-                            .copyWith(fontSize: 20.hp),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                    ),
+                  ],
+                )
             ],
           ),
         ),

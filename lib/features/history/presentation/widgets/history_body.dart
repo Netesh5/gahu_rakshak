@@ -51,6 +51,7 @@ class HistoryBody extends StatelessWidget {
                 itemCount: item.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    horizontalTitleGap: 20.wp,
                     title: Text(
                       item[index].diseaseName,
                       style: appTextTheme.bodyLargeSemiBold

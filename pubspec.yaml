@@ -60,7 +60,11 @@ dependencies:
   flutter_cache_manager: ^3.3.1
   country_flags: ^2.2.0
   selectable_box: ^1.0.8
+  image: ^3.3.0
+  path_provider: ^2.1.2
   flutter_tflite: ^1.0.1
+ 
+
 
 dev_dependencies:
   flutter_test:

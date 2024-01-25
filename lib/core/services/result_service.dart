@@ -21,9 +21,13 @@ ResultModel checkResult(String output, String imagePath) {
 
     case "Healthy":
       return ResultModel(
-        diseaseName: "No Disease Detected",
+        diseaseName: LocaleKeys.healthy.tr(),
         dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
         imagePath: imagePath,
+        description: "",
+        recommendation: "",
+        medicine: "",
+        similarImg: healthyImg,
       );
     case "Wheat___Yellow_Rust":
       return ResultModel(

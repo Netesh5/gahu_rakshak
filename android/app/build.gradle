@@ -59,8 +59,10 @@ android {
         }
     }
       aaptOptions {
-        noCompress 'tflite'
+        noCompress 'converted_model.tflite'
+        noCompress 'cnn_model.tflite'
         noCompress 'lite'
+        noCompress 'tflite'
     }
 }
 

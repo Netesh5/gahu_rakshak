@@ -200,10 +200,12 @@ class _FertilizerCalculatorBodyState extends State<FertilizerCalculatorBody> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       context.read<CalculateFertilizer>().calculateFertilizer(
-                          unit: unit.name,
-                          nitrogenValue: nController.text,
-                          phosphorusValue: pController.text,
-                          potassiumValue: kController.text);
+                            unit: unit.name,
+                            nitrogenValue: nController.text,
+                            phosphorusValue: pController.text,
+                            potassiumValue: kController.text,
+                            plotSize: plotController.text,
+                          );
                     }
                   },
                 ),

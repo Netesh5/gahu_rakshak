@@ -4,6 +4,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+
 import 'package:gahurakshak/core/services/result_service.dart';
 import 'package:gahurakshak/core/widgets/loading/loading_dialog.dart';
 import 'package:gahurakshak/features/homepage/data/repositories/upload_analyze_data_repo.dart';
@@ -13,6 +14,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/features/result/data/respository/upload_image.dart';
+import 'package:image/image.dart' as img;
 
 class ImagePickerService with ChangeNotifier {
   UploadImage uploadImage;
@@ -29,6 +31,8 @@ class ImagePickerService with ChangeNotifier {
     final XFile? image = await picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 50,
+      maxHeight: 256,
+      maxWidth: 256,
     );
     if (image == null) return;
     file = image;
@@ -40,7 +44,17 @@ class ImagePickerService with ChangeNotifier {
     )
         .then(
       (value) async {
+        // img.Image? oriImage = img.decodeJpg(await file!.readAsBytes());
+        // img.Image resizedImage =
+        //     img.copyResize(oriImage!, height: 256, width: 256);
+
+        // final newFile = img.encodeJpg(resizedImage);
+
+        // File wheatImage = File(file!.path);
+        // wheatImage = await wheatImage.writeAsBytes(newFile);
+
         final output = await WheatDieseaseTFModel().makePredictions(file!.path);
+
         await uploadAnalyzeDataRepo.uploadAnalyzeData(
           context: context,
           param: checkResult(output, value),
@@ -81,14 +95,17 @@ class ImagePickerService with ChangeNotifier {
             imagePath: value,
           ),
         );
+        final bytes = await file!.readAsBytes();
 
-        final output = await WheatDieseaseTFModel().makePredictions(file!.path);
-        Navigator.pop(context);
-        Navigator.pop(context);
-        Navigator.of(context).pushNamed(
-          Routes.result,
-          arguments: checkResult(output, file!.path),
-        );
+        // final output = await WheatDieseaseTFModel()
+        //     .makePredictions(img.decodeImage(bytes) as img.Image);
+        // // final output = await WheatDieseaseTFModel().makePredictions(file!.path);
+        // Navigator.pop(context);
+        // Navigator.pop(context);
+        // Navigator.of(context).pushNamed(
+        //   Routes.result,
+        //   arguments: checkResult(output, file!.path),
+        // );
       },
     );
     notifyListeners();

@@ -9,24 +9,40 @@ class CalculateFertilizer with ChangeNotifier {
     required String nitrogenValue,
     required String phosphorusValue,
     required String potassiumValue,
+    required String plotSize,
   }) {
     switch (unit) {
       case "bigha":
-        nValue = (num.parse(nitrogenValue) / 46) * 100 * 3.95;
-        pValue = (num.parse(phosphorusValue) / 16) * 100 * 3.95;
-        kValue = (num.parse(potassiumValue) / 60) * 100 * 3.95;
+        nValue =
+            (num.parse(nitrogenValue) / 46) * 100 * 3.95 * num.parse(plotSize);
+        pValue = (num.parse(phosphorusValue) / 16) *
+            100 *
+            3.95 *
+            num.parse(plotSize);
+        kValue =
+            (num.parse(potassiumValue) / 60) * 100 * 3.95 * num.parse(plotSize);
         notifyListeners();
         return;
       case "ropani":
-        nValue = (num.parse(nitrogenValue) / 46) * 100 * 19.65;
-        pValue = (num.parse(phosphorusValue) / 16) * 100 * 19.65;
-        kValue = (num.parse(potassiumValue) / 60) * 100 * 19.65;
+        nValue =
+            (num.parse(nitrogenValue) / 46) * 100 * 19.65 * num.parse(plotSize);
+        pValue = (num.parse(phosphorusValue) / 16) *
+            100 *
+            19.65 *
+            num.parse(plotSize);
+        kValue = (num.parse(potassiumValue) / 60) *
+            100 *
+            19.65 *
+            num.parse(plotSize);
         notifyListeners();
         return;
       case "anna":
-        nValue = (num.parse(nitrogenValue) / 46) * 100 * 2;
-        pValue = (num.parse(phosphorusValue) / 16) * 100 * 2;
-        kValue = (num.parse(potassiumValue) / 60) * 100 * 2;
+        nValue =
+            (num.parse(nitrogenValue) / 46) * 100 * 2 * num.parse(plotSize);
+        pValue =
+            (num.parse(phosphorusValue) / 16) * 100 * 2 * num.parse(plotSize);
+        kValue =
+            (num.parse(potassiumValue) / 60) * 100 * 2 * num.parse(plotSize);
         notifyListeners();
         return;
     }

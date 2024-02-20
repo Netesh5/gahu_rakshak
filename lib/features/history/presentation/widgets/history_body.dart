@@ -30,7 +30,7 @@ class HistoryBody extends StatelessWidget {
         stream: FetchResultDetail(userToken: DI.instance()).fetchResultDetail(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
-            if (snapshot.hasData) {
+            if (snapshot.data!.docs.isNotEmpty) {
               List<QueryDocumentSnapshot> data = snapshot.data!.docs;
               List<ResultModel> item = data
                   .map(
@@ -98,7 +98,7 @@ class HistoryBody extends StatelessWidget {
               return const NoDataWidget();
             }
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            const ShimmerEffect();
+            const NoDataWidget();
           } else if (snapshot.connectionState == ConnectionState.done) {
             return const NoDataWidget();
           }

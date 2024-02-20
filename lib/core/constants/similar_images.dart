@@ -34,7 +34,8 @@ List<String> healthyImg = [
 ];
 
 List<String> leafRust = [
-  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2F00091.png?alt=media&token=153176db-a571-4d3d-91fa-458d17f67573",
   "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2F00351.png?alt=media&token=c12aada3-1fe8-465e-ab62-0f992f5a80e5",
   "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2F03381.png?alt=media&token=2c3066de-0ca5-482c-8a37-9be9bce46c76",
+  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2Fleafrust.jpeg?alt=media&token=bcf54a3b-6f98-402c-8ccd-7abdaad2988f",
+  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2Fleaf%20rust%204.jpeg?alt=media&token=8eb87f40-82c3-41bf-9449-8a66ba6b6c6c",
 ];

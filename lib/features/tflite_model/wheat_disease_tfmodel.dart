@@ -9,7 +9,7 @@ class WheatDieseaseTFModel {
   loadModel() async {
     disposeModel();
     final res = await Tflite.loadModel(
-      model: "assets/tflite/converted_model.tflite",
+      model: "assets/tflite/wheatdisease.tflite",
       labels: "assets/tflite/label.txt",
     );
     debugPrint(res);

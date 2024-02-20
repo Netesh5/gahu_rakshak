@@ -13,7 +13,7 @@ ResultModel checkResult(String output, String imagePath) {
         dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
         imagePath: imagePath,
         description: LocaleKeys.brownRustDesc.tr(),
-        recommendation: LocaleKeys.recommendation.tr(),
+        recommendation: LocaleKeys.brownRustRecommendation.tr(),
         medicine:
             "${LocaleKeys.triazoleP.tr()}\n${LocaleKeys.strobilurins.tr()}\n${LocaleKeys.trifloxystrobin.tr()}\n${LocaleKeys.flutriafol.tr()}",
         similarImg: brownRustImg,

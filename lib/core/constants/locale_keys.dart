@@ -148,4 +148,8 @@ class LocaleKeys {
   static const String triazolesF = "medicine.triazolesF";
   static const String strobilurinsT = "medicine.strobilurinsT";
   static const String triazoleP = "medicine.triazoleP";
+
+  //Dashboard
+
+  static const String dashBoard = "dashboard";
 }

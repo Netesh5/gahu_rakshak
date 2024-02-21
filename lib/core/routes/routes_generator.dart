@@ -4,7 +4,7 @@ import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/forget_password_view.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/signup_view.dart';
-import 'package:gahurakshak/features/dashboard/presentation/pages/dashboard_view.dart';
+import 'package:gahurakshak/features/board/presentation/pages/board_view.dart';
 import 'package:gahurakshak/features/fertilizer_calculator/presentation/pages/fertilizer_calculator_view.dart';
 import 'package:gahurakshak/features/history/presentation/pages/history_detail_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
@@ -52,9 +52,9 @@ class RouteGenerator {
           ),
           type: PageTransitionType.fade,
         );
-      case Routes.dashboard:
+      case Routes.board:
         return PageTransition(
-          child: const DashboardView(),
+          child: const BoardView(),
           type: PageTransitionType.fade,
         );
       case Routes.result:

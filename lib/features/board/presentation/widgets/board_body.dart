@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gahurakshak/features/dashboard/presentation/widgets/bottom_nav_bar.dart';
+import 'package:gahurakshak/features/board/presentation/widgets/bottom_nav_bar.dart';
 import 'package:gahurakshak/features/history/presentation/pages/history_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
 import 'package:gahurakshak/features/profile/presentation/pages/profile_view.dart';
 
-class DashboardBody extends StatefulWidget {
-  const DashboardBody({super.key});
+class BoardBody extends StatefulWidget {
+  const BoardBody({super.key});
 
   @override
-  State<DashboardBody> createState() => _DashboardBodyState();
+  State<BoardBody> createState() => _BoardBodyState();
 }
 
-class _DashboardBodyState extends State<DashboardBody> {
+class _BoardBodyState extends State<BoardBody> {
   final pageController = PageController(initialPage: 0);
 
   int currentPage = 0;

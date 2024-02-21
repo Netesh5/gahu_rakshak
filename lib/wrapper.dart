@@ -3,7 +3,7 @@ import 'package:gahurakshak/core/models/user_model.dart';
 
 import 'package:gahurakshak/core/shared_prefrences/user_shared_prefrences.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
-import 'package:gahurakshak/features/dashboard/presentation/pages/dashboard_view.dart';
+import 'package:gahurakshak/features/board/presentation/pages/board_view.dart';
 import 'package:gahurakshak/features/select_langauage/pages/select_language_view.dart';
 import 'package:gahurakshak/main.dart';
 
@@ -39,7 +39,7 @@ class _WrapperState extends State<Wrapper> {
       return const SelectLanguageView();
     } else {
       if (token?.uid != null) {
-        return const DashboardView();
+        return const BoardView();
       } else {
         return const LoginView();
       }

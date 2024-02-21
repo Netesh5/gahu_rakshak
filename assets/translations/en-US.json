@@ -140,6 +140,10 @@
         "triazolesF":"Triazoles (e.g., Flutriafol)",
         "strobilurinsT":"Strobilurins (e.g., Trifloxystrobin)",
         "triazoleP":"Triazoles (e.g., Prothioconazole)"
+    },
+
+    "dashboard":{
+"dashboard":"DashBoard"
     }
 
 

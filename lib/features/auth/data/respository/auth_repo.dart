@@ -104,7 +104,7 @@ class AuthRepo with ChangeNotifier {
             message: LocaleKeys.loggedInSuccessfully.tr(),
           );
           Navigator.of(context)
-              .pushNamedAndRemoveUntil(Routes.dashboard, (route) => false);
+              .pushNamedAndRemoveUntil(Routes.board, (route) => false);
           return value;
         },
       );
@@ -162,7 +162,7 @@ class AuthRepo with ChangeNotifier {
             showLoadingDialog(context, false);
             Navigator.pop(context);
             Navigator.of(context)
-                .pushNamedAndRemoveUntil(Routes.dashboard, (route) => false);
+                .pushNamedAndRemoveUntil(Routes.board, (route) => false);
             SnackBarUtils.showSuccessMessage(
               context: context,
               message: LocaleKeys.loggedInSuccessfully.tr(),

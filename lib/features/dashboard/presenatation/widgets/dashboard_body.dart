@@ -49,7 +49,25 @@ class DashBoardBody extends StatelessWidget {
                   Routes.modelDetail,
                   arguments: MLDataModel(
                     title: "Model 1",
-                    modelData: [],
+                    modelData: [
+                      EchopsWithAccuracyModel(echops: 0, accuracy: 0.44),
+                      EchopsWithAccuracyModel(echops: 1, accuracy: 0.44),
+                      EchopsWithAccuracyModel(echops: 2, accuracy: 0.48),
+                      EchopsWithAccuracyModel(echops: 3, accuracy: 0.44),
+                      EchopsWithAccuracyModel(echops: 4, accuracy: 0.44),
+                      EchopsWithAccuracyModel(echops: 5, accuracy: 0.40),
+                      EchopsWithAccuracyModel(echops: 6, accuracy: 0.30),
+                      EchopsWithAccuracyModel(echops: 7, accuracy: 0.44),
+                      EchopsWithAccuracyModel(echops: 8, accuracy: 0.50),
+                      EchopsWithAccuracyModel(echops: 9, accuracy: 0.55),
+                      EchopsWithAccuracyModel(echops: 10, accuracy: 0.60),
+                      EchopsWithAccuracyModel(echops: 11, accuracy: 0.50),
+                      EchopsWithAccuracyModel(echops: 12, accuracy: 0.60),
+                      EchopsWithAccuracyModel(echops: 13, accuracy: 0.70),
+                      EchopsWithAccuracyModel(echops: 14, accuracy: 0.66),
+                      EchopsWithAccuracyModel(echops: 15, accuracy: 0.86),
+                    ],
+                    chartTitle: "Train vs Validation Loss",
                   ),
                 );
               },
@@ -61,15 +79,19 @@ class DashBoardBody extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(12),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      SizedBox(
+                        height: 20.hp,
+                      ),
                       const Icon(
-                        LucideIcons.scatterChart,
+                        LucideIcons.lineChart,
                         color: AppColors.goldenColor,
-                        size: 70,
+                        size: 50,
                       ),
                       SizedBox(
-                        height: 40.hp,
+                        height: 50.hp,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

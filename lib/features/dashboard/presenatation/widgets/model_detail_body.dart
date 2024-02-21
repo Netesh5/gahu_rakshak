@@ -29,21 +29,30 @@ class ModelDetailBody extends StatelessWidget {
                   text: data.chartTitle,
                   textStyle: appTextTheme.bodyLargeSemiBold,
                 ),
-                primaryXAxis: const NumericAxis(
+                primaryXAxis: NumericAxis(
                   minimum: 0,
                   maximum: 50,
+                  labelStyle: appTextTheme.bodyOddNormal,
                 ),
-                primaryYAxis: const NumericAxis(
+                primaryYAxis: NumericAxis(
                   minimum: 0,
                   maximum: 1,
+                  labelStyle: appTextTheme.bodyOddNormal,
                 ),
                 series: [
                   LineSeries<EchopsWithAccuracyModel, double>(
-                    // xAxisName: "Accuracy",
-                    // yAxisName: "Epoch",
                     animationDuration: 3000,
                     color: AppColors.goldenColor,
-                    dataSource: data.modelData,
+                    dataSource: data.modelData[index]["train"],
+                    xValueMapper: (EchopsWithAccuracyModel model, _) =>
+                        double.parse(model.echops.toString()),
+                    yValueMapper: (EchopsWithAccuracyModel model, _) =>
+                        model.accuracy,
+                  ),
+                  LineSeries<EchopsWithAccuracyModel, double>(
+                    animationDuration: 3000,
+                    color: AppColors.white,
+                    dataSource: data.modelData[index]["validation"],
                     xValueMapper: (EchopsWithAccuracyModel model, _) =>
                         double.parse(model.echops.toString()),
                     yValueMapper: (EchopsWithAccuracyModel model, _) =>
@@ -59,7 +68,7 @@ class ModelDetailBody extends StatelessWidget {
             height: 20.hp,
           );
         },
-        itemCount: 1,
+        itemCount: data.modelData.length,
       ),
     );
   }

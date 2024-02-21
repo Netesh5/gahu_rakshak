@@ -25,6 +25,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
       label: LocaleKeys.home.tr(),
     ),
     BottomNavigationBarItem(
+      icon:
+          const Icon(LucideIcons.layoutDashboard, color: AppColors.goldenColor),
+      tooltip: LocaleKeys.dashBoard.tr(),
+      label: LocaleKeys.dashBoard.tr(),
+    ),
+    BottomNavigationBarItem(
       icon: const Icon(LucideIcons.history, color: AppColors.goldenColor),
       tooltip: LocaleKeys.history.tr(),
       label: LocaleKeys.history.tr(),

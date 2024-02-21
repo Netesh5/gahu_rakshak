@@ -151,5 +151,5 @@ class LocaleKeys {
 
   //Dashboard
 
-  static const String dashBoard = "dashboard";
+  static const String dashBoard = "dashboard.dashboard";
 }

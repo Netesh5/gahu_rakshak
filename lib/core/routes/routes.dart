@@ -12,4 +12,5 @@ class Routes {
   static const String diseases = "/diseases";
   static const String diseasesDetail = "/diseasesDetail";
   static const String dashboard = "/dashboard";
+  static const String modelDetail = "/modelDetail";
 }

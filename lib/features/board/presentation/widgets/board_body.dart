@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/features/board/presentation/widgets/bottom_nav_bar.dart';
+import 'package:gahurakshak/features/dashboard/presenatation/pages/dashboard_view.dart';
 import 'package:gahurakshak/features/history/presentation/pages/history_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
 import 'package:gahurakshak/features/profile/presentation/pages/profile_view.dart';
@@ -28,6 +29,7 @@ class _BoardBodyState extends State<BoardBody> {
         physics: const NeverScrollableScrollPhysics(),
         children: const [
           HomePageView(),
+          DashBoardView(),
           HistoryView(),
           ProfileView(),
         ],

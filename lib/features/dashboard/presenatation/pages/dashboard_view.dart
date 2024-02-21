@@ -6,6 +6,6 @@ class DashBoardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DashBoardBody();
+    return DashBoardBody();
   }
 }

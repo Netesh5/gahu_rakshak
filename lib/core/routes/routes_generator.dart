@@ -5,6 +5,8 @@ import 'package:gahurakshak/features/auth/presentation/pages/forget_password_vie
 import 'package:gahurakshak/features/auth/presentation/pages/login_view.dart';
 import 'package:gahurakshak/features/auth/presentation/pages/signup_view.dart';
 import 'package:gahurakshak/features/board/presentation/pages/board_view.dart';
+import 'package:gahurakshak/features/dashboard/presenatation/data/models/ml_data_models.dart';
+import 'package:gahurakshak/features/dashboard/presenatation/pages/model_detail_view.dart';
 import 'package:gahurakshak/features/fertilizer_calculator/presentation/pages/fertilizer_calculator_view.dart';
 import 'package:gahurakshak/features/history/presentation/pages/history_detail_view.dart';
 import 'package:gahurakshak/features/homepage/presentation/pages/homepage_view.dart';
@@ -78,6 +80,11 @@ class RouteGenerator {
         return PageTransition(
           child:
               DiseaseDetailView(param: setting.arguments as DiseaseDetailParam),
+          type: PageTransitionType.fade,
+        );
+      case Routes.modelDetail:
+        return PageTransition(
+          child: ModelDetailView(dataModel: setting.arguments as MLDataModel),
           type: PageTransitionType.fade,
         );
 

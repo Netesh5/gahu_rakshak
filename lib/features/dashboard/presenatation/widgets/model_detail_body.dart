@@ -29,6 +29,14 @@ class ModelDetailBody extends StatelessWidget {
                   text: data.chartTitle,
                   textStyle: appTextTheme.bodyLargeSemiBold,
                 ),
+                legend: Legend(
+                    isVisible: true,
+                    offset: const Offset(
+                      100,
+                      200,
+                    ),
+                    toggleSeriesVisibility: true,
+                    textStyle: appTextTheme.bodyLargeRegular),
                 primaryXAxis: NumericAxis(
                   minimum: 0,
                   maximum: 50,
@@ -47,6 +55,7 @@ class ModelDetailBody extends StatelessWidget {
                 ),
                 series: [
                   LineSeries<EchopsWithAccuracyModel, double>(
+                    name: "Train",
                     animationDuration: 3000,
                     color: AppColors.goldenColor,
                     dataSource: data.modelData[index]["train"],
@@ -56,6 +65,7 @@ class ModelDetailBody extends StatelessWidget {
                         model.accuracy,
                   ),
                   LineSeries<EchopsWithAccuracyModel, double>(
+                    name: "Validation",
                     animationDuration: 3000,
                     color: AppColors.white,
                     dataSource: data.modelData[index]["validation"],

@@ -33,11 +33,17 @@ class ModelDetailBody extends StatelessWidget {
                   minimum: 0,
                   maximum: 50,
                   labelStyle: appTextTheme.bodyOddNormal,
+                  majorGridLines: MajorGridLines(
+                    color: AppColors.grey.withOpacity(0.5),
+                  ),
                 ),
                 primaryYAxis: NumericAxis(
                   minimum: 0,
                   maximum: 1,
                   labelStyle: appTextTheme.bodyOddNormal,
+                  majorGridLines: MajorGridLines(
+                    color: AppColors.grey.withOpacity(0.5),
+                  ),
                 ),
                 series: [
                   LineSeries<EchopsWithAccuracyModel, double>(

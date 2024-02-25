@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fl_heatmap/fl_heatmap.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
 import 'package:gahurakshak/core/enum/charts_type_enums.dart';
@@ -21,7 +22,7 @@ class DashBoardBody extends StatelessWidget {
         chartType: ChartType.lineChart,
         label1: "train",
         label2: "validation",
-        modelData: [
+        lineChartmodelData: [
           //Train
           {
             "train": [
@@ -62,6 +63,21 @@ class DashBoardBody extends StatelessWidget {
             ]
           },
         ],
+        confusionMatrixModeldata: [
+          const HeatmapItem(
+            value: 6,
+          ),
+          const HeatmapItem(
+            value: 6,
+          ),
+          const HeatmapItem(
+            value: 6,
+          ),
+          const HeatmapItem(
+            value: 6,
+          ),
+        ],
+        confusionMatrixTitle: "Confusion Matrix ",
         chartTitle: "Train vs Validation Loss",
       ),
     },

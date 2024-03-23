@@ -62,12 +62,12 @@ dependencies:
   selectable_box: ^1.0.8
   image: ^3.3.0
   path_provider: ^2.1.2
-  flutter_tflite: ^1.0.1
   syncfusion_flutter_charts: ^24.2.7
   fl_heatmap: 
     git: 
       url: https://github.com/Netesh5/fl_heatmap
       ref: 9d051ee2b45cf2a531ba0d8e813f4b4c4230a10d
+  flutter_tflite: ^1.0.1
  
 
 

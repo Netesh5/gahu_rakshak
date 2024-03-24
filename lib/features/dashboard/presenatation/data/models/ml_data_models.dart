@@ -5,7 +5,7 @@ import 'package:gahurakshak/core/enum/charts_type_enums.dart';
 class MLDataModel {
   String title;
   List<Map<String, List<EchopsWithAccuracyModel>>> lineChartmodelData;
-  List<HeatmapItem>? confusionMatrixModeldata;
+  List<HeatmapItem> confusionMatrixModeldata;
   String chartTitle;
   String? label1;
   String? label2;
@@ -22,7 +22,7 @@ class MLDataModel {
     this.label3,
     this.label4,
     required this.chartType,
-    this.confusionMatrixModeldata,
+    required this.confusionMatrixModeldata,
     this.confusionMatrixTitle,
   });
 }

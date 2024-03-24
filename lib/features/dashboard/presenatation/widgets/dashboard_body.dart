@@ -75,6 +75,7 @@ class DashBoardBody extends StatelessWidget {
           ),
           const HeatmapItem(
             value: 6,
+            style: HeatmapItemStyle.filled,
           ),
         ],
         confusionMatrixTitle: "Confusion Matrix ",

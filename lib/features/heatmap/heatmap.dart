@@ -63,6 +63,38 @@ class HeatMapPainter extends CustomPainter {
         tp.paint(canvas, Offset(dx, dy));
       }
     }
+
+    // Draw labels on top side
+    for (int i = 0; i < xAxis.length; i++) {
+      final TextSpan span = TextSpan(
+        text: xAxis[i],
+      );
+      final TextPainter tp = TextPainter(
+        text: span,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+      );
+      tp.layout();
+      final double dx = i * cellWidth + (cellWidth - tp.width) / 2;
+      final double dy = -tp.height; // Move labels above the heatmap
+      tp.paint(canvas, Offset(dx, dy));
+    }
+
+    // Draw labels on left side
+    for (int j = 0; j < yAxis.length; j++) {
+      final TextSpan span = TextSpan(
+        text: yAxis[j],
+      );
+      final TextPainter tp = TextPainter(
+        text: span,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+      );
+      tp.layout();
+      final double dx = -tp.width - 2; // Move labels to the left of the heatmap
+      final double dy = j * cellHeight + (cellHeight - tp.height) / 2;
+      tp.paint(canvas, Offset(dx, dy));
+    }
   }
 
   Color getColor(num value) {

@@ -122,27 +122,26 @@ class ModelDetailBody extends StatelessWidget {
             },
             itemCount: data.lineChartmodelData.length,
           ),
-          const Text(
-            "Hello",
-            style: TextStyle(color: Colors.white),
-          ),
-          CustomPaint(
-            size: const Size(double.infinity, 30),
-            painter: HeatMapPainter(
-              xAxis: ["A", "B", "C", "D", "E", "F"],
-              yAxis: ["A", "B", "C", "D", "E", "F"],
-              data: [
-                [20, 2, 45, 13, 16, 16],
-                [20, 2, 45, 13, 16, 17],
-                [20, 2, 45, 13, 16, 13],
-                [20, 2, 45, 13, 16, 19],
-                [20, 2, 45, 13, 16, 23],
-                [20, 2, 45, 13, 16, 30],
-              ],
-              color: Colors.red,
-              cellWidth: 60,
-              cellHeight: 60,
-              cellSpacing: 2,
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: CustomPaint(
+              size: const Size(double.infinity, 30),
+              painter: HeatMapPainter(
+                xAxis: ["A", "B", "C", "D", "E", "F"],
+                yAxis: ["A", "B", "C", "D", "E", "F"],
+                data: [
+                  [20, 2, 45, 13, 16, 16],
+                  [20, 2, 45, 13, 16, 17],
+                  [20, 2, 45, 13, 16, 13],
+                  [20, 2, 45, 13, 16, 19],
+                  [20, 2, 45, 13, 16, 23],
+                  [20, 2, 45, 13, 16, 30],
+                ],
+                color: Colors.red,
+                cellWidth: 60,
+                cellHeight: 60,
+                cellSpacing: 2,
+              ),
             ),
           ),
         ],

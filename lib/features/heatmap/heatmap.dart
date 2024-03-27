@@ -49,7 +49,7 @@ class HeatMapPainter extends CustomPainter {
 
         // Display unique data within each cell
         final TextSpan span = TextSpan(
-          text: i.toString(),
+          text: value.toString(),
           style: const TextStyle(color: Colors.white),
         );
         final TextPainter tp = TextPainter(

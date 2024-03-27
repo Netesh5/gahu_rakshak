@@ -122,6 +122,16 @@ class ModelDetailBody extends StatelessWidget {
             },
             itemCount: data.lineChartmodelData.length,
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            "Confusion Matrix - VGG",
+            style: TextStyle(
+              fontSize: 20,
+              color: AppColors.white,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: CustomPaint(
@@ -130,12 +140,12 @@ class ModelDetailBody extends StatelessWidget {
                 xAxis: ["A", "B", "C", "D", "E", "F"],
                 yAxis: ["A", "B", "C", "D", "E", "F"],
                 data: [
-                  [20, 2, 45, 13, 16, 16],
-                  [20, 2, 45, 13, 16, 17],
-                  [20, 2, 45, 13, 16, 13],
-                  [20, 2, 45, 13, 16, 19],
-                  [20, 2, 45, 13, 16, 23],
-                  [20, 2, 45, 13, 16, 30],
+                  [64, 4, 0, 0, 0, 0],
+                  [1, 65, 1, 0, 0, 0],
+                  [0, 8, 61, 0, 0, 0],
+                  [0, 4, 1, 73, 0, 0],
+                  [0, 1, 4, 0, 87, 0],
+                  [0, 0, 0, 0, 0, 75],
                 ],
                 color: Colors.red,
                 cellWidth: 60,

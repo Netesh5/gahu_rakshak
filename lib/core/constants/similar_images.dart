@@ -39,3 +39,10 @@ List<String> leafRust = [
   "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2Fleafrust.jpeg?alt=media&token=bcf54a3b-6f98-402c-8ccd-7abdaad2988f",
   "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2Fleaf%20rust%204.jpeg?alt=media&token=8eb87f40-82c3-41bf-9449-8a66ba6b6c6c",
 ];
+
+List<String> fusarium = [
+  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2FFusariumHeadBlight_wheat1.jpeg?alt=media&token=6dfa54eb-7d89-4f03-b8da-a2d0645b7563",
+  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2FFusariumHeadBlight_wheat2.jpeg?alt=media&token=f05ac644-ae41-4282-8122-523f473814d4",
+  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2FFusariumHeadBlight_wheat3.webp?alt=media&token=46583fe1-831a-4dd9-a160-38a2dafd9e67",
+  "https://firebasestorage.googleapis.com/v0/b/gahurakshak.appspot.com/o/similar_images%2FFusariumHeadBlight_wheat4.jpeg?alt=media&token=65421ef4-ccad-46ef-afcc-1de22999c8cd",
+];

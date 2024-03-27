@@ -9,7 +9,7 @@ class WheatDieseaseTFModel {
   loadModel() async {
     disposeModel();
     final res = await Tflite.loadModel(
-      model: "assets/tflite/wheatdisease.tflite",
+      model: "assets/tflite/convertedvgg_model.tflite",
       labels: "assets/tflite/label.txt",
     );
     debugPrint(res);
@@ -28,7 +28,7 @@ class WheatDieseaseTFModel {
     );
     debugPrint(output.toString());
     //  await disposeModel();
-    return output?.first["label"];
+    return output?.first;
   }
 
   // makePredictions(img.Image image) async {

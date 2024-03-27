@@ -1,6 +1,6 @@
-Brown_rust
-Healthy
+Fusarium Head Blight
+Healthy Wheat
+Leaf Rust
+Wheat___Brown_Rust
 Wheat___Yellow_Rust
-leaf_rust
 septoria
-stripe_rust

@@ -38,6 +38,10 @@ class ResultBody extends StatelessWidget {
                 style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 25.hp),
               ),
               Text(
+                "Confidence : ${num.parse(param.confidence) * 100} %",
+                style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 18.hp),
+              ),
+              Text(
                   DateFormat("dd-MM-yyyy").format(
                     DateTime.fromMillisecondsSinceEpoch(
                       int.parse(

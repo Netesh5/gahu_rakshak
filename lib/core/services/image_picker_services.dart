@@ -93,6 +93,7 @@ class ImagePickerService with ChangeNotifier {
             diseaseName: "Testing Disease",
             dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
             imagePath: value,
+            confidence: "1.0",
           ),
         );
         final bytes = await file!.readAsBytes();

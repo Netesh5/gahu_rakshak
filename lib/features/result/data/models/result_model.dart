@@ -7,6 +7,7 @@ class ResultModel {
   String? recommendation;
   String? medicine;
   List<String>? similarImg;
+  String confidence;
 
   int? index;
   ResultModel({
@@ -18,6 +19,7 @@ class ResultModel {
     this.recommendation,
     this.medicine,
     this.similarImg,
+    required this.confidence,
   });
 
   toMap() {
@@ -25,6 +27,7 @@ class ResultModel {
       "diseaseName": diseaseName,
       "dateTime": dateTime,
       "imagePath": imagePath,
+      "confidence": confidence,
     };
   }
 }

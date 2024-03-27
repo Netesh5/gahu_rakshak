@@ -13,7 +13,6 @@ import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/history/data/repository/fetch_result_detail.dart';
 import 'package:gahurakshak/features/history/presentation/widgets/no_data_widget.dart';
 import 'package:gahurakshak/features/result/data/models/result_model.dart';
-import 'package:gahurakshak/shimmer.dart';
 
 class HistoryBody extends StatelessWidget {
   const HistoryBody({super.key});
@@ -44,6 +43,7 @@ class HistoryBody extends StatelessWidget {
                         ),
                       ),
                       imagePath: e["imagePath"],
+                      confidence: e["confidence"] ?? "",
                     ),
                   )
                   .toList();
@@ -82,6 +82,7 @@ class HistoryBody extends StatelessWidget {
                             item[index].dateTime,
                             item[index].imagePath,
                             index,
+                            item[index].confidence,
                           )
                           //  ResultModel(
                           //   diseaseName: item[index].diseaseName,

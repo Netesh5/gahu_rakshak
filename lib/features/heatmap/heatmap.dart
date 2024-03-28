@@ -102,7 +102,15 @@ class HeatMapPainter extends CustomPainter {
     double minVal = result[0].toDouble();
     double maxVal = result[1].toDouble();
     double ratio = (value - minVal) / (maxVal - minVal);
-    return Color.fromRGBO((255 * ratio).toInt(), 0, 0, 1);
+
+    // To create the background color according to box
+    Color baseColor = color
+        .withRed(color.red ~/ 3)
+        .withGreen(color.green ~/ 3)
+        .withBlue(color.blue ~/ 3);
+
+    // Interpolate between the adjusted base color and the provided color based on the ratio
+    return Color.lerp(baseColor, color, ratio)!;
   }
 
   List<num> minMax(List<List<num>> list) {

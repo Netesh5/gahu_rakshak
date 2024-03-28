@@ -29,7 +29,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
         recommendation: "",
         medicine: "",
         similarImg: healthyImg,
-        confidence: output["confidence"],
+        confidence: output["confidence"].toString(),
       );
     case "Wheat___Yellow_Rust":
       return ResultModel(
@@ -53,7 +53,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
         medicine:
             "${LocaleKeys.triazoleP.tr()}\n${LocaleKeys.strobilurins.tr()}\n${LocaleKeys.tebuconazole.tr()}\n${LocaleKeys.fluxapyroxad.tr()}",
         similarImg: leafRust,
-        confidence: output["confidence"],
+        confidence: output["confidence"].toString(),
       );
     case "septoria":
       return ResultModel(
@@ -65,7 +65,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
         medicine:
             "${LocaleKeys.azoxystrobin.tr()}\n${LocaleKeys.payraclostrobin.tr()}\n${LocaleKeys.propiconazole.tr()}\n${LocaleKeys.tebuconazole.tr()}",
         similarImg: septoriaImg,
-        confidence: output["confidence"],
+        confidence: output["confidence"].toString(),
       );
     case "Fusarium Head Blight":
       return ResultModel(

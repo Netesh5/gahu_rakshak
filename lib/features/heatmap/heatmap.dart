@@ -10,6 +10,7 @@ class HeatMapPainter extends CustomPainter {
   final double cellWidth;
   final double cellHeight;
   final double cellSpacing;
+  final num backgroundOpacity;
   HeatMapPainter({
     required this.xAxis,
     required this.yAxis,
@@ -18,6 +19,7 @@ class HeatMapPainter extends CustomPainter {
     required this.cellWidth,
     required this.cellHeight,
     required this.cellSpacing,
+    this.backgroundOpacity = 3,
   });
   @override
   void paint(Canvas canvas, Size size) {
@@ -105,9 +107,9 @@ class HeatMapPainter extends CustomPainter {
 
     // To create the background color according to box
     Color baseColor = color
-        .withRed(color.red ~/ 3)
-        .withGreen(color.green ~/ 3)
-        .withBlue(color.blue ~/ 3);
+        .withRed(color.red ~/ backgroundOpacity)
+        .withGreen(color.green ~/ backgroundOpacity)
+        .withBlue(color.blue ~/ backgroundOpacity);
 
     // Interpolate between the adjusted base color and the provided color based on the ratio
     return Color.lerp(baseColor, color, ratio)!;

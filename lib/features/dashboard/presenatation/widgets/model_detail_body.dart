@@ -95,31 +95,6 @@ class ModelDetailBody extends StatelessWidget {
                             ),
                           ],
                         ),
-                      //  if (data.confusionMatrixModeldata != null)
-                      // Column(
-                      //   children: [
-                      //     SizedBox(
-                      //       height: 20.hp,
-                      //     ),
-                      //     Text(
-                      //       data.confusionMatrixTitle ?? "",
-                      //       style: appTextTheme.bodyLargeSemiBold
-                      //           .copyWith(fontSize: 20.wp),
-                      //     ),
-                      //     Heatmap(
-                      //       heatmapData: HeatmapData(
-                      //         columns: columns,
-                      //         rows: rows,
-                      //         items: [
-                      //           data.confusionMatrixModeldata[0],
-                      //           data.confusionMatrixModeldata[1],
-                      //           data.confusionMatrixModeldata[2],
-                      //           data.confusionMatrixModeldata[3],
-                      //         ],
-                      //       ),
-                      //     ),
-                      //   ],
-                      // )
                     ],
                   );
                 },
@@ -134,7 +109,7 @@ class ModelDetailBody extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                "Confusion Matrix - VGG",
+                "Confusion Matrix : VGG-16",
                 style: TextStyle(
                   fontSize: 20,
                   color: AppColors.white,

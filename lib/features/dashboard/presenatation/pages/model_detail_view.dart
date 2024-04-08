@@ -4,7 +4,7 @@ import 'package:gahurakshak/features/dashboard/presenatation/widgets/model_detai
 
 class ModelDetailView extends StatelessWidget {
   const ModelDetailView({super.key, required this.dataModel});
-  final MLDataModel dataModel;
+  final List<MLDataModel> dataModel;
   @override
   Widget build(BuildContext context) {
     return ModelDetailBody(

@@ -1,8 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fl_heatmap/fl_heatmap.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
-import 'package:gahurakshak/core/enum/charts_type_enums.dart';
 import 'package:gahurakshak/core/routes/routes.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
@@ -17,14 +15,12 @@ class DashBoardBody extends StatelessWidget {
   final List<Map<String, dynamic>> modelDetailList = [
     {
       "title": "Model 1",
-      "modelData": MLDataModel(
-        title: "Model 1",
-        chartType: ChartType.lineChart,
-        label1: "train",
-        label2: "validation",
-        lineChartmodelData: [
-          //Train
-          {
+      "modelData": [
+        MLDataModel(
+          title: "Model 1",
+          label1: "train",
+          label2: "validation",
+          lineChartmodelData: {
             "train": [
               EchopsWithAccuracyModel(echops: 0, accuracy: 0.44),
               EchopsWithAccuracyModel(echops: 1, accuracy: 0.44),
@@ -62,25 +58,53 @@ class DashBoardBody extends StatelessWidget {
               EchopsWithAccuracyModel(echops: 15, accuracy: 0.86),
             ]
           },
-        ],
-        confusionMatrixModeldata: [
-          const HeatmapItem(
-            value: 6,
-          ),
-          const HeatmapItem(
-            value: 6,
-          ),
-          const HeatmapItem(
-            value: 6,
-          ),
-          const HeatmapItem(
-            value: 6,
-            style: HeatmapItemStyle.filled,
-          ),
-        ],
-        confusionMatrixTitle: "Confusion Matrix ",
-        chartTitle: "Train vs Validation Loss",
-      ),
+          chartTitle: "Train vs Validation Accuracy",
+        ),
+        MLDataModel(
+          title: "Model 1",
+          label1: "train",
+          label2: "validation",
+          lineChartmodelData: {
+            "train": [
+              EchopsWithAccuracyModel(echops: 15, accuracy: 0.86),
+              EchopsWithAccuracyModel(echops: 14, accuracy: 0.66),
+              EchopsWithAccuracyModel(echops: 13, accuracy: 0.70),
+              EchopsWithAccuracyModel(echops: 12, accuracy: 0.60),
+              EchopsWithAccuracyModel(echops: 11, accuracy: 0.50),
+              EchopsWithAccuracyModel(echops: 10, accuracy: 0.60),
+              EchopsWithAccuracyModel(echops: 9, accuracy: 0.55),
+              EchopsWithAccuracyModel(echops: 8, accuracy: 0.50),
+              EchopsWithAccuracyModel(echops: 7, accuracy: 0.44),
+              EchopsWithAccuracyModel(echops: 6, accuracy: 0.30),
+              EchopsWithAccuracyModel(echops: 5, accuracy: 0.40),
+              EchopsWithAccuracyModel(echops: 4, accuracy: 0.44),
+              EchopsWithAccuracyModel(echops: 3, accuracy: 0.44),
+              EchopsWithAccuracyModel(echops: 2, accuracy: 0.48),
+              EchopsWithAccuracyModel(echops: 1, accuracy: 0.44),
+              EchopsWithAccuracyModel(echops: 0, accuracy: 0.44),
+            ],
+            "validation": [
+              EchopsWithAccuracyModel(echops: 15, accuracy: 0.86),
+              EchopsWithAccuracyModel(echops: 14, accuracy: 0.77),
+              EchopsWithAccuracyModel(echops: 13, accuracy: 0.30),
+              EchopsWithAccuracyModel(echops: 12, accuracy: 0.50),
+              EchopsWithAccuracyModel(echops: 11, accuracy: 0.59),
+              EchopsWithAccuracyModel(echops: 10, accuracy: 0.67),
+              EchopsWithAccuracyModel(echops: 9, accuracy: 0.55),
+              EchopsWithAccuracyModel(echops: 8, accuracy: 0.50),
+              EchopsWithAccuracyModel(echops: 7, accuracy: 0.47),
+              EchopsWithAccuracyModel(echops: 6, accuracy: 0.34),
+              EchopsWithAccuracyModel(echops: 5, accuracy: 0.40),
+              EchopsWithAccuracyModel(echops: 4, accuracy: 0.38),
+              EchopsWithAccuracyModel(echops: 3, accuracy: 0.34),
+              EchopsWithAccuracyModel(echops: 2, accuracy: 0.34),
+              EchopsWithAccuracyModel(echops: 1, accuracy: 0.12),
+              EchopsWithAccuracyModel(echops: 0, accuracy: 0.4),
+            ]
+          },
+          chartTitle: "Train vs Validation Loss",
+        ),
+      ],
     },
     {
       "title": "Model 2",

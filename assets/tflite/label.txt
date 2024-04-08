@@ -1,6 +1,6 @@
+Crown and Root Rot
 Fusarium Head Blight
-Healthy Wheat
 Leaf Rust
-Wheat___Brown_Rust
+Wheat Loose Smut
 Wheat___Yellow_Rust
-septoria
+Wheat_healthy

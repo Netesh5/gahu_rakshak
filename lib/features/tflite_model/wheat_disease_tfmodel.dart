@@ -1,7 +1,5 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image/image.dart' as img;
 
@@ -9,7 +7,7 @@ class WheatDieseaseTFModel {
   loadModel() async {
     disposeModel();
     final res = await Tflite.loadModel(
-      model: "assets/tflite/convertedvgg_model.tflite",
+      model: "assets/tflite/converted_cnn30model.tflite",
       labels: "assets/tflite/label.txt",
     );
     debugPrint(res);
@@ -19,12 +17,11 @@ class WheatDieseaseTFModel {
     await loadModel();
     final output = await Tflite.runModelOnImage(
       path: imgPath,
-
-      // imageMean: 127.5,
+      imageMean: 0,
       numResults: 6,
-      //   imageStd: 23,
-
-      threshold: 0.5,
+      imageStd: 224.0,
+      threshold: 0.3,
+      asynch: true,
     );
     debugPrint(output.toString());
     //  await disposeModel();

@@ -84,7 +84,8 @@ class RouteGenerator {
         );
       case Routes.modelDetail:
         return PageTransition(
-          child: ModelDetailView(dataModel: setting.arguments as MLDataModel),
+          child: ModelDetailView(
+              dataModel: setting.arguments as List<MLDataModel>),
           type: PageTransitionType.fade,
         );
 

@@ -90,6 +90,8 @@ class LocaleKeys {
   static const String stripRust = "disease.stripRust";
   static const String leafRust = "disease.leafRust";
   static const String healthy = "disease.healthy";
+  static const String crownRootRot = "disease.crownRootRot";
+  static const String wheatLooseSmut = "disease.wheatLooseSmut";
   static const String description = "disease.description";
   static const String recommendations = "disease.recommendations";
   static const String spetoriaDesc = "disease.spetoriaDesc";
@@ -100,7 +102,7 @@ class LocaleKeys {
   static const String yellowRustDesc = "disease.yellowRustDesc";
   static const String yellowRustRecommendation =
       "disease.yellowRustRecommendation";
-  static const String crownRootRustDesc = "disease.crownRootRustDesc";
+  static const String crownRootRotDesc = "disease.crownRootRotDesc";
   static const String crownRootRecommenadtion =
       "disease.crownRootRecommenadtion";
   static const String stripRustDesc = "disease.stripRustDesc";
@@ -110,6 +112,9 @@ class LocaleKeys {
   static const String leafRustRecommendation = "disease.leafRustRecommendation";
   static const String fusariumDesc = "disease.fusariumDesc";
   static const String fusarumRecommendation = "disease.fusarumRecommendation";
+  static const String wheatLooseSmutDesc = "disease.wheatLooseSmutDesc";
+  static const String wheatLooseSmutRecommendation =
+      "disease.wheatLooseSmutRecommendation";
 
   //fertilizerCalculator
   static const String nutrientQty = "fertilizer.nutrientQty";

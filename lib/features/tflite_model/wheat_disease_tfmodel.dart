@@ -7,7 +7,7 @@ class WheatDieseaseTFModel {
   loadModel() async {
     disposeModel();
     final res = await Tflite.loadModel(
-      model: "assets/tflite/converted_cnn30model.tflite",
+      model: "assets/tflite/converted_vgg16model.tflite",
       labels: "assets/tflite/label.txt",
     );
     debugPrint(res);

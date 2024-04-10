@@ -54,10 +54,11 @@ class OptionTileWidget extends StatelessWidget {
     return SliverAnimatedGrid(
         initialItemCount: data.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 1.2,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            crossAxisSpacing: 5),
+          childAspectRatio: 1.2,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+          crossAxisSpacing: 5,
+        ),
         itemBuilder: (context, index, animation) {
           return GestureDetector(
             child: Card(

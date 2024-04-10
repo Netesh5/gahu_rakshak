@@ -7,20 +7,20 @@ import 'package:gahurakshak/features/result/data/models/result_model.dart';
 
 ResultModel checkResult(dynamic output, String imagePath) {
   switch (output["label"]) {
-    case "Wheat___Brown_rust":
+    case "Crown and Root Rot":
       return ResultModel(
-        diseaseName: LocaleKeys.brownRust.tr(),
+        diseaseName: LocaleKeys.crownRootRot.tr(),
         dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
         imagePath: imagePath,
-        description: LocaleKeys.brownRustDesc.tr(),
-        recommendation: LocaleKeys.brownRustRecommendation.tr(),
+        description: LocaleKeys.crownRootRotDesc.tr(),
+        recommendation: LocaleKeys.crownRootRecommenadtion.tr(),
         medicine:
             "${LocaleKeys.triazoleP.tr()}\n${LocaleKeys.strobilurins.tr()}\n${LocaleKeys.trifloxystrobin.tr()}\n${LocaleKeys.flutriafol.tr()}",
         similarImg: brownRustImg,
         confidence: output["confidence"].toString(),
       );
 
-    case "Healthy Wheat":
+    case "Wheat_healthy":
       return ResultModel(
         diseaseName: LocaleKeys.healthy.tr(),
         dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -55,13 +55,13 @@ ResultModel checkResult(dynamic output, String imagePath) {
         similarImg: leafRust,
         confidence: output["confidence"].toString(),
       );
-    case "septoria":
+    case "Wheat Loose Smut":
       return ResultModel(
-        diseaseName: LocaleKeys.brownRust.tr(),
+        diseaseName: LocaleKeys.wheatLooseSmut.tr(),
         dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
         imagePath: imagePath,
-        description: LocaleKeys.brownRustDesc.tr(),
-        recommendation: LocaleKeys.recommendation.tr(),
+        description: LocaleKeys.wheatLooseSmutDesc.tr(),
+        recommendation: LocaleKeys.wheatLooseSmutRecommendation.tr(),
         medicine:
             "${LocaleKeys.azoxystrobin.tr()}\n${LocaleKeys.payraclostrobin.tr()}\n${LocaleKeys.propiconazole.tr()}\n${LocaleKeys.tebuconazole.tr()}",
         similarImg: septoriaImg,

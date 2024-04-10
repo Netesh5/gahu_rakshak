@@ -15,14 +15,14 @@ class PetsAndDiseaseBody extends StatelessWidget {
 
   final List totalDiseases = [
     {
-      "title": LocaleKeys.septoria.tr(),
-      "images": septoriaImg,
-      "desc": LocaleKeys.spetoriaDesc.tr(),
+      "title": LocaleKeys.crownRootRot.tr(),
+      "images": crownRoot,
+      "desc": LocaleKeys.crownRootRotDesc.tr(),
     },
     {
-      "title": LocaleKeys.brownRust.tr(),
-      "images": brownRustImg,
-      "desc": LocaleKeys.brownRustDesc.tr(),
+      "title": LocaleKeys.fusariumHeadBlight.tr(),
+      "images": fusarium,
+      "desc": LocaleKeys.fusariumDesc.tr(),
     },
     {
       "title": LocaleKeys.yellowRust.tr(),
@@ -30,9 +30,9 @@ class PetsAndDiseaseBody extends StatelessWidget {
       "desc": LocaleKeys.yellowRustDesc.tr(),
     },
     {
-      "title": LocaleKeys.stripRust.tr(),
-      "images": stripRust,
-      "desc": LocaleKeys.stripRustDesc.tr(),
+      "title": LocaleKeys.wheatLooseSmut.tr(),
+      "images": looseSmut,
+      "desc": LocaleKeys.wheatLooseSmutDesc.tr(),
     },
     {
       "title": LocaleKeys.leafRust.tr(),

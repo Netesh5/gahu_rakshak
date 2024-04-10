@@ -160,4 +160,9 @@ class LocaleKeys {
   //Dashboard
 
   static const String dashBoard = "dashboard.dashboard";
+
+  //models
+
+  static const String vgg = "models.vgg";
+  static const String cnn = "models.cnn";
 }

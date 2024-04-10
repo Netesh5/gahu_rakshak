@@ -13,8 +13,32 @@ class WheatDieseaseTFModel {
     debugPrint(res);
   }
 
+  loadCNNModel() async {
+    disposeModel();
+    final res = await Tflite.loadModel(
+      model: "assets/tflite/converted_cnn30model.tflite",
+      labels: "assets/tflite/label2.txt",
+    );
+    debugPrint(res);
+  }
+
   makePredictions(String imgPath) async {
     await loadModel();
+    final output = await Tflite.runModelOnImage(
+      path: imgPath,
+      imageMean: 0,
+      numResults: 6,
+      imageStd: 224.0,
+      threshold: 0.3,
+      asynch: true,
+    );
+    debugPrint(output.toString());
+    //  await disposeModel();
+    return output?.first;
+  }
+
+  makeCNNPredictions(String imgPath) async {
+    await loadCNNModel();
     final output = await Tflite.runModelOnImage(
       path: imgPath,
       imageMean: 0,

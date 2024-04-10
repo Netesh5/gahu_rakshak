@@ -1,0 +1,1 @@
+enum Model { cnn, vgg }

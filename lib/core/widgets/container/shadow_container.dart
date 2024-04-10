@@ -25,7 +25,7 @@ class ShadowContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appDecorationTheme =
-        Theme.of(context).extension<AppDecorationTheme>()!;
+        Theme.of(context).extension<AppDecorationTheme>();
 
     return InkWell(
       onTap: onPressed,
@@ -43,7 +43,7 @@ class ShadowContainer extends StatelessWidget {
             ),
         decoration: BoxDecoration(
           color: cardColor ?? AppColors.grey,
-          boxShadow: [appDecorationTheme.e1],
+          boxShadow: [appDecorationTheme!.e1],
           borderRadius: BorderRadius.circular(CustomTheme.borderRadius),
         ),
         child: child,

@@ -16,7 +16,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
         recommendation: LocaleKeys.crownRootRecommenadtion.tr(),
         medicine:
             "${LocaleKeys.triazoleP.tr()}\n${LocaleKeys.strobilurins.tr()}\n${LocaleKeys.trifloxystrobin.tr()}\n${LocaleKeys.flutriafol.tr()}",
-        similarImg: brownRustImg,
+        similarImg: crownRoot,
         confidence: output["confidence"].toString(),
       );
 
@@ -64,7 +64,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
         recommendation: LocaleKeys.wheatLooseSmutRecommendation.tr(),
         medicine:
             "${LocaleKeys.azoxystrobin.tr()}\n${LocaleKeys.payraclostrobin.tr()}\n${LocaleKeys.propiconazole.tr()}\n${LocaleKeys.tebuconazole.tr()}",
-        similarImg: septoriaImg,
+        similarImg: looseSmut,
         confidence: output["confidence"].toString(),
       );
     case "Fusarium Head Blight":
@@ -76,7 +76,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
         recommendation: LocaleKeys.fusarumRecommendation.tr(),
         medicine:
             "${LocaleKeys.triazolesF.tr()}\n${LocaleKeys.strobilurinsT.tr()}\n${LocaleKeys.azoxystrobin.tr()}\n${LocaleKeys.propiconazole.tr()}",
-        similarImg: stripRust,
+        similarImg: fusarium,
         confidence: output["confidence"].toString(),
       );
     default:
@@ -99,16 +99,16 @@ ResultModel checkResult(dynamic output, String imagePath) {
 ResultModel showResultInHistory(String diseaseName, String dateTime,
     String imagePath, int index, String confidence) {
   switch (diseaseName) {
-    case "Brown Rust":
+    case "Crown and Root Rot":
       return ResultModel(
-        diseaseName: LocaleKeys.brownRust.tr(),
-        dateTime: dateTime,
+        diseaseName: LocaleKeys.crownRootRot.tr(),
+        dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
         imagePath: imagePath,
-        description: LocaleKeys.brownRustDesc.tr(),
-        recommendation: LocaleKeys.recommendation.tr(),
+        description: LocaleKeys.crownRootRotDesc.tr(),
+        recommendation: LocaleKeys.crownRootRecommenadtion.tr(),
         medicine:
             "${LocaleKeys.triazoleP.tr()}\n${LocaleKeys.strobilurins.tr()}\n${LocaleKeys.trifloxystrobin.tr()}\n${LocaleKeys.flutriafol.tr()}",
-        similarImg: brownRustImg,
+        similarImg: crownRoot,
         index: index,
         confidence: confidence,
       );
@@ -147,16 +147,16 @@ ResultModel showResultInHistory(String diseaseName, String dateTime,
         index: index,
         confidence: confidence,
       );
-    case "Septoria":
+    case "Wheat Loose Smut":
       return ResultModel(
-        diseaseName: LocaleKeys.septoria.tr(),
-        dateTime: dateTime,
+        diseaseName: LocaleKeys.wheatLooseSmut.tr(),
+        dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
         imagePath: imagePath,
-        description: LocaleKeys.brownRustDesc.tr(),
-        recommendation: LocaleKeys.recommendation.tr(),
+        description: LocaleKeys.wheatLooseSmutDesc.tr(),
+        recommendation: LocaleKeys.wheatLooseSmutRecommendation.tr(),
         medicine:
             "${LocaleKeys.azoxystrobin.tr()}\n${LocaleKeys.payraclostrobin.tr()}\n${LocaleKeys.propiconazole.tr()}\n${LocaleKeys.tebuconazole.tr()}",
-        similarImg: septoriaImg,
+        similarImg: looseSmut,
         index: index,
         confidence: confidence,
       );
@@ -169,7 +169,7 @@ ResultModel showResultInHistory(String diseaseName, String dateTime,
         recommendation: LocaleKeys.fusarumRecommendation.tr(),
         medicine:
             "${LocaleKeys.triazolesF.tr()}\n${LocaleKeys.strobilurinsT.tr()}\n${LocaleKeys.azoxystrobin.tr()}\n${LocaleKeys.propiconazole.tr()}",
-        similarImg: stripRust,
+        similarImg: fusarium,
         index: index,
         confidence: confidence,
       );

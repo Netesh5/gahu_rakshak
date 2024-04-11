@@ -4,14 +4,15 @@ class MLDataModel {
   String chartTitle;
   String? label1;
   String? label2;
+  int index;
 
-  MLDataModel({
-    required this.title,
-    required this.lineChartmodelData,
-    required this.chartTitle,
-    this.label1,
-    this.label2,
-  });
+  MLDataModel(
+      {required this.title,
+      required this.lineChartmodelData,
+      required this.chartTitle,
+      this.label1,
+      this.label2,
+      required this.index});
 }
 
 class EchopsWithAccuracyModel {

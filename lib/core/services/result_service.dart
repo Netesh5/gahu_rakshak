@@ -99,7 +99,7 @@ ResultModel checkResult(dynamic output, String imagePath) {
 ResultModel showResultInHistory(String diseaseName, String dateTime,
     String imagePath, int index, String confidence) {
   switch (diseaseName) {
-    case "Crown and Root Rot":
+    case "Crown Root Rot":
       return ResultModel(
         diseaseName: LocaleKeys.crownRootRot.tr(),
         dateTime: DateTime.now().millisecondsSinceEpoch.toString(),

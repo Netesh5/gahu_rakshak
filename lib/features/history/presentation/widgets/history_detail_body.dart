@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gahurakshak/core/constants/locale_keys.dart';
-import 'package:gahurakshak/core/constants/similar_images.dart';
 import 'package:gahurakshak/core/images/custom_network_image.dart';
 import 'package:gahurakshak/core/theme/app_color_theme.dart';
 import 'package:gahurakshak/core/theme/app_text_theme.dart';
@@ -20,7 +19,9 @@ class HistoryDetailBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).extension<AppTextTheme>()!;
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        title: LocaleKeys.history.tr(),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20.wp),
@@ -36,13 +37,18 @@ class HistoryDetailBody extends StatelessWidget {
                   width: double.infinity,
                 ),
               ),
+              SizedBox(
+                height: 20.hp,
+              ),
               Text(
                 model.diseaseName,
                 style: appTextTheme.bodyLargeSemiBold.copyWith(fontSize: 25.hp),
               ),
-              Text(model.dateTime, style: appTextTheme.bodyLargeRegular),
+              Text(
+                  "Confidence : ${(num.parse(model.confidence) * 100).toStringAsFixed(2)} %",
+                  style: appTextTheme.bodyLargeRegular),
               SizedBox(
-                height: 40.hp,
+                height: 20.hp,
               ),
               Text(
                 LocaleKeys.similarImages.tr(),
@@ -53,9 +59,10 @@ class HistoryDetailBody extends StatelessWidget {
               ),
               CarouselSlider(
                 items: List.generate(
-                  septoriaImg.length,
+                  model.similarImg?.length ?? 0,
                   (index) {
-                    return CachedNetworkImage(imageUrl: septoriaImg[index]);
+                    return CachedNetworkImage(
+                        imageUrl: model.similarImg?[index] ?? "");
                   },
                 ),
                 options: CarouselOptions(
@@ -85,7 +92,7 @@ class HistoryDetailBody extends StatelessWidget {
                         height: 20.hp,
                       ),
                       Text(
-                        model.description!,
+                        model.description ?? "",
                         style: appTextTheme.bodyLargeRegular
                             .copyWith(fontSize: 20.hp),
                       ),
@@ -115,7 +122,7 @@ class HistoryDetailBody extends StatelessWidget {
                       SizedBox(
                         height: 20.hp,
                       ),
-                      buildParagraph(model.recommendation!, appTextTheme)
+                      buildParagraph(model.recommendation ?? "", appTextTheme)
                     ],
                   ),
                 ),
@@ -143,7 +150,7 @@ class HistoryDetailBody extends StatelessWidget {
                         height: 20.hp,
                       ),
                       Text(
-                        model.medicine!,
+                        model.medicine ?? "",
                         style: appTextTheme.bodyLargeSemiBold
                             .copyWith(fontSize: 20.hp),
                       ),

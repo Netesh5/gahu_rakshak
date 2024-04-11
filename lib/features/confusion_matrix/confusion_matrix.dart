@@ -1,16 +1,16 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+
 class ConfusionMatrixPainter extends CustomPainter {
-  final List xAxis;
-  final List yAxis;
+  final List<String> xAxis;
+  final List<String> yAxis;
   final List<List<num>> data;
   final Color color;
   final double cellWidth;
   final double cellHeight;
-
   final num backgroundOpacity;
+
   ConfusionMatrixPainter({
     required this.xAxis,
     required this.yAxis,
@@ -20,31 +20,32 @@ class ConfusionMatrixPainter extends CustomPainter {
     required this.cellHeight,
     this.backgroundOpacity = 3,
   });
+
   @override
   void paint(Canvas canvas, Size size) {
-    for (int i = 0; i < xAxis.length; i++) {
-      for (int j = 0; j < yAxis.length; j++) {
+    for (int i = 0; i < data.length; i++) {
+      for (int j = 0; j < data[i].length; j++) {
         final Rect rect = Rect.fromLTWH(
-          i * cellWidth,
-          j * cellHeight,
+          j * cellWidth,
+          i * cellHeight,
           cellWidth,
           cellHeight,
         );
         num value = data[i][j];
-        Color color = getColor(value);
-        Paint paint = Paint()..color = color;
+        Color cellColor = getColor(value);
+        Paint paint = Paint()..color = cellColor;
         canvas.drawRect(rect, paint);
 
-        // Add dividers between cells
+        // Draw dividers between cells
         final Paint dividerPaint = Paint()..color = Colors.white;
         canvas.drawLine(
-          Offset((i + 1) * cellWidth, j * cellHeight),
-          Offset((i + 1) * cellWidth, (j + 1) * cellHeight),
+          Offset((j + 1) * cellWidth, i * cellHeight),
+          Offset((j + 1) * cellWidth, (i + 1) * cellHeight),
           dividerPaint,
         );
         canvas.drawLine(
-          Offset(i * cellWidth, (j + 1) * cellHeight),
-          Offset((i + 1) * cellWidth, (j + 1) * cellHeight),
+          Offset(j * cellWidth, (i + 1) * cellHeight),
+          Offset((j + 1) * cellWidth, (i + 1) * cellHeight),
           dividerPaint,
         );
 
@@ -59,8 +60,8 @@ class ConfusionMatrixPainter extends CustomPainter {
           textDirection: TextDirection.ltr,
         );
         tp.layout();
-        final double dx = i * cellWidth + (cellWidth - tp.width) / 2;
-        final double dy = j * cellHeight + (cellHeight - tp.height) / 2;
+        final double dx = j * cellWidth + (cellWidth - tp.width) / 2;
+        final double dy = i * cellHeight + (cellHeight - tp.height) / 2;
         tp.paint(canvas, Offset(dx, dy));
       }
     }

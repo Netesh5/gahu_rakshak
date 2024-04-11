@@ -5,7 +5,7 @@ import 'package:gahurakshak/core/theme/app_text_theme.dart';
 import 'package:gahurakshak/core/utils/size_utils.dart';
 import 'package:gahurakshak/core/widgets/app_bar/custom_app_bar.dart';
 import 'package:gahurakshak/features/dashboard/presenatation/data/models/ml_data_models.dart';
-import 'package:gahurakshak/features/confusion_matrix/confusion_matrix.dart';
+import 'package:gahurakshak/features/dashboard/presenatation/widgets/cm_models.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ModelDetailBody extends StatelessWidget {
@@ -13,6 +13,13 @@ class ModelDetailBody extends StatelessWidget {
   final List<MLDataModel> data;
   final List<String> columns = ["Postivite", "Negative"];
   final List<String> rows = ["Postivite", "Negative"];
+
+  final List<Widget> cmModel = [
+    const VGGCMWidget(),
+    const CNN30Widget(),
+    const ResnetWidget(),
+    const MobileNetWidget(),
+  ];
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).extension<AppTextTheme>()!;
@@ -21,10 +28,11 @@ class ModelDetailBody extends StatelessWidget {
       appBar: CustomAppBar(
         title: data.first.title,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
@@ -87,7 +95,7 @@ class ModelDetailBody extends StatelessWidget {
                             yValueMapper: (EchopsWithAccuracyModel model, _) =>
                                 model.accuracy,
                           ),
-                        ], 
+                        ],
                       ),
                     ],
                   );
@@ -102,34 +110,7 @@ class ModelDetailBody extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                "Confusion Matrix : VGG-16",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: AppColors.white,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: CustomPaint(
-                  size: const Size(double.infinity, 30),
-                  painter: ConfusionMatrixPainter(
-                    xAxis: ["A", "B", "C", "D", "E", "F"],
-                    yAxis: ["A", "B", "C", "D", "E", "F"],
-                    data: [
-                      [64, 4, 0, 0, 0, 0],
-                      [1, 65, 1, 0, 0, 0],
-                      [0, 8, 61, 0, 0, 0],
-                      [0, 4, 1, 73, 0, 0],
-                      [0, 1, 4, 0, 87, 0],
-                      [0, 0, 0, 0, 0, 75],
-                    ],
-                    color: Colors.red,
-                    cellWidth: 60,
-                    cellHeight: 60,
-                  ),
-                ),
-              ),
+              cmModel[data.first.index]
             ],
           ),
         ),

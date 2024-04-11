@@ -83,14 +83,7 @@ class HistoryBody extends StatelessWidget {
                             item[index].imagePath,
                             index,
                             item[index].confidence,
-                          )
-                          //  ResultModel(
-                          //   diseaseName: item[index].diseaseName,
-                          //   dateTime: item[index].dateTime,
-                          //   imagePath: item[index].imagePath,
-                          //   index: index,
-                          // ),
-                          );
+                          ));
                     },
                   );
                 },

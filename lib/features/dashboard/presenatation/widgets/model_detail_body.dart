@@ -65,8 +65,8 @@ class ModelDetailBody extends StatelessWidget {
                           ),
                         ),
                         primaryYAxis: NumericAxis(
-                          minimum: 0,
-                          maximum: 1,
+                          minimum: data[index].min,
+                          maximum: data[index].max,
                           labelStyle: appTextTheme.bodyOddNormal,
                           majorGridLines: MajorGridLines(
                             color: AppColors.grey.withOpacity(0.5),

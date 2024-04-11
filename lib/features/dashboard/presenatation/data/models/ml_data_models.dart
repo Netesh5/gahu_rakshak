@@ -5,14 +5,19 @@ class MLDataModel {
   String? label1;
   String? label2;
   int index;
+  double max;
+  double min;
 
-  MLDataModel(
-      {required this.title,
-      required this.lineChartmodelData,
-      required this.chartTitle,
-      this.label1,
-      this.label2,
-      required this.index});
+  MLDataModel({
+    required this.title,
+    required this.lineChartmodelData,
+    required this.chartTitle,
+    this.label1,
+    this.label2,
+    required this.index,
+    required this.max,
+    required this.min,
+  });
 }
 
 class EchopsWithAccuracyModel {

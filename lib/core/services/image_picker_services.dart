@@ -28,8 +28,8 @@ class ImagePickerService with ChangeNotifier {
     final XFile? image = await picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 50,
-      maxHeight: 224,
-      maxWidth: 224,
+      maxHeight: 256,
+      maxWidth: 256,
     );
     if (image == null) return;
     file = image;
